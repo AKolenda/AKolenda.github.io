@@ -1,0 +1,19 @@
+#icon1{
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+#head{
+    text-align: center;
+}
+
+
+.main{
+    margin-top: 50px;
+    padding: 15px;
+    gap: 30px;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto;
+
+}

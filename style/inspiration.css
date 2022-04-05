@@ -1,0 +1,19 @@
+.main{
+    margin-top: 50px;
+    padding: 15px;
+    gap: 30px;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto;
+    font-size: large;
+
+}
+
+#head{
+    text-align: center;
+}
+
+#video{
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
