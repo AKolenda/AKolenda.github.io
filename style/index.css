@@ -1,9 +1,10 @@
 /* Header Styles */
 #headimg {
-    margin-left: 50%;
-    transform: translateX(-50%);
+    margin-left: 50%; /* Move the element to the right by 50% of its parent's width */
+    transform: translateX(-50%); /* Move the element to the left by 50% of its own width */
     margin-bottom: 20px;
 }
+
 
 /* Margin Right and Bottom for #mru */
 #mru {
