@@ -303,16 +303,19 @@
             <div
               class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-indigo-600 to-violet-600 rounded-l-2xl"
             ></div>
-            <!-- Add decorative elements -->
+            <!-- Enhanced decorative elements -->
             <div
               class="absolute -right-20 -top-20 w-40 h-40 bg-indigo-100 rounded-full opacity-10 group-hover:scale-150 transition-transform duration-500"
             ></div>
             <div
               class="absolute -right-20 -bottom-20 w-40 h-40 bg-violet-100 rounded-full opacity-10 group-hover:scale-150 transition-transform duration-500"
             ></div>
+            <div
+              class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-indigo-50/20 to-violet-50/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+            ></div>
 
             <div class="relative ml-2">
-              <div class="flex items-start justify-between mb-4">
+              <div class="flex items-start justify-between mb-6">
                 <div>
                   <h3
                     class="text-2xl font-bold mb-2 bg-gradient-to-r from-indigo-600 to-violet-600 text-transparent bg-clip-text"
@@ -361,121 +364,219 @@
                     <span>Jun 2024 - Current</span>
                   </div>
                 </div>
-                <div
-                  class="hidden md:block w-16 h-16 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-xl p-3 shadow-lg group-hover:scale-110 transition-transform"
-                >
-                  <svg
-                    class="w-full h-full text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                <!-- Enhanced icon section -->
+                <div class="hidden md:flex flex-col items-end space-y-2">
+                  <div
+                    class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-xl p-3 shadow-lg group-hover:scale-110 transition-transform"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
+                    <svg
+                      class="w-full h-full text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </div>
 
-              <ul class="space-y-3 text-slate-600 list-none">
-                <li class="flex items-start">
-                  <svg
-                    class="w-5 h-5 mr-2 mt-1 text-indigo-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+              <!-- Enhanced achievements section -->
+              <div
+                class="bg-gradient-to-r from-indigo-50 to-violet-50 rounded-lg p-4 mb-4"
+              >
+                <h4 class="font-semibold text-indigo-600 mb-2">
+                  Key Achievements
+                </h4>
+                <ul class="space-y-3 text-slate-600 list-none">
+                  <li
+                    class="flex items-start transform transition-transform hover:translate-x-2"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <span
-                    >Developed internal inventory system using PHP and
-                    JavaScript on LAMP stack</span
+                    <svg
+                      class="w-5 h-5 mr-2 mt-1 text-indigo-500"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <span
+                      >Developed inventory system using <strong>PHP</strong>,
+                      <strong>MariaDB</strong>, and
+                      <strong>JavaScript</strong> on LAMP stack</span
+                    >
+                  </li>
+                  <li
+                    class="flex items-start transform transition-transform hover:translate-x-2"
                   >
-                </li>
-                <li class="flex items-start">
-                  <svg
-                    class="w-5 h-5 mr-2 mt-1 text-indigo-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                    <svg
+                      class="w-5 h-5 mr-2 mt-1 text-indigo-500"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <span
+                      >Implemented <strong>TrueNAS</strong> systems for robust
+                      data storage</span
+                    >
+                  </li>
+                  <li
+                    class="flex items-start transform transition-transform hover:translate-x-2"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <span
-                    >Configured networking solutions including VLAN, TCP/UDP,
-                    IPV4/IPV6</span
+                    <svg
+                      class="w-5 h-5 mr-2 mt-1 text-indigo-500"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <span
+                      >Deployed and configured <strong>WireGuard</strong> and
+                      <strong>OpenVPN</strong> for secure remote access</span
+                    >
+                  </li>
+                  <li
+                    class="flex items-start transform transition-transform hover:translate-x-2"
                   >
-                </li>
-                <li class="flex items-start">
-                  <svg
-                    class="w-5 h-5 mr-2 mt-1 text-indigo-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                    <svg
+                      class="w-5 h-5 mr-2 mt-1 text-indigo-500"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <span
+                      >Led successful data migration from legacy server to
+                      <strong>TrueNAS Scale</strong> environment</span
+                    >
+                  </li>
+                  <li
+                    class="flex items-start transform transition-transform hover:translate-x-2"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <span
-                    >Automated data migration and backup processes using Python
-                    and Bash</span
+                    <svg
+                      class="w-5 h-5 mr-2 mt-1 text-indigo-500"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <span
+                      >Implemented <strong>BlackBlaze</strong> 3-2-1 backup
+                      scheme automated</span
+                    >
+                  </li>
+                  <li
+                    class="flex items-start transform transition-transform hover:translate-x-2"
                   >
-                </li>
-                <li class="flex items-start">
-                  <svg
-                    class="w-5 h-5 mr-2 mt-1 text-indigo-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <span
-                    >Implemented OpenVPN and WireGuard for secure remote
-                    connectivity</span
-                  >
-                </li>
-              </ul>
+                    <svg
+                      class="w-5 h-5 mr-2 mt-1 text-indigo-500"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <span
+                      >Built inventory management system with
+                      <strong>automatic calculations</strong> for material
+                      lengths and auto-backup functionality, hosted on
+                      <strong>Fedora Linux</strong></span
+                    >
+                  </li>
+                </ul>
+              </div>
 
-              <div class="mt-4 flex flex-wrap gap-2">
-                <span
-                  class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium"
-                  >PHP</span
-                >
-                <span
-                  class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium"
-                  >JavaScript</span
-                >
-                <span
-                  class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium"
-                  >Python</span
-                >
-                <span
-                  class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium"
-                  >Bash</span
-                >
+              <!-- Enhanced skills section -->
+              <div class="mt-4">
+                <div class="mb-3 text-sm font-medium text-slate-600">
+                  Technologies & Tools:
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
+                    >PHP</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
+                    >MariaDB</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
+                    >SQL</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
+                    >JavaScript</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
+                    >TrueNAS</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
+                    >QNAP</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
+                    >WireGuard</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
+                    >OpenVPN</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
+                    >Fedora Linux</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
+                    >LAMP Stack</span
+                  >
+                  <span
+                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
+                    >Auto-Backup</span
+                  >
+                </div>
               </div>
             </div>
           </div>
