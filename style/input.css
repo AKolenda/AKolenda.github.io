@@ -61,3 +61,50 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+@layer base {
+  :root {
+    --color-dark-bg: #111827;
+    --color-dark-surface: #1f2937;
+    --color-dark-text: #f3f4f6;
+  }
+}
+
+@variant dark (&:where(.dark, .dark *));
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  :root[class~="dark"] {
+    color-scheme: dark;
+  }
+
+  html {
+    @apply min-h-screen;
+  }
+
+  body {
+    @apply bg-gray-50 dark:bg-gray-900;
+  }
+}
+
+/* Set immediate dark mode background when class is present */
+html.dark {
+  @apply bg-gray-900;
+}
+
+html.dark body {
+  @apply bg-gray-900;
+}
+
+select,
+button,
+.interactive-element {
+  cursor: pointer;
+}
+
+/* Fix dropdown styling in dark mode */
+select option {
+  @apply bg-white dark:bg-gray-800 text-gray-900 dark:text-white;
+}

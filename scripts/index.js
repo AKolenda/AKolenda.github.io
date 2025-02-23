@@ -86,7 +86,7 @@ class Particle {
   }
 
   draw() {
-    ctx.fillStyle = "rgba(99, 102, 241, 0.5)";
+    updateParticleColors();
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     ctx.closePath();
@@ -117,9 +117,9 @@ function animate() {
       const distance = Math.sqrt(dx * dx + dy * dy);
 
       if (distance < connectionDistance) {
-        ctx.strokeStyle = `rgba(99, 102, 241, ${
-          1 - distance / connectionDistance
-        })`;
+        ctx.strokeStyle = document.documentElement.classList.contains("dark")
+          ? `rgba(139, 92, 246, ${1 - distance / connectionDistance})`
+          : `rgba(99, 102, 241, ${1 - distance / connectionDistance})`;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(particle.x, particle.y);
@@ -132,6 +132,16 @@ function animate() {
   requestAnimationFrame(animate);
 }
 animate();
+
+function updateParticleColors() {
+  const isDark = document.documentElement.classList.contains("dark");
+  ctx.fillStyle = isDark
+    ? "rgba(139, 92, 246, 0.5)"
+    : "rgba(99, 102, 241, 0.5)";
+}
+
+// Update colors when theme changes
+document.addEventListener("theme-changed", updateParticleColors);
 
 // Parallax scroll effect
 window.addEventListener("scroll", () => {

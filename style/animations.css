@@ -516,3 +516,120 @@
   justify-content: center;
   overflow: hidden;
 }
+
+/* Dark mode transition */
+.dark * {
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Mobile menu animation */
+#mobile-menu {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: top;
+  opacity: 0;
+  transform: scaleY(0);
+}
+
+#mobile-menu.show {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+/* Theme toggle animation */
+#theme-toggle svg,
+#theme-toggle-mobile svg {
+  transition: transform 0.3s ease;
+}
+
+#theme-toggle:hover svg,
+#theme-toggle-mobile:hover svg {
+  transform: rotate(12deg);
+}
+
+/* Smooth transitions for all interactive elements */
+.nav-link,
+.button,
+.card,
+.skill-tag,
+a,
+button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced hover effects */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* Apple-like button hover effect */
+.apple-button {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background-position: center;
+}
+
+.apple-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode background transitions */
+.hero-gradient {
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.dark .hero-gradient {
+  background: linear-gradient(
+    to bottom right,
+    rgba(59, 130, 246, 0.1),
+    rgba(139, 92, 246, 0.1)
+  );
+}
+
+/* Particle network dark mode */
+#particle-network {
+  transition: opacity 0.3s ease;
+}
+
+.dark #particle-network {
+  opacity: 0.5;
+}
+
+/* Preserve animations in dark mode */
+html.dark * {
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Ensure animations persist during theme changes */
+.work-card,
+.stagger-card,
+.project-card {
+  transition: all 0.8s cubic-bezier(0.33, 1, 0.68, 1),
+    background-color 0.3s ease, color 0.3s ease;
+  will-change: transform, opacity, background-color;
+}
+
+/* Fix dark mode card transitions */
+.dark .work-card,
+.dark .stagger-card,
+.dark .project-card {
+  transition: all 0.8s cubic-bezier(0.33, 1, 0.68, 1),
+    background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Ensure reveal animations work in dark mode */
+.dark .fade-in-section {
+  transition: opacity 0.6s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.6s cubic-bezier(0.33, 1, 0.68, 1),
+    visibility 0.6s cubic-bezier(0.33, 1, 0.68, 1), background-color 0.3s ease,
+    color 0.3s ease;
+}
