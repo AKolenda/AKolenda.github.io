@@ -29,8 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!activeModal) return;
 
     const slides = activeModal.querySelectorAll(".modal-slide");
-    slides[currentModalSlide].classList.remove("active");
+    if (!slides.length) return;
 
+    slides[currentModalSlide].classList.remove("active");
     currentModalSlide =
       (currentModalSlide + direction + slides.length) % slides.length;
     slides[currentModalSlide].classList.add("active");
@@ -148,31 +149,33 @@ document.addEventListener("DOMContentLoaded", () => {
           </svg>
         </button>
         <div class="relative aspect-video">
-          ${slidesArray
-            .map(
-              (slide, i) => `
-            <img src="${slide.src}" 
-                 class="slide w-full h-full object-contain absolute inset-0 ${
-                   i === currentIndex ? "active" : ""
-                 }" 
-                 alt="Project image ${i + 1}"/>
-          `
-            )
-            .join("")}
+          <div class="slides-container absolute inset-0">
+            ${slidesArray
+              .map(
+                (slide, i) => `
+              <img src="${slide.src}" 
+                   class="modal-slide w-full h-full object-contain absolute inset-0 ${
+                     i === currentIndex ? "active" : ""
+                   }" 
+                   alt="Project image ${i + 1}"/>
+            `
+              )
+              .join("")}
+          </div>
           ${
             slidesArray.length > 1
               ? `
-            <button class="modal-nav-button prev">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-              </svg>
-            </button>
-            <button class="modal-nav-button next">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-              </svg>
-            </button>
-          `
+              <button class="modal-nav-button prev">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+              </button>
+              <button class="modal-nav-button next">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </button>
+            `
               : ""
           }
         </div>
