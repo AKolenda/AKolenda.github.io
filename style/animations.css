@@ -1,0 +1,635 @@
+/* Smooth scroll parallax effect */
+.parallax-section {
+  transform: translateY(var(--scroll-offset, 0));
+  transition: transform 0.1s cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: transform;
+}
+
+/* Reveal animation */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered card animations */
+.stagger-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.stagger-card.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Floating animation for hero elements */
+.float-element {
+  animation: floating 6s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Gradient text animation */
+.animated-gradient-text {
+  background: linear-gradient(to right, #4f46e5, #7c3aed, #4f46e5);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient-shift 8s linear infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Smooth image scale on hover */
+.scale-on-hover {
+  transition: transform 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.scale-on-hover:hover {
+  transform: scale(1.05);
+}
+
+/* Card tilt effect */
+.tilt-card {
+  transition: transform 0.2s cubic-bezier(0.33, 1, 0.68, 1);
+  transform-style: preserve-3d;
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+.animate-blob {
+  animation: blob 7s infinite;
+}
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+.project-icon-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced fade in animation for work and project cards */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  visibility: hidden;
+  transition: opacity 0.6s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.6s cubic-bezier(0.33, 1, 0.68, 1),
+    visibility 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: opacity, transform, visibility;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* Specific project card animations */
+.stagger-card {
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.stagger-card.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Enhanced fade in animation for work cards */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  visibility: hidden;
+  transition: opacity 0.6s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.6s cubic-bezier(0.33, 1, 0.68, 1),
+    visibility 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: opacity, transform, visibility;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+
+/* Add a subtle scale effect */
+.fade-in-section:hover {
+  transform: translateY(-5px);
+}
+
+/* Enhanced work card animations */
+.work-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: opacity, transform, background-color;
+}
+
+.work-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.work-card:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: translateY(-5px) scale(1.01);
+}
+
+.work-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right bottom,
+    transparent,
+    rgba(99, 102, 241, 0.03)
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  border-radius: inherit;
+}
+
+.work-card:hover::before {
+  opacity: 1;
+}
+
+/* Ensure content section doesn't affect animations */
+.content-section {
+  position: relative;
+  z-index: 1;
+  background-color: inherit;
+  overflow: hidden;
+}
+
+/* Slideshow styles */
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+}
+
+.slide {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slide.active {
+  display: block;
+}
+
+/* Modal and slideshow styles */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  place-items: center;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.active {
+  display: grid;
+  opacity: 1;
+}
+
+.modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  background: white;
+  border-radius: 1rem;
+  transform: scale(0.9);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal.active .modal-content {
+  transform: scale(1);
+}
+
+.slideshow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.slideshow-container:hover .slideshow-btn {
+  opacity: 1;
+}
+
+.slideshow-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slideshow-btn.prev {
+  left: 10px;
+}
+
+.slideshow-btn.next {
+  right: 10px;
+}
+
+/* Modal animation styles */
+.project-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.95);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.project-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-modal-content {
+  background: white;
+  border-radius: 1rem;
+  width: 95%;
+  max-width: 1400px;
+  max-height: 90vh;
+  position: relative;
+  transform: scale(0.95) translateY(20px);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.17, 0.67, 0.19, 1.23),
+    opacity 0.3s ease;
+  overflow-y: auto;
+}
+
+.project-modal.active .project-modal-content {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+.slideshow-container {
+  cursor: pointer;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.3s ease;
+}
+
+.modal-close:hover {
+  transform: scale(1.1);
+}
+
+.modal-nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.3s ease;
+}
+
+.modal-nav-button:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.modal-nav-button.prev {
+  left: 1rem;
+}
+
+.modal-nav-button.next {
+  right: 1rem;
+}
+
+/* Modal animation styles */
+.project-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0);
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+}
+
+.project-modal.active {
+  opacity: 1;
+  visibility: visible;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.project-modal-content {
+  position: relative;
+  background: white;
+  border-radius: 1.5rem;
+  width: 95%;
+  max-width: 1400px;
+  max-height: 90vh;
+  transform: scale(0.7) translateY(50px);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow-y: auto;
+}
+
+.project-modal.active .project-modal-content {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* Slide transition in modal */
+.modal-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Add enhanced modal content styles */
+.project-details {
+  padding: 2rem;
+  background: white;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.project-details h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  background: linear-gradient(
+    to right,
+    var(--color-indigo-600),
+    var(--color-violet-600)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.project-details-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.project-details-item {
+  background: var(--color-indigo-50);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.project-details-item h4 {
+  font-weight: 600;
+  color: var(--color-indigo-600);
+  margin-bottom: 0.5rem;
+}
+
+/* Ensure images maintain aspect ratio */
+.slideshow-container img {
+  max-width: 100%;
+  height: 100%;
+  width: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+/* Add background for image container */
+.slideshow-container .bg-white {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Dark mode transition */
+.dark * {
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Mobile menu animation */
+#mobile-menu {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: top;
+  opacity: 0;
+  transform: scaleY(0);
+}
+
+#mobile-menu.show {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+/* Theme toggle animation */
+#theme-toggle svg,
+#theme-toggle-mobile svg {
+  transition: transform 0.3s ease;
+}
+
+#theme-toggle:hover svg,
+#theme-toggle-mobile:hover svg {
+  transform: rotate(12deg);
+}
+
+/* Smooth transitions for all interactive elements */
+.nav-link,
+.button,
+.card,
+.skill-tag,
+a,
+button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced hover effects */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* Apple-like button hover effect */
+.apple-button {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background-position: center;
+}
+
+.apple-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode background transitions */
+.hero-gradient {
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.dark .hero-gradient {
+  background: linear-gradient(
+    to bottom right,
+    rgba(59, 130, 246, 0.1),
+    rgba(139, 92, 246, 0.1)
+  );
+}
+
+/* Particle network dark mode */
+#particle-network {
+  transition: opacity 0.3s ease;
+}
+
+.dark #particle-network {
+  opacity: 0.5;
+}
+
+/* Preserve animations in dark mode */
+html.dark * {
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Ensure animations persist during theme changes */
+.work-card,
+.stagger-card,
+.project-card {
+  transition: all 0.8s cubic-bezier(0.33, 1, 0.68, 1),
+    background-color 0.3s ease, color 0.3s ease;
+  will-change: transform, opacity, background-color;
+}
+
+/* Fix dark mode card transitions */
+.dark .work-card,
+.dark .stagger-card,
+.dark .project-card {
+  transition: all 0.8s cubic-bezier(0.33, 1, 0.68, 1),
+    background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Ensure reveal animations work in dark mode */
+.dark .fade-in-section {
+  transition: opacity 0.6s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.6s cubic-bezier(0.33, 1, 0.68, 1),
+    visibility 0.6s cubic-bezier(0.33, 1, 0.68, 1), background-color 0.3s ease,
+    color 0.3s ease;
+}
