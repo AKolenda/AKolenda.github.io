@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="./style/output.css" />
     <script src="./scripts/index.js" type="module"></script>
   </head>
-  <body class="bg-gray-50">
-    <nav class="bg-white shadow-lg fixed w-full z-50">
+  <body class="bg-gradient-to-br from-gray-50 to-gray-100">
+    <nav class="glass-morphism fixed w-full z-50">
       <div class="max-w-7xl mx-auto px-4">
         <div class="flex justify-between">
           <div class="flex space-x-7">
@@ -45,37 +45,41 @@
     </nav>
 
     <main class="pt-16 container mx-auto px-4 max-w-7xl">
-      <section id="about" class="py-20 text-center">
+      <section id="about" class="hero-gradient rounded-3xl py-20 mb-12">
         <div class="flex flex-col items-center">
-          <img
-            src="./res/Headshot.jpeg"
-            alt="Andrija Kolenda"
-            class="w-48 h-48 rounded-full mb-8 object-cover shadow-lg"
-          />
-          <h1 class="text-4xl font-bold text-gray-800 mb-4">Andrija Kolenda</h1>
-          <p class="text-xl text-gray-600 mb-8">
+          <div class="relative">
+            <div
+              class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full blur opacity-75 animate-pulse"
+            ></div>
+            <img
+              src="./res/Headshot.jpeg"
+              alt="Andrija Kolenda"
+              class="relative w-48 h-48 rounded-full object-cover animate-float"
+            />
+          </div>
+          <h1 class="text-5xl font-bold text-white mt-8 mb-4">
+            Andrija Kolenda
+          </h1>
+          <p class="text-2xl text-white/90 mb-8">
             Software Developer | IT Specialist
           </p>
           <div class="flex space-x-4">
             <a
               href="mailto:Andkolenda@hotmail.com"
-              class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300"
-              >Contact Me</a
+              class="glass-morphism px-8 py-3 rounded-full text-white hover:scale-105 transform transition-all duration-300"
             >
+              Contact Me
+            </a>
           </div>
         </div>
       </section>
 
-      <!-- Core Qualifications Section -->
       <section id="skills" class="py-12">
-        <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">
+        <h2 class="text-3xl font-bold gradient-text text-center mb-12">
           Core Qualifications
         </h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- Industry Software Support -->
-          <div
-            class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300"
-          >
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="glass-card p-6 card-hover">
             <div class="flex items-center mb-4">
               <svg
                 class="w-8 h-8 text-blue-600"
@@ -92,16 +96,18 @@
               </svg>
               <h3 class="font-semibold text-lg ml-3">Software Support</h3>
             </div>
-            <p class="text-gray-600">
-              ServiceNow, ZenDesk, Azure AD, Office 365, SharePoint, PowerApps,
-              Power Automate, PowerBI
-            </p>
+            <div class="flex flex-wrap">
+              <span class="skill-tag">ServiceNow</span>
+              <span class="skill-tag">ZenDesk</span>
+              <span class="skill-tag">Azure AD</span>
+              <span class="skill-tag">Office 365</span>
+              <span class="skill-tag">SharePoint</span>
+              <span class="skill-tag">PowerApps</span>
+              <span class="skill-tag">Power BI</span>
+            </div>
           </div>
 
-          <!-- Programming Languages -->
-          <div
-            class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300"
-          >
+          <div class="glass-card p-6 card-hover">
             <div class="flex items-center mb-4">
               <svg
                 class="w-8 h-8 text-blue-600"
@@ -118,16 +124,21 @@
               </svg>
               <h3 class="font-semibold text-lg ml-3">Programming</h3>
             </div>
-            <p class="text-gray-600">
-              Java, JavaScript, Node.JS, Express.JS, PHP, Python, HTML, CSS,
-              SQL, Bootstrap, React
-            </p>
+            <div class="flex flex-wrap">
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">Express.js</span>
+              <span class="skill-tag">PHP</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">React</span>
+            </div>
           </div>
 
-          <!-- Networking -->
-          <div
-            class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300"
-          >
+          <div class="glass-card p-6 card-hover">
             <div class="flex items-center mb-4">
               <svg
                 class="w-8 h-8 text-blue-600"
@@ -144,16 +155,19 @@
               </svg>
               <h3 class="font-semibold text-lg ml-3">Networking</h3>
             </div>
-            <p class="text-gray-600">
-              VLAN, TCP/UDP, IPV4/IPV6, OpenVPN, WireGuard, Firewalling, Router
-              Meshing
-            </p>
+            <div class="flex flex-wrap">
+              <span class="skill-tag">VLAN</span>
+              <span class="skill-tag">TCP/UDP</span>
+              <span class="skill-tag">IPV4/IPV6</span>
+              <span class="skill-tag">OpenVPN</span>
+              <span class="skill-tag">WireGuard</span>
+              <span class="skill-tag">Firewalling</span>
+              <span class="skill-tag">Router Meshing</span>
+              <span class="skill-tag">PfSense</span>
+            </div>
           </div>
 
-          <!-- Systems & Tools -->
-          <div
-            class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300"
-          >
+          <div class="glass-card p-6 card-hover">
             <div class="flex items-center mb-4">
               <svg
                 class="w-8 h-8 text-blue-600"
@@ -176,88 +190,129 @@
               </svg>
               <h3 class="font-semibold text-lg ml-3">Systems & Tools</h3>
             </div>
-            <p class="text-gray-600">
-              Linux, Bash, Git, Docker, Cloud Platforms (GCP), AI/ML tools
-              including GitHub Copilot
-            </p>
+            <div class="flex flex-wrap">
+              <span class="skill-tag">Linux</span>
+              <span class="skill-tag">Bash</span>
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">GCP</span>
+              <span class="skill-tag">GitHub Copilot</span>
+              <span class="skill-tag">TrueNAS</span>
+            </div>
           </div>
         </div>
       </section>
 
       <section id="experience" class="py-12">
-        <h2 class="text-2xl font-bold text-gray-800 mb-6">Work Experience</h2>
-        <div class="space-y-6">
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="font-bold text-lg">IT Service Desk Technician</h3>
-            <p class="text-gray-600">Hatch · Internship | Calgary, AB</p>
-            <p class="text-gray-600">Sept 2024 - Dec 2024</p>
-            <ul class="list-disc list-inside text-gray-600 space-y-2">
-              <li>
-                Managed tickets using Zendesk and resolved IT issues efficiently
-              </li>
-              <li>
-                Utilized LanSweeper for hardware and software inventory
-                management
-              </li>
-              <li>
-                Configured Microsoft Entra ID (Azure AD) for identity management
-              </li>
-              <li>
-                Provided IT support for hybrid conferences with 980 attendees
-              </li>
-            </ul>
-          </div>
+        <h2 class="text-3xl font-bold gradient-text text-center mb-12">
+          Work Experience
+        </h2>
+        <div class="space-y-8">
+          <div class="relative">
+            <div
+              class="absolute left-0 top-0 h-full w-0.5 bg-gradient-to-b from-blue-600 to-purple-600"
+            ></div>
+            <div class="ml-6 space-y-8">
+              <div class="glass-card p-6 card-hover relative">
+                <div
+                  class="absolute -left-9 top-6 w-3 h-3 rounded-full bg-blue-600"
+                ></div>
+                <h3 class="font-bold text-lg">IT Service Desk Technician</h3>
+                <p class="text-gray-600">Hatch · Internship | Calgary, AB</p>
+                <p class="text-gray-600">Sept 2024 - Dec 2024</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                  <li>
+                    Managed tickets using Zendesk and resolved IT issues
+                    efficiently
+                  </li>
+                  <li>
+                    Utilized LanSweeper for hardware and software inventory
+                    management
+                  </li>
+                  <li>
+                    Configured Microsoft Entra ID (Azure AD) for identity
+                    management
+                  </li>
+                  <li>
+                    Provided IT support for hybrid conferences with 980
+                    attendees
+                  </li>
+                </ul>
+              </div>
 
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="font-bold text-lg">
-              IT Systems and Solutions Specialist
-            </h3>
-            <p class="text-gray-600">
-              NovaPro Machining Inc. · Ex Full-Time | Current On-Call Assistant
-            </p>
-            <p class="text-gray-600">Jun 2024 - Current</p>
-            <ul class="list-disc list-inside text-gray-600 space-y-2">
-              <li>
-                Developed internal inventory system using PHP and JavaScript on
-                LAMP stack
-              </li>
-              <li>
-                Configured networking solutions including VLAN, TCP/UDP,
-                IPV4/IPV6
-              </li>
-              <li>
-                Automated data migration and backup processes using Python and
-                Bash
-              </li>
-              <li>
-                Implemented OpenVPN and WireGuard for secure remote connectivity
-              </li>
-            </ul>
-          </div>
+              <div class="glass-card p-6 card-hover relative">
+                <div
+                  class="absolute -left-9 top-6 w-3 h-3 rounded-full bg-blue-600"
+                ></div>
+                <h3 class="font-bold text-lg">
+                  IT Systems and Solutions Specialist
+                </h3>
+                <p class="text-gray-600">
+                  NovaPro Machining Inc. · Ex Full-Time | Current On-Call
+                  Assistant
+                </p>
+                <p class="text-gray-600">Jun 2024 - Current</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                  <li>
+                    Developed internal inventory system using PHP and JavaScript
+                    on LAMP stack
+                  </li>
+                  <li>
+                    Configured networking solutions including VLAN, TCP/UDP,
+                    IPV4/IPV6
+                  </li>
+                  <li>
+                    Automated data migration and backup processes using Python
+                    and Bash
+                  </li>
+                  <li>
+                    Implemented OpenVPN and WireGuard for secure remote
+                    connectivity
+                  </li>
+                </ul>
+              </div>
 
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="font-bold text-lg">IT Customer Support I</h3>
-            <p class="text-gray-600">Alberta Health Services | Calgary, AB</p>
-            <p class="text-gray-600">Jan 2023 - Jun 2023</p>
-            <ul class="list-disc list-inside text-gray-600 space-y-2">
-              <li>
-                Top 5% performer at Service Desk, resolving 40 tickets daily
-              </li>
-              <li>
-                Managed user accounts and permissions using Microsoft Azure AD
-              </li>
-              <li>Utilized ServiceNow for issue tracking and resolution</li>
-              <li>Supported corporate mobile devices via Workspace One</li>
-            </ul>
+              <div class="glass-card p-6 card-hover relative">
+                <div
+                  class="absolute -left-9 top-6 w-3 h-3 rounded-full bg-blue-600"
+                ></div>
+                <h3 class="font-bold text-lg">IT Customer Support I</h3>
+                <p class="text-gray-600">
+                  Alberta Health Services | Calgary, AB
+                </p>
+                <p class="text-gray-600">Jan 2023 - Jun 2023</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                  <li>
+                    Top 5% performer at Service Desk, resolving 40 tickets daily
+                  </li>
+                  <li>
+                    Managed user accounts and permissions using Microsoft Azure
+                    AD
+                  </li>
+                  <li>Utilized ServiceNow for issue tracking and resolution</li>
+                  <li>Supported corporate mobile devices via Workspace One</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="bg-gray-800 text-white py-8 mt-12">
+    <footer
+      class="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-8 mt-12"
+    >
       <div class="container mx-auto px-4 text-center">
-        <p>&copy; 2024 Andrija Kolenda. All rights reserved.</p>
+        <p class="opacity-90">
+          &copy; 2024 Andrija Kolenda. All rights reserved.
+        </p>
       </div>
     </footer>
+
+    <div id="particles-js" class="fixed inset-0 -z-10"></div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+      particlesJS.load("particles-js", "./particles-config.json");
+    </script>
   </body>
 </html>
