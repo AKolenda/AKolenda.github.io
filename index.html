@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Andrija Kolenda - Developer & IT Specialist</title>
     <link rel="stylesheet" href="./style/output.css" />
+    <link rel="stylesheet" href="./style/animations.css" />
     <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="./scripts/animations.js" defer></script>
   </head>
   <body class="bg-slate-50 text-slate-900 font-sans antialiased">
     <!-- Floating Navigation -->
@@ -51,7 +53,7 @@
 
     <!-- Hero Section -->
     <section
-      class="min-h-screen flex items-center justify-center relative overflow-hidden"
+      class="min-h-screen flex items-center justify-center relative overflow-hidden parallax-section"
     >
       <!-- Existing gradient background -->
       <div
@@ -76,7 +78,7 @@
 
       <!-- Main content with adjusted z-index -->
       <div class="relative z-[2] text-center px-4">
-        <div class="mb-8 relative inline-block">
+        <div class="mb-8 relative inline-block float-element">
           <div
             class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-violet-600 rounded-full blur-lg opacity-75"
           ></div>
@@ -86,9 +88,7 @@
             class="relative w-40 h-40 rounded-full object-cover border-4 border-white shadow-xl"
           />
         </div>
-        <h1
-          class="text-6xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-violet-600 text-transparent bg-clip-text"
-        >
+        <h1 class="text-6xl font-bold mb-4 animated-gradient-text">
           Andrija Kolenda
         </h1>
         <p class="text-xl text-slate-600 mb-8">
@@ -112,7 +112,7 @@
     </section>
 
     <!-- Work Experience -->
-    <section id="work" class="py-24 px-4">
+    <section id="work" class="py-24 px-4 content-section">
       <div class="max-w-5xl mx-auto">
         <h2
           class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-indigo-600 to-violet-600 text-transparent bg-clip-text"
@@ -120,9 +120,9 @@
           Work Experience
         </h2>
         <div class="space-y-12">
-          <!-- Each job card -->
+          <!-- Each job card with fade-in effect -->
           <div
-            class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all"
+            class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all work-card"
           >
             <div
               class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-indigo-600 to-violet-600 rounded-l-2xl"
@@ -153,7 +153,8 @@
             </div>
           </div>
           <div
-            class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all"
+            class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all work-card"
+            style="transition-delay: 200ms"
           >
             <div
               class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-indigo-600 to-violet-600 rounded-l-2xl"
@@ -188,7 +189,8 @@
             </div>
           </div>
           <div
-            class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all"
+            class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all work-card"
+            style="transition-delay: 400ms"
           >
             <div
               class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-indigo-600 to-violet-600 rounded-l-2xl"
@@ -216,7 +218,10 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-24 bg-slate-100 px-4">
+    <section
+      id="projects"
+      class="py-24 bg-slate-100 px-4 content-section fade-in-section"
+    >
       <div class="max-w-6xl mx-auto">
         <h2
           class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-indigo-600 to-violet-600 text-transparent bg-clip-text"
@@ -226,7 +231,7 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Project Card -->
           <div
-            class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
+            class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 stagger-card tilt-card"
           >
             <div class="h-48 bg-gradient-to-br from-indigo-500 to-violet-500">
               <div class="project-icon-wrapper">
@@ -263,7 +268,7 @@
             </div>
           </div>
           <div
-            class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
+            class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 stagger-card tilt-card"
           >
             <div class="h-48 bg-gradient-to-br from-indigo-500 to-violet-500">
               <div class="project-icon-wrapper">
@@ -310,7 +315,7 @@
             </div>
           </div>
           <div
-            class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
+            class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 stagger-card tilt-card"
           >
             <div class="h-48 bg-gradient-to-br from-indigo-500 to-violet-500">
               <div class="project-icon-wrapper">
@@ -354,12 +359,107 @@
               </div>
             </div>
           </div>
+          <!-- Cookie Manager Project Card -->
+          <div
+            class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 stagger-card tilt-card"
+          >
+            <div class="h-48 bg-gradient-to-br from-indigo-500 to-violet-500">
+              <div class="project-icon-wrapper">
+                <svg
+                  class="w-16 h-16 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Cookie Manager Pro</h3>
+              <p class="text-slate-600 mb-4">
+                Chrome extension for advanced cookie management, privacy
+                analysis, and tab suspension
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
+                  >JavaScript</span
+                >
+                <span
+                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
+                  >Chrome API</span
+                >
+                <span
+                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
+                  >Tailwind</span
+                >
+                <span
+                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
+                  >Privacy</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Discord Bot Project Card -->
+          <div
+            class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 stagger-card tilt-card"
+          >
+            <div class="h-48 bg-gradient-to-br from-indigo-500 to-violet-500">
+              <div class="project-icon-wrapper">
+                <svg
+                  class="w-16 h-16 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Discord Role Manager</h3>
+              <p class="text-slate-600 mb-4">
+                Discord bot integrated with Whop API for automated role
+                management
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
+                  >Node.js</span
+                >
+                <span
+                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
+                  >Discord.js</span
+                >
+                <span
+                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
+                  >Whop API</span
+                >
+                <span
+                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
+                  >REST API</span
+                >
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-24 px-4">
+    <section id="skills" class="py-24 px-4 content-section fade-in-section">
       <div class="max-w-6xl mx-auto">
         <h2
           class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-indigo-600 to-violet-600 text-transparent bg-clip-text"
@@ -507,7 +607,10 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="py-24 bg-slate-100 px-4">
+    <section
+      id="education"
+      class="py-24 bg-slate-100 px-4 content-section fade-in-section"
+    >
       <div class="max-w-4xl mx-auto">
         <div class="glass-card p-8 card-hover">
           <div class="flex items-center mb-6">
@@ -559,171 +662,5 @@
         <p>&copy; 2024 Andrija Kolenda. All rights reserved.</p>
       </div>
     </footer>
-
-    <style>
-      @keyframes blob {
-        0% {
-          transform: translate(0px, 0px) scale(1);
-        }
-        33% {
-          transform: translate(30px, -50px) scale(1.1);
-        }
-        66% {
-          transform: translate(-20px, 20px) scale(0.9);
-        }
-        100% {
-          transform: translate(0px, 0px) scale(1);
-        }
-      }
-      .animate-blob {
-        animation: blob 7s infinite;
-      }
-      .animation-delay-2000 {
-        animation-delay: 2s;
-      }
-      .animation-delay-4000 {
-        animation-delay: 4s;
-      }
-      .project-icon-wrapper {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    </style>
-
-    <script>
-      ScrollReveal().reveal(".animate-on-scroll", {
-        delay: 200,
-        distance: "20px",
-        origin: "bottom",
-        opacity: 0,
-        duration: 1000,
-        easing: "cubic-bezier(0.5, 0, 0, 1)",
-        interval: 100,
-      });
-
-      // Particle network animation
-      const canvas = document.getElementById("particle-network");
-      const ctx = canvas.getContext("2d");
-
-      // Make canvas full screen
-      function setCanvasSize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
-      setCanvasSize();
-      window.addEventListener("resize", setCanvasSize);
-
-      // Particle settings
-      const particleCount = 100;
-      const particles = [];
-      const connectionDistance = 100;
-      const mouseRadius = 150;
-
-      let mouse = {
-        x: null,
-        y: null,
-        radius: mouseRadius,
-      };
-
-      // Track mouse movement
-      document.addEventListener("mousemove", (event) => {
-        mouse.x = event.x;
-        mouse.y = event.y;
-      });
-
-      // Particle class
-      class Particle {
-        constructor() {
-          this.x = Math.random() * canvas.width;
-          this.y = Math.random() * canvas.height;
-          this.size = Math.random() * 2 + 1;
-          this.velocityX = (Math.random() - 0.5) * 0.5;
-          this.velocityY = (Math.random() - 0.5) * 0.5;
-          this.baseX = this.x;
-          this.baseY = this.y;
-          this.density = Math.random() * 30 + 1;
-        }
-
-        update() {
-          // Mouse interaction
-          if (mouse.x != null) {
-            let dx = mouse.x - this.x;
-            let dy = mouse.y - this.y;
-            let distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance < mouse.radius) {
-              const angle = Math.atan2(dy, dx);
-              const force = (mouse.radius - distance) / mouse.radius;
-              this.x -= Math.cos(angle) * force * 5;
-              this.y -= Math.sin(angle) * force * 5;
-            }
-          }
-
-          // Return to original position
-          let dx = this.baseX - this.x;
-          let dy = this.baseY - this.y;
-          this.x += dx * 0.05;
-          this.y += dy * 0.05;
-
-          // Move particles
-          this.x += this.velocityX;
-          this.y += this.velocityY;
-
-          // Bounce off edges
-          if (this.x < 0 || this.x > canvas.width) this.velocityX *= -1;
-          if (this.y < 0 || this.y > canvas.height) this.velocityY *= -1;
-        }
-
-        draw() {
-          ctx.fillStyle = "rgba(99, 102, 241, 0.5)";
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          ctx.closePath();
-          ctx.fill();
-        }
-      }
-
-      // Create particles
-      function init() {
-        for (let i = 0; i < particleCount; i++) {
-          particles.push(new Particle());
-        }
-      }
-      init();
-
-      // Animation loop
-      function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        particles.forEach((particle) => {
-          particle.update();
-          particle.draw();
-
-          // Connect particles
-          particles.forEach((otherParticle) => {
-            const dx = particle.x - otherParticle.x;
-            const dy = particle.y - otherParticle.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < connectionDistance) {
-              ctx.strokeStyle = `rgba(99, 102, 241, ${
-                1 - distance / connectionDistance
-              })`;
-              ctx.lineWidth = 1;
-              ctx.beginPath();
-              ctx.moveTo(particle.x, particle.y);
-              ctx.lineTo(otherParticle.x, otherParticle.y);
-              ctx.stroke();
-            }
-          });
-        });
-
-        requestAnimationFrame(animate);
-      }
-      animate();
-    </script>
   </body>
 </html>

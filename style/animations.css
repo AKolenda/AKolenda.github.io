@@ -1,0 +1,195 @@
+/* Smooth scroll parallax effect */
+.parallax-section {
+  transform: translateY(var(--scroll-offset, 0));
+  transition: transform 0.1s cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: transform;
+}
+
+/* Reveal animation */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered card animations */
+.stagger-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.stagger-card.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Floating animation for hero elements */
+.float-element {
+  animation: floating 6s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Gradient text animation */
+.animated-gradient-text {
+  background: linear-gradient(to right, #4f46e5, #7c3aed, #4f46e5);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient-shift 8s linear infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Smooth image scale on hover */
+.scale-on-hover {
+  transition: transform 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.scale-on-hover:hover {
+  transform: scale(1.05);
+}
+
+/* Card tilt effect */
+.tilt-card {
+  transition: transform 0.2s cubic-bezier(0.33, 1, 0.68, 1);
+  transform-style: preserve-3d;
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+.animate-blob {
+  animation: blob 7s infinite;
+}
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+.project-icon-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced fade in animation for work and project cards */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  visibility: hidden;
+  transition: opacity 0.6s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.6s cubic-bezier(0.33, 1, 0.68, 1),
+    visibility 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: opacity, transform, visibility;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* Specific project card animations */
+.stagger-card {
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.stagger-card.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Enhanced fade in animation for work cards */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  visibility: hidden;
+  transition: opacity 0.6s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.6s cubic-bezier(0.33, 1, 0.68, 1),
+    visibility 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: opacity, transform, visibility;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+
+/* Add a subtle scale effect */
+.fade-in-section:hover {
+  transform: translateY(-5px);
+}
+
+/* Enhanced work card animations */
+.work-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.work-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ensure content section doesn't affect animations */
+.content-section {
+  position: relative;
+  z-index: 1;
+  background-color: inherit;
+  overflow: hidden;
+}
