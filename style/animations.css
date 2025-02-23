@@ -177,13 +177,36 @@
 .work-card {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  will-change: opacity, transform;
+  transition: all 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: opacity, transform, background-color;
 }
 
 .work-card.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.work-card:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: translateY(-5px) scale(1.01);
+}
+
+.work-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right bottom,
+    transparent,
+    rgba(99, 102, 241, 0.03)
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  border-radius: inherit;
+}
+
+.work-card:hover::before {
+  opacity: 1;
 }
 
 /* Ensure content section doesn't affect animations */
