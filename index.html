@@ -3,150 +3,377 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Andrija Kolenda - Software Developer</title>
+    <title>Andrija Kolenda - Developer & IT Specialist</title>
     <link rel="stylesheet" href="./style/output.css" />
-    <script src="./scripts/index.js" type="module"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
   </head>
-  <body class="bg-gradient-to-br from-gray-50 to-gray-100">
-    <nav class="glass-morphism fixed w-full z-50">
-      <div class="max-w-7xl mx-auto px-4">
-        <div class="flex justify-between">
-          <div class="flex space-x-7">
-            <div class="flex items-center py-4">
-              <span class="font-semibold text-gray-700 text-lg"
-                >Andrija Kolenda</span
-              >
-            </div>
-          </div>
-          <div class="hidden md:flex items-center space-x-4">
-            <a
-              href="#about"
-              class="py-4 px-2 text-gray-500 hover:text-gray-900 transition duration-300"
-              >About</a
-            >
-            <a
-              href="#experience"
-              class="py-4 px-2 text-gray-500 hover:text-gray-900 transition duration-300"
-              >Experience</a
-            >
-            <a
-              href="#projects"
-              class="py-4 px-2 text-gray-500 hover:text-gray-900 transition duration-300"
-              >Projects</a
-            >
-            <a
-              href="#skills"
-              class="py-4 px-2 text-gray-500 hover:text-gray-900 transition duration-300"
-              >Skills</a
-            >
-          </div>
+  <body class="bg-slate-50 text-slate-900 font-sans antialiased">
+    <!-- Floating Navigation -->
+    <nav
+      class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl backdrop-blur-md bg-white/70 rounded-2xl shadow-lg px-6 py-4 z-50"
+    >
+      <div class="flex justify-between items-center">
+        <a
+          href="#"
+          class="text-xl font-bold bg-gradient-to-r from-indigo-600 to-violet-600 text-transparent bg-clip-text"
+          >AK</a
+        >
+        <div class="hidden md:flex gap-8">
+          <a
+            href="#work"
+            class="text-slate-600 hover:text-indigo-600 transition-colors"
+            >Work</a
+          >
+          <a
+            href="#projects"
+            class="text-slate-600 hover:text-indigo-600 transition-colors"
+            >Projects</a
+          >
+          <a
+            href="#skills"
+            class="text-slate-600 hover:text-indigo-600 transition-colors"
+            >Skills</a
+          >
+          <a
+            href="#about"
+            class="text-slate-600 hover:text-indigo-600 transition-colors"
+            >About</a
+          >
         </div>
+        <a
+          href="mailto:Andkolenda@hotmail.com"
+          class="hidden md:block px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+        >
+          Contact
+        </a>
       </div>
     </nav>
 
-    <main class="pt-16 container mx-auto px-4 max-w-7xl">
-      <section
-        id="about"
-        class="hero-gradient rounded-3xl py-20 mb-12 relative overflow-hidden"
-      >
-        <!-- Add animated background shapes -->
-        <div class="absolute inset-0 overflow-hidden">
+    <!-- Hero Section -->
+    <section
+      class="min-h-screen flex items-center justify-center relative overflow-hidden"
+    >
+      <!-- Existing gradient background -->
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-indigo-50 to-violet-50"
+      ></div>
+
+      <!-- Add particle network canvas -->
+      <canvas id="particle-network" class="absolute inset-0 z-0"></canvas>
+
+      <!-- Animated shapes with adjusted z-index -->
+      <div class="absolute inset-0 z-[1]">
+        <div
+          class="absolute top-1/4 left-1/4 w-64 h-64 bg-indigo-300/20 rounded-full mix-blend-multiply filter blur-xl animate-blob"
+        ></div>
+        <div
+          class="absolute top-1/3 right-1/4 w-64 h-64 bg-violet-300/20 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"
+        ></div>
+        <div
+          class="absolute bottom-1/4 left-1/3 w-64 h-64 bg-pink-300/20 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"
+        ></div>
+      </div>
+
+      <!-- Main content with adjusted z-index -->
+      <div class="relative z-[2] text-center px-4">
+        <div class="mb-8 relative inline-block">
           <div
-            class="absolute -inset-[20px] bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-3xl animate-pulse"
+            class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-violet-600 rounded-full blur-lg opacity-75"
           ></div>
-          <div
-            class="absolute top-0 left-0 w-72 h-72 bg-blue-500/10 rounded-full mix-blend-multiply filter blur-xl animate-blob"
-          ></div>
-          <div
-            class="absolute top-0 right-0 w-72 h-72 bg-purple-500/10 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"
-          ></div>
-          <div
-            class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500/10 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"
-          ></div>
+          <img
+            src="./res/Headshot.jpeg"
+            alt="Andrija Kolenda"
+            class="relative w-40 h-40 rounded-full object-cover border-4 border-white shadow-xl"
+          />
         </div>
-
-        <!-- Enhanced hero content -->
-        <div class="flex flex-col items-center relative z-10">
-          <div class="relative group">
-            <div
-              class="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"
-            ></div>
-            <img
-              src="./res/Headshot.jpeg"
-              alt="Andrija Kolenda"
-              class="relative w-48 h-48 rounded-full object-cover animate-float group-hover:scale-105 transition duration-300"
-            />
-          </div>
-          <h1 class="text-5xl font-bold text-white mt-8 mb-4">
-            Andrija Kolenda
-          </h1>
-          <p class="text-2xl text-white/90 mb-8">
-            Software Developer | IT Specialist
-          </p>
-          <div class="flex space-x-4">
-            <a
-              href="mailto:Andkolenda@hotmail.com"
-              class="glass-morphism px-8 py-3 rounded-full text-white hover:scale-105 transform transition-all duration-300"
-            >
-              Contact Me
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Add these styles to the skill cards -->
-      <style>
-        .animate-blob {
-          animation: blob 7s infinite;
-        }
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-        .animation-delay-4000 {
-          animation-delay: 4s;
-        }
-        @keyframes blob {
-          0% {
-            transform: translate(0px, 0px) scale(1);
-          }
-          33% {
-            transform: translate(30px, -50px) scale(1.1);
-          }
-          66% {
-            transform: translate(-20px, 20px) scale(0.9);
-          }
-          100% {
-            transform: translate(0px, 0px) scale(1);
-          }
-        }
-        @keyframes tilt {
-          0%,
-          50%,
-          100% {
-            transform: rotate(0deg);
-          }
-          25% {
-            transform: rotate(2deg);
-          }
-          75% {
-            transform: rotate(-2deg);
-          }
-        }
-        .animate-tilt {
-          animation: tilt 10s infinite linear;
-        }
-      </style>
-
-      <!-- Update skill cards with 3D hover effect -->
-      <section id="skills" class="py-12">
-        <h2 class="text-3xl font-bold gradient-text text-center mb-12">
-          Core Qualifications
-        </h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 perspective-1000">
-          <div
-            class="glass-card p-6 card-hover transform-style-3d hover:transform-rotateY-10 transition-transform duration-300"
+        <h1
+          class="text-6xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-violet-600 text-transparent bg-clip-text"
+        >
+          Andrija Kolenda
+        </h1>
+        <p class="text-xl text-slate-600 mb-8">
+          Software Developer & IT Specialist
+        </p>
+        <div class="flex gap-4 justify-center">
+          <a
+            href="#work"
+            class="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all transform hover:scale-105"
           >
-            <div class="flex items-center mb-4">
+            View My Work
+          </a>
+          <a
+            href="#contact"
+            class="px-6 py-3 bg-white text-indigo-600 rounded-lg hover:bg-slate-50 transition-all transform hover:scale-105 shadow-md"
+          >
+            Get in Touch
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Experience -->
+    <section id="work" class="py-24 px-4">
+      <div class="max-w-5xl mx-auto">
+        <h2
+          class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-indigo-600 to-violet-600 text-transparent bg-clip-text"
+        >
+          Work Experience
+        </h2>
+        <div class="space-y-12">
+          <!-- Each job card -->
+          <div
+            class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all"
+          >
+            <div
+              class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-indigo-600 to-violet-600 rounded-l-2xl"
+            ></div>
+            <div class="ml-2">
+              <h3 class="text-2xl font-bold mb-2">
+                IT Service Desk Technician
+              </h3>
+              <p class="text-indigo-600 mb-4">Hatch · Calgary, AB</p>
+              <p class="text-slate-500 mb-2">Sept 2024 - Dec 2024</p>
+              <ul class="space-y-2 text-slate-600 list-disc list-inside">
+                <li>
+                  Managed tickets using Zendesk and resolved IT issues
+                  efficiently
+                </li>
+                <li>
+                  Utilized LanSweeper for hardware and software inventory
+                  management
+                </li>
+                <li>
+                  Configured Microsoft Entra ID (Azure AD) for identity
+                  management
+                </li>
+                <li>
+                  Provided IT support for hybrid conferences with 980 attendees
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all"
+          >
+            <div
+              class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-indigo-600 to-violet-600 rounded-l-2xl"
+            ></div>
+            <div class="ml-2">
+              <h3 class="text-2xl font-bold mb-2">
+                IT Systems and Solutions Specialist
+              </h3>
+              <p class="text-indigo-600 mb-4">
+                NovaPro Machining Inc. · Ex Full-Time | Current On-Call
+                Assistant
+              </p>
+              <p class="text-slate-500 mb-2">Jun 2024 - Current</p>
+              <ul class="space-y-2 text-slate-600 list-disc list-inside">
+                <li>
+                  Developed internal inventory system using PHP and JavaScript
+                  on LAMP stack
+                </li>
+                <li>
+                  Configured networking solutions including VLAN, TCP/UDP,
+                  IPV4/IPV6
+                </li>
+                <li>
+                  Automated data migration and backup processes using Python and
+                  Bash
+                </li>
+                <li>
+                  Implemented OpenVPN and WireGuard for secure remote
+                  connectivity
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all"
+          >
+            <div
+              class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-indigo-600 to-violet-600 rounded-l-2xl"
+            ></div>
+            <div class="ml-2">
+              <h3 class="text-2xl font-bold mb-2">IT Customer Support I</h3>
+              <p class="text-indigo-600 mb-4">
+                Alberta Health Services | Calgary, AB
+              </p>
+              <p class="text-slate-500 mb-2">Jan 2023 - Jun 2023</p>
+              <ul class="space-y-2 text-slate-600 list-disc list-inside">
+                <li>
+                  Top 5% performer at Service Desk, resolving 40 tickets daily
+                </li>
+                <li>
+                  Managed user accounts and permissions using Microsoft Azure AD
+                </li>
+                <li>Utilized ServiceNow for issue tracking and resolution</li>
+                <li>Supported corporate mobile devices via Workspace One</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-slate-100 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2
+          class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-indigo-600 to-violet-600 text-transparent bg-clip-text"
+        >
+          Featured Projects
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project Card -->
+          <div
+            class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
+          >
+            <div class="h-48 bg-gradient-to-br from-indigo-500 to-violet-500">
+              <div class="project-icon-wrapper">
+                <svg
+                  class="w-16 h-16 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M7 4v16M17 4v16M3 8h18M3 16h18"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Movie Theatre Tracker</h3>
+              <p class="text-slate-600 mb-4">
+                Full-stack application with Google Maps integration
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
+                  >Google Maps API</span
+                >
+                <span
+                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
+                  >GCP</span
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
+          >
+            <div class="h-48 bg-gradient-to-br from-indigo-500 to-violet-500">
+              <div class="project-icon-wrapper">
+                <svg
+                  class="w-16 h-16 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">
+                Chemistry Department Inventory
+              </h3>
+              <p class="text-slate-600 mb-4">
+                Mobile-responsive chemical tracking system for MRU
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
+                  >PHP</span
+                >
+                <span
+                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
+                  >JavaScript</span
+                >
+                <span
+                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
+                  >Tailwind</span
+                >
+                <span
+                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
+                  >Mobile-First</span
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
+          >
+            <div class="h-48 bg-gradient-to-br from-indigo-500 to-violet-500">
+              <div class="project-icon-wrapper">
+                <svg
+                  class="w-16 h-16 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Crypto Trading Platform</h3>
+              <p class="text-slate-600 mb-4">
+                Next.js application with Supabase integration
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
+                  >Next.js</span
+                >
+                <span
+                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
+                  >Supabase</span
+                >
+                <span
+                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
+                  >React</span
+                >
+                <span
+                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
+                  >Node.js</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2
+          class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-indigo-600 to-violet-600 text-transparent bg-clip-text"
+        >
+          Skills & Expertise
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Skill Category -->
+          <div
+            class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all"
+          >
+            <div
+              class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4"
+            >
               <svg
                 class="w-8 h-8 text-blue-600"
                 fill="none"
@@ -160,9 +387,9 @@
                   d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
               </svg>
-              <h3 class="font-semibold text-lg ml-3">Software Support</h3>
             </div>
-            <div class="flex flex-wrap">
+            <h3 class="text-xl font-bold mb-4">Software Support</h3>
+            <div class="space-y-2">
               <span class="skill-tag">ServiceNow</span>
               <span class="skill-tag">ZenDesk</span>
               <span class="skill-tag">Azure AD</span>
@@ -172,11 +399,12 @@
               <span class="skill-tag">Power BI</span>
             </div>
           </div>
-
           <div
-            class="glass-card p-6 card-hover transform-style-3d hover:transform-rotateY-10 transition-transform duration-300"
+            class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all"
           >
-            <div class="flex items-center mb-4">
+            <div
+              class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4"
+            >
               <svg
                 class="w-8 h-8 text-blue-600"
                 fill="none"
@@ -190,9 +418,9 @@
                   d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
                 />
               </svg>
-              <h3 class="font-semibold text-lg ml-3">Programming</h3>
             </div>
-            <div class="flex flex-wrap">
+            <h3 class="text-xl font-bold mb-4">Programming</h3>
+            <div class="space-y-2">
               <span class="skill-tag">Java</span>
               <span class="skill-tag">JavaScript</span>
               <span class="skill-tag">Node.js</span>
@@ -205,11 +433,12 @@
               <span class="skill-tag">React</span>
             </div>
           </div>
-
           <div
-            class="glass-card p-6 card-hover transform-style-3d hover:transform-rotateY-10 transition-transform duration-300"
+            class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all"
           >
-            <div class="flex items-center mb-4">
+            <div
+              class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4"
+            >
               <svg
                 class="w-8 h-8 text-blue-600"
                 fill="none"
@@ -223,9 +452,9 @@
                   d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
                 />
               </svg>
-              <h3 class="font-semibold text-lg ml-3">Networking</h3>
             </div>
-            <div class="flex flex-wrap">
+            <h3 class="text-xl font-bold mb-4">Networking</h3>
+            <div class="space-y-2">
               <span class="skill-tag">VLAN</span>
               <span class="skill-tag">TCP/UDP</span>
               <span class="skill-tag">IPV4/IPV6</span>
@@ -236,11 +465,12 @@
               <span class="skill-tag">PfSense</span>
             </div>
           </div>
-
           <div
-            class="glass-card p-6 card-hover transform-style-3d hover:transform-rotateY-10 transition-transform duration-300"
+            class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all"
           >
-            <div class="flex items-center mb-4">
+            <div
+              class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4"
+            >
               <svg
                 class="w-8 h-8 text-blue-600"
                 fill="none"
@@ -260,9 +490,9 @@
                   d="M14 15l-2 5l-2-5"
                 />
               </svg>
-              <h3 class="font-semibold text-lg ml-3">Systems & Tools</h3>
             </div>
-            <div class="flex flex-wrap">
+            <h3 class="text-xl font-bold mb-4">Systems & Tools</h3>
+            <div class="space-y-2">
               <span class="skill-tag">Linux</span>
               <span class="skill-tag">Bash</span>
               <span class="skill-tag">Git</span>
@@ -273,221 +503,12 @@
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Add parallax scrolling to experience timeline -->
-      <section id="experience" class="py-12 relative">
-        <div class="absolute left-0 top-0 w-full h-full" data-parallax="0.2">
-          <div
-            class="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-purple-50/50 blur-3xl"
-          ></div>
-        </div>
-        <h2 class="text-3xl font-bold gradient-text text-center mb-12">
-          Work Experience
-        </h2>
-        <div class="space-y-8">
-          <div class="relative">
-            <div
-              class="absolute left-0 top-0 h-full w-0.5 bg-gradient-to-b from-blue-600 to-purple-600"
-            ></div>
-            <div class="ml-6 space-y-8">
-              <div class="glass-card p-6 card-hover relative">
-                <div
-                  class="absolute -left-9 top-6 w-3 h-3 rounded-full bg-blue-600"
-                ></div>
-                <h3 class="font-bold text-lg">IT Service Desk Technician</h3>
-                <p class="text-gray-600">Hatch · Internship | Calgary, AB</p>
-                <p class="text-gray-600">Sept 2024 - Dec 2024</p>
-                <ul class="list-disc list-inside text-gray-600 space-y-2">
-                  <li>
-                    Managed tickets using Zendesk and resolved IT issues
-                    efficiently
-                  </li>
-                  <li>
-                    Utilized LanSweeper for hardware and software inventory
-                    management
-                  </li>
-                  <li>
-                    Configured Microsoft Entra ID (Azure AD) for identity
-                    management
-                  </li>
-                  <li>
-                    Provided IT support for hybrid conferences with 980
-                    attendees
-                  </li>
-                </ul>
-              </div>
-
-              <div class="glass-card p-6 card-hover relative">
-                <div
-                  class="absolute -left-9 top-6 w-3 h-3 rounded-full bg-blue-600"
-                ></div>
-                <h3 class="font-bold text-lg">
-                  IT Systems and Solutions Specialist
-                </h3>
-                <p class="text-gray-600">
-                  NovaPro Machining Inc. · Ex Full-Time | Current On-Call
-                  Assistant
-                </p>
-                <p class="text-gray-600">Jun 2024 - Current</p>
-                <ul class="list-disc list-inside text-gray-600 space-y-2">
-                  <li>
-                    Developed internal inventory system using PHP and JavaScript
-                    on LAMP stack
-                  </li>
-                  <li>
-                    Configured networking solutions including VLAN, TCP/UDP,
-                    IPV4/IPV6
-                  </li>
-                  <li>
-                    Automated data migration and backup processes using Python
-                    and Bash
-                  </li>
-                  <li>
-                    Implemented OpenVPN and WireGuard for secure remote
-                    connectivity
-                  </li>
-                </ul>
-              </div>
-
-              <div class="glass-card p-6 card-hover relative">
-                <div
-                  class="absolute -left-9 top-6 w-3 h-3 rounded-full bg-blue-600"
-                ></div>
-                <h3 class="font-bold text-lg">IT Customer Support I</h3>
-                <p class="text-gray-600">
-                  Alberta Health Services | Calgary, AB
-                </p>
-                <p class="text-gray-600">Jan 2023 - Jun 2023</p>
-                <ul class="list-disc list-inside text-gray-600 space-y-2">
-                  <li>
-                    Top 5% performer at Service Desk, resolving 40 tickets daily
-                  </li>
-                  <li>
-                    Managed user accounts and permissions using Microsoft Azure
-                    AD
-                  </li>
-                  <li>Utilized ServiceNow for issue tracking and resolution</li>
-                  <li>Supported corporate mobile devices via Workspace One</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Projects Section -->
-      <section id="projects" class="py-12">
-        <h2 class="text-3xl font-bold gradient-text text-center mb-12">
-          Notable Projects
-        </h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Movie Theatre Project -->
-          <div class="glass-card p-6 card-hover group">
-            <div class="relative overflow-hidden rounded-lg mb-4">
-              <div
-                class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-75 group-hover:opacity-90 transition-opacity"
-              ></div>
-              <svg
-                class="w-16 h-16 text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M7 4v16M17 4v16M3 8h18M3 16h18"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="font-bold text-lg mb-2">Movie Theatre Tracker</h3>
-            <p class="text-gray-600 mb-4">
-              Full-stack application with Google Maps API integration and GCP
-              deployment
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="skill-tag">Google Maps API</span>
-              <span class="skill-tag">GCP</span>
-              <span class="skill-tag">LAMP Stack</span>
-              <span class="skill-tag">PHP</span>
-            </div>
-          </div>
-
-          <!-- Chemistry Inventory -->
-          <div class="glass-card p-6 card-hover group">
-            <div class="relative overflow-hidden rounded-lg mb-4">
-              <div
-                class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-75 group-hover:opacity-90 transition-opacity"
-              ></div>
-              <svg
-                class="w-16 h-16 text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="font-bold text-lg mb-2">
-              Chemistry Department Inventory
-            </h3>
-            <p class="text-gray-600 mb-4">
-              Mobile-responsive chemical tracking system for MRU
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="skill-tag">PHP</span>
-              <span class="skill-tag">JavaScript</span>
-              <span class="skill-tag">Tailwind</span>
-              <span class="skill-tag">Mobile-First</span>
-            </div>
-          </div>
-
-          <!-- Crypto Project -->
-          <div class="glass-card p-6 card-hover group">
-            <div class="relative overflow-hidden rounded-lg mb-4">
-              <div
-                class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-75 group-hover:opacity-90 transition-opacity"
-              ></div>
-              <svg
-                class="w-16 h-16 text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="font-bold text-lg mb-2">Crypto Trading Platform</h3>
-            <p class="text-gray-600 mb-4">
-              Next.js application with Supabase integration
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="skill-tag">Next.js</span>
-              <span class="skill-tag">Supabase</span>
-              <span class="skill-tag">React</span>
-              <span class="skill-tag">Node.js</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Education Section -->
-      <section class="py-12">
-        <h2 class="text-3xl font-bold gradient-text text-center mb-12">
-          Education
-        </h2>
+    <!-- Education Section -->
+    <section id="education" class="py-24 bg-slate-100 px-4">
+      <div class="max-w-4xl mx-auto">
         <div class="glass-card p-8 card-hover">
           <div class="flex items-center mb-6">
             <svg
@@ -529,133 +550,180 @@
             </p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Interests Section -->
-      <section class="py-12">
-        <h2 class="text-3xl font-bold gradient-text text-center mb-12">
-          Interests & Activities
-        </h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="glass-card p-6 card-hover text-center">
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center"
-            >
-              <svg
-                class="w-8 h-8 text-blue-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                />
-              </svg>
-            </div>
-            <h3 class="font-semibold mb-2">LeetCode</h3>
-            <p class="text-gray-600">
-              Active practice to enhance technical knowledge
-            </p>
-          </div>
-
-          <div class="glass-card p-6 card-hover text-center">
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center"
-            >
-              <svg
-                class="w-8 h-8 text-blue-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                />
-              </svg>
-            </div>
-            <h3 class="font-semibold mb-2">Financial Literacy</h3>
-            <p class="text-gray-600">
-              Stock market analysis and personal investing
-            </p>
-          </div>
-
-          <div class="glass-card p-6 card-hover text-center">
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center"
-            >
-              <svg
-                class="w-8 h-8 text-blue-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
-                />
-              </svg>
-            </div>
-            <h3 class="font-semibold mb-2">Raspberry Pi</h3>
-            <p class="text-gray-600">Immich, Docker, Pi-hole DNS resolver</p>
-          </div>
-
-          <div class="glass-card p-6 card-hover text-center">
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center"
-            >
-              <svg
-                class="w-8 h-8 text-blue-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                />
-              </svg>
-            </div>
-            <h3 class="font-semibold mb-2">Privacy & Security</h3>
-            <p class="text-gray-600">PIPEDA, CASL and Privacy Act Knowledge</p>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer
-      class="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-8 mt-12"
-    >
-      <div class="container mx-auto px-4 text-center">
-        <p class="opacity-90">
-          &copy; 2024 Andrija Kolenda. All rights reserved.
-        </p>
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12">
+      <div class="max-w-5xl mx-auto px-4 text-center">
+        <p>&copy; 2024 Andrija Kolenda. All rights reserved.</p>
       </div>
     </footer>
 
-    <div id="particles-js" class="fixed inset-0 -z-10"></div>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+      @keyframes blob {
+        0% {
+          transform: translate(0px, 0px) scale(1);
+        }
+        33% {
+          transform: translate(30px, -50px) scale(1.1);
+        }
+        66% {
+          transform: translate(-20px, 20px) scale(0.9);
+        }
+        100% {
+          transform: translate(0px, 0px) scale(1);
+        }
+      }
+      .animate-blob {
+        animation: blob 7s infinite;
+      }
+      .animation-delay-2000 {
+        animation-delay: 2s;
+      }
+      .animation-delay-4000 {
+        animation-delay: 4s;
+      }
+      .project-icon-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+
     <script>
-      particlesJS.load("particles-js", "./particles-config.json");
-    </script>
-    <script>
-      document.addEventListener("scroll", () => {
-        const parallaxElements = document.querySelectorAll("[data-parallax]");
-        parallaxElements.forEach((element) => {
-          const speed = element.getAttribute("data-parallax");
-          const offset = window.pageYOffset * speed;
-          element.style.transform = `translateY(${offset}px)`;
-        });
+      ScrollReveal().reveal(".animate-on-scroll", {
+        delay: 200,
+        distance: "20px",
+        origin: "bottom",
+        opacity: 0,
+        duration: 1000,
+        easing: "cubic-bezier(0.5, 0, 0, 1)",
+        interval: 100,
       });
+
+      // Particle network animation
+      const canvas = document.getElementById("particle-network");
+      const ctx = canvas.getContext("2d");
+
+      // Make canvas full screen
+      function setCanvasSize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      setCanvasSize();
+      window.addEventListener("resize", setCanvasSize);
+
+      // Particle settings
+      const particleCount = 100;
+      const particles = [];
+      const connectionDistance = 100;
+      const mouseRadius = 150;
+
+      let mouse = {
+        x: null,
+        y: null,
+        radius: mouseRadius,
+      };
+
+      // Track mouse movement
+      document.addEventListener("mousemove", (event) => {
+        mouse.x = event.x;
+        mouse.y = event.y;
+      });
+
+      // Particle class
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 2 + 1;
+          this.velocityX = (Math.random() - 0.5) * 0.5;
+          this.velocityY = (Math.random() - 0.5) * 0.5;
+          this.baseX = this.x;
+          this.baseY = this.y;
+          this.density = Math.random() * 30 + 1;
+        }
+
+        update() {
+          // Mouse interaction
+          if (mouse.x != null) {
+            let dx = mouse.x - this.x;
+            let dy = mouse.y - this.y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < mouse.radius) {
+              const angle = Math.atan2(dy, dx);
+              const force = (mouse.radius - distance) / mouse.radius;
+              this.x -= Math.cos(angle) * force * 5;
+              this.y -= Math.sin(angle) * force * 5;
+            }
+          }
+
+          // Return to original position
+          let dx = this.baseX - this.x;
+          let dy = this.baseY - this.y;
+          this.x += dx * 0.05;
+          this.y += dy * 0.05;
+
+          // Move particles
+          this.x += this.velocityX;
+          this.y += this.velocityY;
+
+          // Bounce off edges
+          if (this.x < 0 || this.x > canvas.width) this.velocityX *= -1;
+          if (this.y < 0 || this.y > canvas.height) this.velocityY *= -1;
+        }
+
+        draw() {
+          ctx.fillStyle = "rgba(99, 102, 241, 0.5)";
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.closePath();
+          ctx.fill();
+        }
+      }
+
+      // Create particles
+      function init() {
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle());
+        }
+      }
+      init();
+
+      // Animation loop
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particles.forEach((particle) => {
+          particle.update();
+          particle.draw();
+
+          // Connect particles
+          particles.forEach((otherParticle) => {
+            const dx = particle.x - otherParticle.x;
+            const dy = particle.y - otherParticle.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < connectionDistance) {
+              ctx.strokeStyle = `rgba(99, 102, 241, ${
+                1 - distance / connectionDistance
+              })`;
+              ctx.lineWidth = 1;
+              ctx.beginPath();
+              ctx.moveTo(particle.x, particle.y);
+              ctx.lineTo(otherParticle.x, otherParticle.y);
+              ctx.stroke();
+            }
+          });
+        });
+
+        requestAnimationFrame(animate);
+      }
+      animate();
     </script>
   </body>
 </html>
