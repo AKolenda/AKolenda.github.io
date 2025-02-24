@@ -4,64 +4,40 @@ function initTheme() {
     "theme-toggle-light-icon"
   );
   const themeToggleBtn = document.getElementById("theme-toggle");
+  const html = document.documentElement;
 
-  // Change the icons inside the button based on previous settings
+  // Set initial theme based on localStorage or system preference
   if (
     localStorage.getItem("color-theme") === "dark" ||
     (!localStorage.getItem("color-theme") &&
       window.matchMedia("(prefers-color-scheme: dark)").matches)
   ) {
     themeToggleLightIcon.classList.remove("hidden");
-    document.documentElement.classList.add("dark");
+    html.classList.add("dark");
   } else {
     themeToggleDarkIcon.classList.remove("hidden");
-    document.documentElement.classList.remove("dark");
+    html.classList.remove("dark");
   }
 
-  themeToggleBtn.addEventListener("click", function () {
-    // Preserve animation states during theme switch
-    document
-      .querySelectorAll(".work-card, .stagger-card, .project-card")
-      .forEach((card) => {
-        card.style.transition = "none";
-        card.offsetHeight; // Force reflow
-        card.style.transition = "";
-      });
+  // Simplified theme toggle function
+  function toggleTheme() {
+    if (html.classList.contains("dark")) {
+      html.classList.remove("dark");
+      localStorage.setItem("color-theme", "light");
+    } else {
+      html.classList.add("dark");
+      localStorage.setItem("color-theme", "dark");
+    }
+  }
 
-    // Toggle icons
+  // Desktop toggle
+  themeToggleBtn.addEventListener("click", () => {
     themeToggleDarkIcon.classList.toggle("hidden");
     themeToggleLightIcon.classList.toggle("hidden");
-
-    // If is set in localStorage
-    if (localStorage.getItem("color-theme")) {
-      if (localStorage.getItem("color-theme") === "light") {
-        document.documentElement.classList.add("dark");
-        localStorage.setItem("color-theme", "dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-        localStorage.setItem("color-theme", "light");
-      }
-    } else {
-      if (document.documentElement.classList.contains("dark")) {
-        document.documentElement.classList.remove("dark");
-        localStorage.setItem("color-theme", "light");
-      } else {
-        document.documentElement.classList.add("dark");
-        localStorage.setItem("color-theme", "dark");
-      }
-    }
-
-    // Re-trigger animations if needed
-    requestAnimationFrame(() => {
-      document.querySelectorAll(".is-visible").forEach((el) => {
-        el.classList.remove("is-visible");
-        el.offsetHeight; // Force reflow
-        el.classList.add("is-visible");
-      });
-    });
+    toggleTheme();
   });
 
-  // Add mobile theme toggle functionality
+  // Mobile toggle
   const themeToggleMobile = document.getElementById("theme-toggle-mobile");
   const themeToggleDarkIconMobile = document.getElementById(
     "theme-toggle-dark-icon-mobile"
@@ -71,25 +47,16 @@ function initTheme() {
   );
 
   // Set initial state for mobile toggle
-  if (document.documentElement.classList.contains("dark")) {
+  if (html.classList.contains("dark")) {
     themeToggleLightIconMobile.classList.remove("hidden");
   } else {
     themeToggleDarkIconMobile.classList.remove("hidden");
   }
 
-  // Add click handler for mobile toggle
-  themeToggleMobile.addEventListener("click", function () {
+  themeToggleMobile.addEventListener("click", () => {
     themeToggleDarkIconMobile.classList.toggle("hidden");
     themeToggleLightIconMobile.classList.toggle("hidden");
-
-    // Reuse the same theme toggle logic
-    if (localStorage.getItem("color-theme") === "light") {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("color-theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("color-theme", "light");
-    }
+    toggleTheme();
   });
 }
 
