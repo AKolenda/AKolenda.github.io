@@ -83,16 +83,33 @@
           <div class="flex items-center md:hidden">
             <button
               id="theme-toggle-mobile"
-              class="p-2 mr-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+              class="p-2 mr-2 text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white focus:outline-none"
             >
-              <!-- Sun/Moon icons (copy from desktop version) -->
+              <!-- Sun icon -->
+              <svg
+                id="theme-toggle-light-icon-mobile"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path>
+              </svg>
+              <!-- Moon icon -->
+              <svg
+                id="theme-toggle-dark-icon-mobile"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+              </svg>
             </button>
             <button
               id="mobile-menu-button"
-              class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline-none"
+              class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white focus:outline-none"
             >
               <svg
-                class="h-6 w-6"
+                class="h-6 w-6 text-current"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -118,22 +135,22 @@
         <div class="px-2 pt-2 pb-3 space-y-1">
           <a
             href="#work"
-            class="block px-3 py-2 rounded-md text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400"
+            class="block px-3 py-2 rounded-md text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition-colors"
             >Work</a
           >
           <a
             href="#projects"
-            class="block px-3 py-2 rounded-md text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400"
+            class="block px-3 py-2 rounded-md text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition-colors"
             >Projects</a
           >
           <a
             href="#skills"
-            class="block px-3 py-2 rounded-md text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400"
+            class="block px-3 py-2 rounded-md text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition-colors"
             >Skills</a
           >
           <a
             href="#about"
-            class="block px-3 py-2 rounded-md text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400"
+            class="block px-3 py-2 rounded-md text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition-colors"
             >About</a
           >
         </div>
@@ -144,18 +161,18 @@
     <section
       class="min-h-screen flex items-center justify-center relative overflow-hidden parallax-section"
     >
-      <!-- Updated gradient background -->
+      <!-- Updated gradient background with dark mode support -->
       <div
-        class="absolute inset-0 hero-gradient bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-gray-900 dark:to-gray-800"
+        class="absolute inset-0 bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-gray-900 dark:to-gray-800"
       ></div>
 
-      <!-- Particle network with dark mode support -->
+      <!-- Particle network with dark mode opacity -->
       <canvas
         id="particle-network"
         class="absolute inset-0 z-0 opacity-75 dark:opacity-30"
       ></canvas>
 
-      <!-- Updated animated shapes for dark mode -->
+      <!-- Animated shapes with dark mode colors -->
       <div class="absolute inset-0 z-[1]">
         <div
           class="absolute top-1/4 left-1/4 w-64 h-64 bg-indigo-300/20 dark:bg-indigo-500/10 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-xl animate-blob"
@@ -168,9 +185,9 @@
         ></div>
       </div>
 
-      <!-- Updated content section with dark mode text -->
+      <!-- Content with dark mode text colors -->
       <div class="relative z-[2] text-center px-4">
-        <div class="mb-8 relative inline-block float-element hover-lift">
+        <div class="mb-8 relative inline-block float-element">
           <div
             class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-violet-600 rounded-full blur-lg opacity-75"
           ></div>
@@ -903,29 +920,27 @@
           <div
             class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 stagger-card tilt-card"
           >
-            <div class="relative h-48 bg-white">
+            <div class="relative h-48">
               <div
                 class="slideshow-container cursor-pointer"
                 data-project="mru-chemistry"
               >
-                <div class="bg-white h-48 flex items-center justify-center">
-                  <img
-                    src="./res/mruchemistrywebsite1.png"
-                    class="slide active h-full w-auto object-contain"
-                  />
-                  <img
-                    src="./res/mruchemistrywebsite2.png"
-                    class="slide h-full w-auto object-contain"
-                  />
-                  <img
-                    src="./res/mruchemistrywebsite3.png"
-                    class="slide h-full w-auto object-contain"
-                  />
-                  <img
-                    src="./res/mruchemistrywebsite4.png"
-                    class="slide h-full w-auto object-contain"
-                  />
-                </div>
+                <img
+                  src="./res/mruOne.png"
+                  class="slide active w-full h-48 object-cover"
+                />
+                <img
+                  src="./res/mruTwo.png"
+                  class="slide w-full h-48 object-cover"
+                />
+                <img
+                  src="./res/mruThree.png"
+                  class="slide w-full h-48 object-cover"
+                />
+                <img
+                  src="./res/mruFour.png"
+                  class="slide w-full h-48 object-cover"
+                />
                 <!-- Navigation dots -->
                 <div
                   class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10"
@@ -1021,25 +1036,23 @@
           <div
             class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 stagger-card tilt-card"
           >
-            <div class="relative h-48 bg-white">
+            <div class="relative h-48">
               <div
                 class="slideshow-container cursor-pointer"
                 data-project="cookie-manager"
               >
-                <div class="bg-white h-48 flex items-center justify-center">
-                  <img
-                    src="./res/cookieOne.png"
-                    class="slide active h-full w-auto object-contain"
-                  />
-                  <img
-                    src="./res/cookieTwo.png"
-                    class="slide h-full w-auto object-contain"
-                  />
-                  <img
-                    src="./res/cookieThree.png"
-                    class="slide h-full w-auto object-contain"
-                  />
-                </div>
+                <img
+                  src="./res/cookiePageOne.png"
+                  class="slide active h-full w-auto object-contain"
+                />
+                <img
+                  src="./res/cookiePageTwo.png"
+                  class="slide h-full w-auto object-contain"
+                />
+                <img
+                  src="./res/cookiePageThree.png"
+                  class="slide h-full w-auto object-contain"
+                />
                 <!-- Navigation dots -->
                 <div
                   class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10"
@@ -1132,18 +1145,19 @@
           <div
             class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 stagger-card tilt-card"
           >
-            <div class="relative h-48 bg-white">
+            <div class="relative h-48">
               <div
                 class="slideshow-container cursor-pointer"
                 data-project="novapro"
               >
-                <div class="bg-white h-48 flex items-center justify-center">
-                  <img
-                    src="./res/novaprolanding.png"
-                    class="slide active h-full w-auto object-contain"
-                    alt="NovaPro Inventory System"
-                  />
-                </div>
+                <img
+                  src="./res/novaLanding.png"
+                  alt="NovaPro Inventory System"
+                  class="slide active w-full h-full object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-b from-transparent to-black/50"
+                ></div>
               </div>
             </div>
             <div class="p-6">
@@ -1363,7 +1377,7 @@
           </div>
           <div class="bg-blue-50 rounded-lg p-4">
             <h4 class="font-semibold mb-2">Academic Achievements</h4>
-            <p class="text-gray-700">
+            <p class="text-gray-700"></p>
               Dean's Honor Roll - Fall 2021, Winter 2021, Fall 2022, Fall 2023,
               Winter 2024
             </p>
@@ -1375,7 +1389,7 @@
     <!-- Footer -->
     <footer class="bg-slate-900 text-white py-12">
       <div class="max-w-5xl mx-auto px-4 text-center">
-        <p>&copy; 2024 Andrija Kolenda. All rights reserved.</p>
+        <p>&copy; 2025 Andrija Kolenda. All rights reserved.</p>
       </div>
     </footer>
   </body>
