@@ -60,6 +60,37 @@ function initTheme() {
       });
     });
   });
+
+  // Add mobile theme toggle functionality
+  const themeToggleMobile = document.getElementById("theme-toggle-mobile");
+  const themeToggleDarkIconMobile = document.getElementById(
+    "theme-toggle-dark-icon-mobile"
+  );
+  const themeToggleLightIconMobile = document.getElementById(
+    "theme-toggle-light-icon-mobile"
+  );
+
+  // Set initial state for mobile toggle
+  if (document.documentElement.classList.contains("dark")) {
+    themeToggleLightIconMobile.classList.remove("hidden");
+  } else {
+    themeToggleDarkIconMobile.classList.remove("hidden");
+  }
+
+  // Add click handler for mobile toggle
+  themeToggleMobile.addEventListener("click", function () {
+    themeToggleDarkIconMobile.classList.toggle("hidden");
+    themeToggleLightIconMobile.classList.toggle("hidden");
+
+    // Reuse the same theme toggle logic
+    if (localStorage.getItem("color-theme") === "light") {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("color-theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("color-theme", "light");
+    }
+  });
 }
 
 // Initialize mobile menu
