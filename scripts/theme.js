@@ -98,14 +98,17 @@ function initMobileMenu() {
   const mobileMenuBtn = document.getElementById("mobile-menu-button");
   const mobileMenu = document.getElementById("mobile-menu");
 
+  // Toggle both hidden class and show class
   mobileMenuBtn.addEventListener("click", () => {
     mobileMenu.classList.toggle("hidden");
+    mobileMenu.classList.toggle("show");
   });
 
-  // Close menu when clicking on mobile menu links
-  mobileMenu.querySelectorAll("a").forEach((link) => {
+  // Close menu when clicking a link
+  document.querySelectorAll("#mobile-menu a").forEach((link) => {
     link.addEventListener("click", () => {
       mobileMenu.classList.add("hidden");
+      mobileMenu.classList.remove("show");
     });
   });
 }
