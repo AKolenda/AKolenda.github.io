@@ -92,10 +92,17 @@
 /* Set immediate dark mode background when class is present */
 html.dark {
   @apply bg-gray-900;
+  /* Remove transition */
 }
 
 html.dark body {
   @apply bg-gray-900;
+  /* Remove transition */
+}
+
+/* Add specific transitions only where needed */
+body {
+  @apply transition-colors duration-100;
 }
 
 select,
