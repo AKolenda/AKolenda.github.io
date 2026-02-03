@@ -1,63 +1,269 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Andrija Kolenda - Developer & IT Specialist</title>
+    <title>Andrija Kolenda - Full-Stack Developer</title>
+
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./assets/site.webmanifest" />
+    <link rel="shortcut icon" href="./assets/favicon.ico" />
+
     <link rel="stylesheet" href="./style/output.css" />
     <link rel="stylesheet" href="./style/animations.css" />
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="./scripts/animations.js" defer></script>
-    <script src="./scripts/slideshow.js" defer></script>
-  </head>
-  <body class="bg-slate-50 text-slate-900 font-sans antialiased">
     <script src="./scripts/theme.js" defer></script>
-    <!-- Header/Navigation -->
+    <style>
+      /* Custom styles for the fresh design */
+      .gradient-text {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .dark .glass-card {
+        background: rgba(30, 41, 59, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .project-card {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+      }
+
+      .project-card:hover {
+        transform: translateY(-8px);
+      }
+
+      .project-card:hover .project-overlay {
+        opacity: 1;
+      }
+
+      .project-overlay {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      /* Modal Styles */
+      .modal-backdrop {
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .modal-backdrop.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .modal-content {
+        transform: scale(0.9) translateY(20px);
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      .modal-backdrop.active .modal-content {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+
+      .modal-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+      }
+
+      .modal-gallery img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      .modal-gallery img:hover {
+        transform: scale(1.05);
+      }
+
+      .modal-main-image {
+        width: 100%;
+        max-height: 400px;
+        object-fit: contain;
+        border-radius: 0.75rem;
+        background: rgba(0,0,0,0.1);
+      }
+
+      .skill-pill {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: linear-gradient(
+          135deg,
+          rgba(238, 242, 255, 1) 0%,
+          rgba(245, 243, 255, 1) 100%
+        );
+        color: #4338ca;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.3s;
+        cursor: default;
+        margin: 0.25rem;
+      }
+
+      .dark .skill-pill {
+        background: linear-gradient(
+          135deg,
+          rgba(67, 56, 202, 0.2) 0%,
+          rgba(109, 40, 217, 0.2) 100%
+        );
+        color: #a5b4fc;
+      }
+
+      .skill-pill:hover {
+        background: linear-gradient(
+          135deg,
+          rgba(224, 231, 255, 1) 0%,
+          rgba(237, 233, 254, 1) 100%
+        );
+      }
+
+      .dark .skill-pill:hover {
+        background: linear-gradient(
+          135deg,
+          rgba(67, 56, 202, 0.3) 0%,
+          rgba(109, 40, 217, 0.3) 100%
+        );
+      }
+
+      .timeline-line {
+        background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+      }
+
+      .hero-gradient {
+        background: linear-gradient(
+          135deg,
+          #f5f7fa 0%,
+          #e4e8f0 50%,
+          #f0e6fa 100%
+        );
+      }
+
+      .dark .hero-gradient {
+        background: linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #1e1b4b 50%,
+          #1e1b4b 100%
+        );
+      }
+
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .tech-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+
+      .glow-effect {
+        box-shadow: 0 0 40px rgba(102, 126, 234, 0.15);
+      }
+
+      .dark .glow-effect {
+        box-shadow: 0 0 40px rgba(102, 126, 234, 0.25);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-sans antialiased transition-colors duration-300"
+  >
+    <!-- Navigation -->
     <nav
-      class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg transition-colors duration-200"
+      class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-700/50"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
           <div class="flex items-center">
-            <a
-              href="#"
-              class="text-xl font-bold bg-gradient-to-r from-indigo-600 to-violet-600 text-transparent bg-clip-text"
-              >AK</a
-            >
+            <a href="#" class="text-2xl font-bold gradient-text">AK</a>
           </div>
 
-          <!-- Desktop Navigation -->
+          <!-- Desktop Nav -->
           <div class="hidden md:flex items-center space-x-8">
             <a
-              href="#work"
-              class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition-colors"
-              >Work</a
+              href="#about"
+              class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium"
+              >About</a
             >
             <a
-              href="#projects"
-              class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition-colors"
-              >Projects</a
+              href="#experience"
+              class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium"
+              >Experience</a
+            >
+            <a
+              href="#portfolio"
+              class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium"
+              >Portfolio</a
             >
             <a
               href="#skills"
-              class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition-colors"
+              class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium"
               >Skills</a
             >
             <a
-              href="#about"
-              class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition-colors"
-              >About</a
+              href="#contact"
+              class="px-5 py-2 bg-gradient-to-r from-indigo-600 to-violet-600 text-white rounded-full font-medium hover:shadow-lg hover:shadow-indigo-500/25 transition-all"
+              >Contact</a
             >
 
-            <!-- Dark mode toggle -->
+            <!-- Theme Toggle -->
             <button
               id="theme-toggle"
-              class="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+              class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
             >
-              <!-- Sun icon -->
               <svg
                 id="theme-toggle-light-icon"
-                class="hidden w-5 h-5"
+                class="hidden w-5 h-5 text-amber-500"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -65,10 +271,9 @@
                   d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
                 ></path>
               </svg>
-              <!-- Moon icon -->
               <svg
                 id="theme-toggle-dark-icon"
-                class="hidden w-5 h-5"
+                class="hidden w-5 h-5 text-indigo-400"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -79,79 +284,85 @@
             </button>
           </div>
 
-          <!-- Mobile menu button -->
-          <div class="flex items-center md:hidden">
+          <!-- Mobile Menu Button -->
+          <div class="flex items-center md:hidden space-x-2">
             <button
               id="theme-toggle-mobile"
-              class="p-2 mr-2 text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white focus:outline-none"
+              class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800"
             >
-              <!-- Sun icon -->
               <svg
                 id="theme-toggle-light-icon-mobile"
-                class="hidden w-5 h-5"
+                class="hidden w-5 h-5 text-amber-500"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
-                <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path>
+                <path
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                ></path>
               </svg>
-              <!-- Moon icon -->
               <svg
                 id="theme-toggle-dark-icon-mobile"
-                class="hidden w-5 h-5"
+                class="hidden w-5 h-5 text-indigo-400"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
-                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                <path
+                  d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                ></path>
               </svg>
             </button>
             <button
               id="mobile-menu-button"
-              class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white focus:outline-none"
+              class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
             >
               <svg
-                class="h-6 w-6 text-current"
+                class="w-6 h-6"
                 fill="none"
-                viewBox="0 0 24 24"
                 stroke="currentColor"
+                viewBox="0 0 24 24"
               >
                 <path
-                  class="mobile-menu-icon"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
                   d="M4 6h16M4 12h16M4 18h16"
-                />
+                ></path>
               </svg>
             </button>
           </div>
         </div>
       </div>
 
-      <!-- Mobile menu -->
+      <!-- Mobile Menu -->
       <div
         id="mobile-menu"
-        class="hidden md:hidden bg-white dark:bg-gray-900 shadow-lg transition-all duration-200"
+        class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700"
       >
-        <div class="px-2 pt-2 pb-3 space-y-1">
+        <div class="px-4 py-4 space-y-2">
           <a
-            href="#work"
-            class="block px-3 py-2 rounded-md text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition-colors"
-            >Work</a
+            href="#about"
+            class="block px-4 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+            >About</a
           >
           <a
-            href="#projects"
-            class="block px-3 py-2 rounded-md text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition-colors"
-            >Projects</a
+            href="#experience"
+            class="block px-4 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+            >Experience</a
+          >
+          <a
+            href="#portfolio"
+            class="block px-4 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+            >Portfolio</a
           >
           <a
             href="#skills"
-            class="block px-3 py-2 rounded-md text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition-colors"
+            class="block px-4 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
             >Skills</a
           >
           <a
-            href="#about"
-            class="block px-3 py-2 rounded-md text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition-colors"
-            >About</a
+            href="#contact"
+            class="block px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-600 to-violet-600 text-white text-center"
+            >Contact</a
           >
         </div>
       </div>
@@ -159,1033 +370,734 @@
 
     <!-- Hero Section -->
     <section
-      class="min-h-screen flex items-center justify-center relative overflow-hidden parallax-section"
+      id="about"
+      class="min-h-screen flex items-center justify-center hero-gradient relative overflow-hidden pt-16"
     >
-      <!-- Updated gradient background with dark mode support -->
-      <div
-        class="absolute inset-0 bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-gray-900 dark:to-gray-800"
-      ></div>
-
-      <!-- Particle network with dark mode opacity -->
-      <canvas
-        id="particle-network"
-        class="absolute inset-0 z-0 opacity-75 dark:opacity-30"
-      ></canvas>
-
-      <!-- Animated shapes with dark mode colors -->
-      <div class="absolute inset-0 z-[1]">
+      <!-- Decorative Elements -->
+      <div class="absolute inset-0 overflow-hidden">
         <div
-          class="absolute top-1/4 left-1/4 w-64 h-64 bg-indigo-300/20 dark:bg-indigo-500/10 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-xl animate-blob"
+          class="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl floating"
         ></div>
         <div
-          class="absolute top-1/3 right-1/4 w-64 h-64 bg-violet-300/20 dark:bg-violet-500/10 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-xl animate-blob animation-delay-2000"
+          class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-violet-400/10 rounded-full blur-3xl floating"
+          style="animation-delay: -3s"
         ></div>
         <div
-          class="absolute bottom-1/4 left-1/3 w-64 h-64 bg-pink-300/20 dark:bg-pink-500/10 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-xl animate-blob animation-delay-4000"
+          class="absolute top-1/2 left-1/2 w-64 h-64 bg-pink-400/10 rounded-full blur-3xl floating"
+          style="animation-delay: -1.5s"
         ></div>
       </div>
 
-      <!-- Content with dark mode text colors -->
-      <div class="relative z-[2] text-center px-4">
-        <div class="mb-8 relative inline-block float-element">
-          <div
-            class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-violet-600 rounded-full blur-lg opacity-75"
-          ></div>
-          <img
-            src="./res/Headshot.jpeg"
-            alt="Andrija Kolenda"
-            class="relative w-40 h-40 rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-xl"
-          />
-        </div>
-        <h1 class="text-6xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-          Andrija Kolenda
-        </h1>
-        <p class="text-xl text-gray-800 dark:text-gray-300 mb-8">
-          Software Developer & IT Specialist
-        </p>
-        <div class="flex gap-4 justify-center">
-          <a
-            href="#work"
-            class="apple-button px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all"
-          >
-            View My Work
-          </a>
-          <a
-            href="#contact"
-            class="apple-button px-6 py-3 bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 rounded-lg hover:bg-slate-50 dark:hover:bg-gray-700 transition-all shadow-md"
-          >
-            Get in Touch
-          </a>
-        </div>
-      </div>
-    </section>
+      <div class="relative z-10 max-w-6xl mx-auto px-4 py-20">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Text Content -->
+          <div class="text-center lg:text-left order-2 lg:order-1">
+            <div
+              class="inline-flex items-center px-4 py-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-full text-indigo-700 dark:text-indigo-300 text-sm font-medium mb-6"
+            >
+              <span
+                class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"
+              ></span>
+              Available for opportunities
+            </div>
 
-    <!-- Work Experience -->
-    <section id="work" class="py-24 px-4 content-section">
-      <div class="max-w-5xl mx-auto">
-        <h2
-          class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-indigo-600 to-violet-600 text-transparent bg-clip-text"
-        >
-          Work Experience
-        </h2>
-        <div class="space-y-12">
-          <!-- Each job card with enhanced styling -->
-          <div
-            class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all work-card overflow-hidden"
-          >
-            <div
-              class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-indigo-600 to-violet-600 rounded-l-2xl"
-            ></div>
-            <!-- Add decorative elements -->
-            <div
-              class="absolute -right-20 -top-20 w-40 h-40 bg-indigo-100 rounded-full opacity-10 group-hover:scale-150 transition-transform duration-500"
-            ></div>
-            <div
-              class="absolute -right-20 -bottom-20 w-40 h-40 bg-violet-100 rounded-full opacity-10 group-hover:scale-150 transition-transform duration-500"
-            ></div>
+            <h1 class="text-5xl lg:text-7xl font-bold mb-6">
+              <span class="text-slate-900 dark:text-white">Hi, I'm </span>
+              <span class="gradient-text">Andrija</span>
+            </h1>
 
-            <div class="relative ml-2">
-              <div class="flex items-start justify-between mb-4">
-                <div>
-                  <h3
-                    class="text-2xl font-bold mb-2 bg-gradient-to-r from-indigo-600 to-violet-600 text-transparent bg-clip-text"
-                  >
-                    IT Service Desk Technician
-                  </h3>
-                  <div class="flex items-center text-indigo-600 mb-2">
-                    <svg
-                      class="w-5 h-5 mr-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      />
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
-                    <span>Hatch · Calgary, AB</span>
-                  </div>
-                  <div class="flex items-center text-slate-500">
-                    <svg
-                      class="w-5 h-5 mr-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
-                    <span>Sept 2024 - Dec 2024</span>
-                  </div>
-                </div>
-                <div
-                  class="hidden md:block w-16 h-16 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-xl p-3 shadow-lg group-hover:scale-110 transition-transform"
-                >
-                  <svg
-                    class="w-full h-full text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
+            <p
+              class="text-xl lg:text-2xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed"
+            >
+              Full-Stack Developer & IT Specialist crafting scalable enterprise
+              solutions with
+              <span class="font-semibold text-indigo-600 dark:text-indigo-400"
+                >150k+ lines of production code</span
+              >
+            </p>
+
+            <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+              <a
+                href="#portfolio"
+                class="px-8 py-4 bg-gradient-to-r from-indigo-600 to-violet-600 text-white rounded-full font-semibold hover:shadow-xl hover:shadow-indigo-500/25 transition-all transform hover:-translate-y-1"
+              >
+                View My Work
+              </a>
+              <a
+                href="#contact"
+                class="px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 border border-slate-200 dark:border-slate-700"
+              >
+                Get In Touch
+              </a>
+            </div>
+
+            <!-- Quick Stats -->
+            <div
+              class="flex flex-wrap gap-8 mt-12 justify-center lg:justify-start"
+            >
+              <div class="text-center">
+                <div class="text-3xl font-bold gradient-text">150k+</div>
+                <div class="text-sm text-slate-500 dark:text-slate-400">
+                  Lines of Code
                 </div>
               </div>
-
-              <ul class="space-y-3 text-slate-600 list-none">
-                <li class="flex items-start">
-                  <svg
-                    class="w-5 h-5 mr-2 mt-1 text-indigo-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <span
-                    >Managed tickets using Zendesk and resolved IT issues
-                    efficiently</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <svg
-                    class="w-5 h-5 mr-2 mt-1 text-indigo-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <span
-                    >Utilized LanSweeper for hardware and software inventory
-                    management</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <svg
-                    class="w-5 h-5 mr-2 mt-1 text-indigo-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <span
-                    >Configured Microsoft Entra ID (Azure AD) for identity
-                    management</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <svg
-                    class="w-5 h-5 mr-2 mt-1 text-indigo-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <span
-                    >Provided IT support for hybrid conferences with 980
-                    attendees</span
-                  >
-                </li>
-              </ul>
-
-              <div class="mt-4 flex flex-wrap gap-2">
-                <span
-                  class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium"
-                  >Zendesk</span
-                >
-                <span
-                  class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium"
-                  >Azure AD</span
-                >
-                <span
-                  class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium"
-                  >LanSweeper</span
-                >
+              <div class="text-center">
+                <div class="text-3xl font-bold gradient-text">8+</div>
+                <div class="text-sm text-slate-500 dark:text-slate-400">
+                  Major Projects
+                </div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold gradient-text">3.89</div>
+                <div class="text-sm text-slate-500 dark:text-slate-400">
+                  GPA
+                </div>
               </div>
             </div>
           </div>
-          <div
-            class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all work-card overflow-hidden"
-            style="transition-delay: 200ms"
-          >
-            <div
-              class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-indigo-600 to-violet-600 rounded-l-2xl"
-            ></div>
-            <!-- Enhanced decorative elements -->
-            <div
-              class="absolute -right-20 -top-20 w-40 h-40 bg-indigo-100 rounded-full opacity-10 group-hover:scale-150 transition-transform duration-500"
-            ></div>
-            <div
-              class="absolute -right-20 -bottom-20 w-40 h-40 bg-violet-100 rounded-full opacity-10 group-hover:scale-150 transition-transform duration-500"
-            ></div>
-            <div
-              class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-indigo-50/20 to-violet-50/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-            ></div>
 
-            <div class="relative ml-2">
-              <div class="flex items-start justify-between mb-6">
-                <div>
-                  <h3
-                    class="text-2xl font-bold mb-2 bg-gradient-to-r from-indigo-600 to-violet-600 text-transparent bg-clip-text"
-                  >
-                    IT Systems and Solutions Specialist
-                  </h3>
-                  <div class="flex items-center text-indigo-600 mb-2">
-                    <svg
-                      class="w-5 h-5 mr-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      />
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
-                    <span
-                      >NovaPro Machining Inc. · Ex Full-Time | Current On-Call
-                      Assistant</span
-                    >
-                  </div>
-                  <div class="flex items-center text-slate-500">
-                    <svg
-                      class="w-5 h-5 mr-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
-                    <span>Jun 2024 - Current</span>
-                  </div>
-                </div>
-                <!-- Enhanced icon section -->
-                <div class="hidden md:flex flex-col items-end space-y-2">
-                  <div
-                    class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-xl p-3 shadow-lg group-hover:scale-110 transition-transform"
-                  >
-                    <svg
-                      class="w-full h-full text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Enhanced achievements section -->
+          <!-- Profile Image -->
+          <div class="order-1 lg:order-2 flex justify-center">
+            <div class="relative">
               <div
-                class="bg-gradient-to-r from-indigo-50 to-violet-50 rounded-lg p-4 mb-4"
-              >
-                <h4 class="font-semibold text-indigo-600 mb-2">
-                  Key Achievements
-                </h4>
-                <ul class="space-y-3 text-slate-600 list-none">
-                  <li
-                    class="flex items-start transform transition-transform hover:translate-x-2"
-                  >
-                    <svg
-                      class="w-5 h-5 mr-2 mt-1 text-indigo-500"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    <span
-                      >Developed inventory system using <strong>PHP</strong>,
-                      <strong>MariaDB</strong>, and
-                      <strong>JavaScript</strong> on LAMP stack</span
-                    >
-                  </li>
-                  <li
-                    class="flex items-start transform transition-transform hover:translate-x-2"
-                  >
-                    <svg
-                      class="w-5 h-5 mr-2 mt-1 text-indigo-500"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    <span
-                      >Implemented <strong>TrueNAS</strong> systems for robust
-                      data storage</span
-                    >
-                  </li>
-                  <li
-                    class="flex items-start transform transition-transform hover:translate-x-2"
-                  >
-                    <svg
-                      class="w-5 h-5 mr-2 mt-1 text-indigo-500"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    <span
-                      >Deployed and configured <strong>WireGuard</strong> and
-                      <strong>OpenVPN</strong> for secure remote access</span
-                    >
-                  </li>
-                  <li
-                    class="flex items-start transform transition-transform hover:translate-x-2"
-                  >
-                    <svg
-                      class="w-5 h-5 mr-2 mt-1 text-indigo-500"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    <span
-                      >Led successful data migration from legacy server to
-                      <strong>TrueNAS Scale</strong> environment</span
-                    >
-                  </li>
-                  <li
-                    class="flex items-start transform transition-transform hover:translate-x-2"
-                  >
-                    <svg
-                      class="w-5 h-5 mr-2 mt-1 text-indigo-500"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    <span
-                      >Implemented <strong>BlackBlaze</strong> 3-2-1 backup
-                      scheme automated</span
-                    >
-                  </li>
-                  <li
-                    class="flex items-start transform transition-transform hover:translate-x-2"
-                  >
-                    <svg
-                      class="w-5 h-5 mr-2 mt-1 text-indigo-500"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    <span
-                      >Built inventory management system with
-                      <strong>automatic calculations</strong> for material
-                      lengths and auto-backup functionality, hosted on
-                      <strong>Fedora Linux</strong></span
-                    >
-                  </li>
-                </ul>
-              </div>
+                class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-violet-600 rounded-full blur-2xl opacity-30 scale-110"
+              ></div>
+              <img
+                src="./res/Headshot.jpeg"
+                alt="Andrija Kolenda"
+                class="relative w-64 h-64 lg:w-80 lg:h-80 rounded-full object-cover border-4 border-white dark:border-slate-800 shadow-2xl floating"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
 
-              <!-- Enhanced skills section -->
-              <div class="mt-4">
-                <div class="mb-3 text-sm font-medium text-slate-600">
-                  Technologies & Tools:
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <a
+          href="#experience"
+          class="flex flex-col items-center text-slate-400 hover:text-indigo-600 transition-colors"
+        >
+          <span class="text-sm mb-2">Scroll to explore</span>
+          <svg
+            class="w-6 h-6 animate-bounce"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            ></path>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 px-4 bg-white dark:bg-slate-800/50">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+            <span class="gradient-text">Work Experience</span>
+          </h2>
+          <p class="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">
+            Building enterprise solutions and providing IT expertise across various industries
+          </p>
+        </div>
+
+        <div class="relative">
+          <!-- Timeline Line -->
+          <div class="absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500 via-violet-500 to-blue-500 hidden md:block"></div>
+
+          <!-- Experience Cards -->
+          <div class="space-y-12">
+            
+            <!-- NovaPro - Current/Primary (Right Side) -->
+            <div class="relative flex flex-col md:flex-row md:items-center">
+              <div class="md:w-1/2 md:pr-12 md:text-right">
+                <div class="glass-card rounded-2xl p-6 shadow-xl glow-effect">
+                  <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+                    <div class="flex items-center gap-2">
+                      <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full text-sm font-semibold animate-pulse">● Current</span>
+                      <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 rounded-full text-sm font-medium">Full-time</span>
+                    </div>
+                    <span class="text-slate-500 dark:text-slate-400 text-sm">Jun 2024 - Present</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                    Principal Software Engineer & Network Infrastructure Lead
+                  </h3>
+                  <p class="text-indigo-600 dark:text-indigo-400 font-semibold mb-4">
+                    NovaPro Machining Inc. · Calgary, AB
+                  </p>
+                  
+                  <div class="text-left space-y-4 mb-4">
+                    <div>
+                      <h4 class="font-semibold text-slate-900 dark:text-white mb-2 text-sm flex items-center gap-2">
+                        <span class="text-indigo-500">⚡</span> Software Development
+                      </h4>
+                      <ul class="text-slate-600 dark:text-slate-300 space-y-1 text-sm">
+                        <li>• Custom Full-Stack ERP with <strong>Next.js, React, MariaDB, Node.js</strong></li>
+                        <li>• Quoting, inventory, cut tracking, consumables management</li>
+                        <li>• Data migration from Excel using <strong>Python pandas</strong></li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-slate-900 dark:text-white mb-2 text-sm flex items-center gap-2">
+                        <span class="text-violet-500">🔧</span> Infrastructure & Networking
+                      </h4>
+                      <ul class="text-slate-600 dark:text-slate-300 space-y-1 text-sm">
+                        <li>• <strong>UniFi</strong> VLAN segmentation, firewall policies</li>
+                        <li>• <strong>TrueNAS</strong> ZFS-backed storage migration</li>
+                        <li>• <strong>OpenVPN & WireGuard</strong> remote connectivity</li>
+                        <li>• Pi-hole DNS, Zoom VoIP integration</li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div class="flex flex-wrap gap-2">
+                    <span class="tech-badge bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300">Next.js</span>
+                    <span class="tech-badge bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300">React</span>
+                    <span class="tech-badge bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300">TrueNAS</span>
+                    <span class="tech-badge bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300">UniFi</span>
+                    <span class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300">Python</span>
+                    <span class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300">Docker</span>
+                  </div>
                 </div>
-                <div class="flex flex-wrap gap-2">
+              </div>
+              <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-5 h-5 bg-indigo-600 rounded-full border-4 border-white dark:border-slate-900 shadow-lg z-10"></div>
+              <div class="md:w-1/2 md:pl-12"></div>
+            </div>
+
+            <!-- Hatch (Left Side) -->
+            <div class="relative flex flex-col md:flex-row md:items-center">
+              <div class="md:w-1/2 md:pr-12"></div>
+              <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-5 h-5 bg-emerald-500 rounded-full border-4 border-white dark:border-slate-900 shadow-lg z-10"></div>
+              <div class="md:w-1/2 md:pl-12">
+                <div class="glass-card rounded-2xl p-6 shadow-xl glow-effect">
+                  <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 rounded-full text-sm font-medium">Internship</span>
+                    <span class="text-slate-500 dark:text-slate-400 text-sm">Sep - Dec 2024</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                    Information Technology Service Desk
+                  </h3>
+                  <p class="text-indigo-600 dark:text-indigo-400 font-semibold mb-4">
+                    Hatch · Calgary, AB
+                  </p>
+                  <ul class="text-slate-600 dark:text-slate-300 space-y-2 text-sm mb-4">
+                    <li>• <strong>Zendesk</strong> ticket management & resolution</li>
+                    <li>• <strong>LanSweeper</strong> hardware inventory & software deployment</li>
+                    <li>• <strong>Microsoft Entra ID</strong> identity & access management</li>
+                    <li>• IT support for <strong>hybrid conferences with 980 attendees</strong></li>
+                    <li>• Technical setups for <strong>live streams (500+ viewers)</strong></li>
+                  </ul>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300">Zendesk</span>
+                    <span class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300">LanSweeper</span>
+                    <span class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300">Azure AD</span>
+                    <span class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300">SharePoint</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- AHS (Right Side) -->
+            <div class="relative flex flex-col md:flex-row md:items-center">
+              <div class="md:w-1/2 md:pr-12 md:text-right">
+                <div class="glass-card rounded-2xl p-6 shadow-xl glow-effect">
+                  <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full text-sm font-medium">Co-op</span>
+                    <span class="text-slate-500 dark:text-slate-400 text-sm">Jan - Jul 2023</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                    IT Analyst
+                  </h3>
+                  <p class="text-indigo-600 dark:text-indigo-400 font-semibold mb-4">
+                    Alberta Health Services · Calgary, AB
+                  </p>
+                  <ul class="text-slate-600 dark:text-slate-300 space-y-2 text-sm text-left mb-4">
+                    <li>• <strong>Top 5%</strong> Service Desk agent, ~40 tickets/day, 8-min avg resolution</li>
+                    <li>• <strong>Azure AD</strong> user accounts, roles, permissions & 2FA</li>
+                    <li>• <strong>ServiceNow</strong> ticket intake, triage & escalation</li>
+                    <li>• <strong>Workspace ONE</strong> healthcare app deployment</li>
+                    <li>• User training on <strong>EPIC ConnectCare</strong> workflows</li>
+                  </ul>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300">ServiceNow</span>
+                    <span class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300">Azure AD</span>
+                    <span class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300">Workspace ONE</span>
+                    <span class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300">EPIC</span>
+                  </div>
+                </div>
+              </div>
+              <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-5 h-5 bg-blue-500 rounded-full border-4 border-white dark:border-slate-900 shadow-lg z-10"></div>
+              <div class="md:w-1/2 md:pl-12"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-24 px-4 bg-slate-50 dark:bg-slate-900">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+            <span class="gradient-text">Featured Projects</span>
+          </h2>
+          <p
+            class="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto"
+          >
+            A showcase of enterprise-grade applications and innovative solutions
+          </p>
+        </div>
+
+        <!-- Featured Project: Enterprise ERP - Full Width Hero -->
+        <div class="mb-12">
+          <div
+            class="glass-card rounded-3xl overflow-hidden shadow-2xl glow-effect"
+          >
+            <div class="grid lg:grid-cols-2">
+              <!-- Left: Screenshot Showcase -->
+              <div
+                class="relative h-80 lg:h-auto min-h-[400px] bg-gradient-to-br from-indigo-900 via-violet-900 to-purple-900 overflow-hidden"
+              >
+                <div
+                  class="absolute inset-0 grid grid-cols-3 gap-2 p-4 opacity-90"
+                >
+                  <img
+                    src="./projects/erp/Screenshot 2026-01-27 225005.png"
+                    alt="ERP Dashboard"
+                    class="rounded-lg object-cover w-full h-full shadow-lg"
+                  />
+                  <img
+                    src="./projects/erp/Screenshot 2026-01-27 225117.png"
+                    alt="ERP Inventory"
+                    class="rounded-lg object-cover w-full h-full shadow-lg"
+                  />
+                  <img
+                    src="./projects/erp/Screenshot 2026-01-27 225256.png"
+                    alt="ERP Orders"
+                    class="rounded-lg object-cover w-full h-full shadow-lg"
+                  />
+                  <img
+                    src="./projects/erp/Screenshot 2026-01-27 225332.png"
+                    alt="ERP Reports"
+                    class="rounded-lg object-cover w-full h-full shadow-lg"
+                  />
+                  <img
+                    src="./projects/erp/Screenshot 2026-01-27 225402.png"
+                    alt="ERP Analytics"
+                    class="rounded-lg object-cover w-full h-full shadow-lg"
+                  />
+                  <img
+                    src="./projects/erp/Screenshot 2026-01-27 225434.png"
+                    alt="ERP Settings"
+                    class="rounded-lg object-cover w-full h-full shadow-lg"
+                  />
+                </div>
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-indigo-900/80 lg:block hidden"
+                ></div>
+                <div class="absolute bottom-4 left-4 flex gap-2">
                   <span
-                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
-                    >PHP</span
+                    class="px-3 py-1 bg-amber-500/90 text-white rounded-full text-xs font-bold shadow"
+                    >FLAGSHIP</span
                   >
                   <span
-                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
+                    class="px-3 py-1 bg-green-500/90 text-white rounded-full text-xs font-bold shadow"
+                    >PRODUCTION</span
+                  >
+                </div>
+              </div>
+              <!-- Right: Details -->
+              <div class="p-8 lg:p-10 flex flex-col justify-center">
+                <div class="mb-4">
+                  <div class="text-5xl font-bold gradient-text mb-2">150k+</div>
+                  <div class="text-slate-500 dark:text-slate-400 text-sm">
+                    Lines of Code
+                  </div>
+                </div>
+                <h3
+                  class="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white mb-4"
+                >
+                  Enterprise-Grade ERP & Inventory System
+                </h3>
+                <p class="text-slate-600 dark:text-slate-400 mb-6">
+                  Full-scale enterprise resource planning system for CNC
+                  manufacturing with inventory management, quoting, material
+                  tracking, automated workflows, and real-time analytics. Built
+                  on a secure local VM with complete data normalization from
+                  legacy Excel systems.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span
+                    class="tech-badge bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300"
+                    >Next.js</span
+                  >
+                  <span
+                    class="tech-badge bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300"
+                    >React</span
+                  >
+                  <span
+                    class="tech-badge bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300"
+                    >TypeScript</span
+                  >
+                  <span
+                    class="tech-badge bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300"
                     >MariaDB</span
                   >
                   <span
-                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
-                    >SQL</span
+                    class="tech-badge bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300"
+                    >Node.js</span
                   >
                   <span
-                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
-                    >JavaScript</span
+                    class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
+                    >Tailwind CSS</span
                   >
                   <span
-                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
-                    >TrueNAS</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
-                    >QNAP</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
-                    >WireGuard</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
-                    >OpenVPN</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
-                    >Fedora Linux</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
-                    >LAMP Stack</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium hover:bg-indigo-100 transition-colors cursor-default"
-                    >Auto-Backup</span
+                    class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
+                    >Python</span
                   >
                 </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all work-card overflow-hidden"
-            style="transition-delay: 400ms"
-          >
-            <div
-              class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-indigo-600 to-violet-600 rounded-l-2xl"
-            ></div>
-            <!-- Add decorative elements -->
-            <div
-              class="absolute -right-20 -top-20 w-40 h-40 bg-indigo-100 rounded-full opacity-10 group-hover:scale-150 transition-transform duration-500"
-            ></div>
-            <div
-              class="absolute -right-20 -bottom-20 w-40 h-40 bg-violet-100 rounded-full opacity-10 group-hover:scale-150 transition-transform duration-500"
-            ></div>
-
-            <div class="relative ml-2">
-              <div class="flex items-start justify-between mb-4">
-                <div>
-                  <h3
-                    class="text-2xl font-bold mb-2 bg-gradient-to-r from-indigo-600 to-violet-600 text-transparent bg-clip-text"
-                  >
-                    IT Customer Support I
-                  </h3>
-                  <div class="flex items-center text-indigo-600 mb-2">
-                    <svg
-                      class="w-5 h-5 mr-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      />
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
-                    <span>Alberta Health Services | Calgary, AB</span>
-                  </div>
-                  <div class="flex items-center text-slate-500">
-                    <svg
-                      class="w-5 h-5 mr-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
-                    <span>Jan 2023 - Jun 2023</span>
-                  </div>
-                </div>
-                <div
-                  class="hidden md:block w-16 h-16 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-xl p-3 shadow-lg group-hover:scale-110 transition-transform"
-                >
-                  <svg
-                    class="w-full h-full text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                </div>
-              </div>
-
-              <ul class="space-y-3 text-slate-600 list-none">
-                <li class="flex items-start">
-                  <svg
-                    class="w-5 h-5 mr-2 mt-1 text-indigo-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <span
-                    >Top 5% performer at Service Desk, resolving 40 tickets
-                    daily</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <svg
-                    class="w-5 h-5 mr-2 mt-1 text-indigo-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <span
-                    >Managed user accounts and permissions using Microsoft Azure
-                    AD</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <svg
-                    class="w-5 h-5 mr-2 mt-1 text-indigo-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <span
-                    >Utilized ServiceNow for issue tracking and resolution</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <svg
-                    class="w-5 h-5 mr-2 mt-1 text-indigo-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <span
-                    >Supported corporate mobile devices via Workspace One</span
-                  >
-                </li>
-              </ul>
-
-              <div class="mt-4 flex flex-wrap gap-2">
-                <span
-                  class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium"
-                  >ServiceNow</span
-                >
-                <span
-                  class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium"
-                  >Azure AD</span
-                >
-                <span
-                  class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm font-medium"
-                  >Workspace One</span
-                >
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section
-      id="projects"
-      class="py-24 bg-slate-100 px-4 content-section fade-in-section"
-    >
-      <div class="max-w-6xl mx-auto">
-        <h2
-          class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-indigo-600 to-violet-600 text-transparent bg-clip-text"
-        >
-          Featured Projects
-        </h2>
+        <!-- Project Grid -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Project Card -->
+          <!-- Chemical Inventory System -->
           <div
-            class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 stagger-card tilt-card"
+            class="project-card glass-card rounded-2xl overflow-hidden shadow-lg group"
+            onclick="openProjectModal('chemistry')"
+            data-project="chemistry"
           >
-            <div class="h-48 bg-gradient-to-br from-indigo-500 to-violet-500">
-              <div class="project-icon-wrapper">
-                <svg
-                  class="w-16 h-16 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M7 4v16M17 4v16M3 8h18M3 16h18"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-2">Movie Theatre Tracker</h3>
-              <p class="text-slate-600 mb-4">
-                Full-stack application with Google Maps integration
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                  >Google Maps API</span
-                >
-                <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                  >GCP</span
-                >
-              </div>
-            </div>
-          </div>
-          <div
-            class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 stagger-card tilt-card"
-          >
-            <div class="relative h-48">
+            <div class="relative h-56 overflow-hidden bg-slate-800">
+              <img
+                src="./projects/chemistry/Screenshot 2026-01-31 195118.png"
+                alt="Chemical Inventory System"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
               <div
-                class="slideshow-container cursor-pointer"
-                data-project="mru-chemistry"
-              >
-                <img
-                  src="./res/mruOne.png"
-                  class="slide active w-full h-48 object-cover"
-                />
-                <img
-                  src="./res/mruTwo.png"
-                  class="slide w-full h-48 object-cover"
-                />
-                <img
-                  src="./res/mruThree.png"
-                  class="slide w-full h-48 object-cover"
-                />
-                <img
-                  src="./res/mruFour.png"
-                  class="slide w-full h-48 object-cover"
-                />
-                <!-- Navigation dots -->
-                <div
-                  class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10"
+                class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"
+              ></div>
+              <div class="absolute top-3 left-3 flex gap-2">
+                <span
+                  class="px-2 py-1 bg-red-500/90 text-white rounded text-xs font-semibold shadow"
+                  >FIRE-CODE</span
                 >
-                  <button
-                    class="w-2 h-2 rounded-full bg-white opacity-50 hover:opacity-100"
-                  ></button>
-                  <button
-                    class="w-2 h-2 rounded-full bg-white opacity-50 hover:opacity-100"
-                  ></button>
-                  <button
-                    class="w-2 h-2 rounded-full bg-white opacity-50 hover:opacity-100"
-                  ></button>
-                  <button
-                    class="w-2 h-2 rounded-full bg-white opacity-50 hover:opacity-100"
-                  ></button>
-                </div>
+              </div>
+              <div
+                class="project-overlay absolute inset-0 bg-black/60 flex items-center justify-center"
+              >
+                <span
+                  class="px-5 py-2 bg-white text-slate-900 rounded-full font-semibold"
+                  >View Details</span
+                >
               </div>
             </div>
             <div class="p-6">
-              <h3 class="text-xl font-bold mb-2">
-                Chemistry Department Inventory
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                Chemical Inventory System
               </h3>
-              <p class="text-slate-600 mb-4">
-                Mobile-responsive chemical tracking system for MRU
+              <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">
+                Fire-code compliant full-stack chemical tracking system for
+                Mount Royal University. Real-time hazard monitoring and
+                compliance reporting.
               </p>
               <div class="flex flex-wrap gap-2">
                 <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
+                  class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
                   >PHP</span
                 >
                 <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                  >JavaScript</span
-                >
-                <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                  >Tailwind</span
-                >
-                <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                  >Mobile-First</span
-                >
-              </div>
-            </div>
-          </div>
-          <div
-            class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 stagger-card tilt-card"
-          >
-            <div class="h-48 bg-gradient-to-br from-indigo-500 to-violet-500">
-              <div class="project-icon-wrapper">
-                <svg
-                  class="w-16 h-16 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-2">
-                Crypto Pricing View Platform
-              </h3>
-              <p class="text-slate-600 mb-4">Next.js application</p>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                  >Next.js</span
-                >
-                <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                  >Supabase</span
-                >
-                <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                  >React</span
-                >
-                <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                  >Node.js</span
-                >
-              </div>
-            </div>
-          </div>
-          <!-- Cookie Manager Project Card -->
-          <div
-            class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 stagger-card tilt-card"
-          >
-            <div class="relative h-48">
-              <div
-                class="slideshow-container cursor-pointer"
-                data-project="cookie-manager"
-              >
-                <img
-                  src="./res/cookiePageOne.png"
-                  class="slide active h-full w-auto object-contain"
-                />
-                <img
-                  src="./res/cookiePageTwo.png"
-                  class="slide h-full w-auto object-contain"
-                />
-                <img
-                  src="./res/cookiePageThree.png"
-                  class="slide h-full w-auto object-contain"
-                />
-                <!-- Navigation dots -->
-                <div
-                  class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10"
-                >
-                  <button
-                    class="w-2 h-2 rounded-full bg-white opacity-50 hover:opacity-100"
-                  ></button>
-                  <button
-                    class="w-2 h-2 rounded-full bg-white opacity-50 hover:opacity-100"
-                  ></button>
-                  <button
-                    class="w-2 h-2 rounded-full bg-white opacity-50 hover:opacity-100"
-                  ></button>
-                </div>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-2">Cookie Manager Pro</h3>
-              <p class="text-slate-600 mb-4">
-                Chrome extension for advanced cookie management, privacy
-                analysis, and tab suspension
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                  >JavaScript</span
-                >
-                <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                  >Chrome API</span
-                >
-                <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                  >Tailwind</span
-                >
-                <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                  >Privacy</span
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- Discord Bot Project Card -->
-          <div
-            class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 stagger-card tilt-card"
-          >
-            <div class="relative h-48">
-              <div
-                class="slideshow-container cursor-pointer"
-                data-project="discord-bot"
-              >
-                <div class="bg-white h-48 flex items-center justify-center">
-                  <img
-                    src="./res/TriadBot.png"
-                    class="slide active h-full w-auto object-contain"
-                    alt="Discord Bot Interface"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-2">Discord Role Manager</h3>
-              <p class="text-slate-600 mb-4">
-                Discord bot integrated with Whop API for automated role
-                management
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                  >Node.js</span
-                >
-                <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                  >Discord.js</span
-                >
-                <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                  >Whop API</span
-                >
-                <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                  >REST API</span
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- NovaPro Inventory System Project Card -->
-          <div
-            class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 stagger-card tilt-card"
-          >
-            <div class="relative h-48">
-              <div
-                class="slideshow-container cursor-pointer"
-                data-project="novapro"
-              >
-                <img
-                  src="./res/novaLanding.png"
-                  alt="NovaPro Inventory System"
-                  class="slide active w-full h-full object-cover"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-b from-transparent to-black/50"
-                ></div>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-2">NovaPro Inventory System</h3>
-              <p class="text-slate-600 mb-4">
-                Full-stack inventory management system with material
-                calculations and automated backups
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                  >PHP</span
-                >
-                <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
+                  class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
                   >MariaDB</span
                 >
                 <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                  >JavaScript</span
+                  class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
+                  >Tailwind</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- InvoiceOCR -->
+          <div
+            class="project-card glass-card rounded-2xl overflow-hidden shadow-lg group"
+            onclick="openProjectModal('ocr')"
+            data-project="ocr"
+          >
+            <div class="relative h-56 overflow-hidden bg-slate-800">
+              <img
+                src="./projects/ocr/Screenshot 2026-01-31 143845.png"
+                alt="InvoiceOCR"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"
+              ></div>
+              <div class="absolute top-3 left-3 flex gap-2">
+                <span
+                  class="px-2 py-1 bg-emerald-500/90 text-white rounded text-xs font-semibold shadow"
+                  >AI/ML</span
+                >
+              </div>
+              <div
+                class="project-overlay absolute inset-0 bg-black/60 flex items-center justify-center"
+              >
+                <span
+                  class="px-5 py-2 bg-white text-slate-900 rounded-full font-semibold"
+                  >View Details</span
+                >
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                InvoiceOCR
+              </h3>
+              <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">
+                Full-stack application that parses and extracts structured data
+                from invoices using advanced OCR technology and AI processing.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
+                  >Next.js</span
                 >
                 <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                  >Fedora Linux</span
+                  class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
+                  >OCR</span
                 >
                 <span
-                  class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm"
-                  >LAMP Stack</span
+                  class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
+                  >TypeScript</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Custom Calendar -->
+          <div
+            class="project-card glass-card rounded-2xl overflow-hidden shadow-lg group"
+            onclick="openProjectModal('calendar')"
+            data-project="calendar"
+          >
+            <div class="relative h-56 overflow-hidden bg-slate-800">
+              <img
+                src="./projects/calendar/Screenshot 2026-01-31 152652.png"
+                alt="Custom CNC Calendar"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"
+              ></div>
+              <div class="absolute top-3 left-3 flex gap-2">
+                <span
+                  class="px-2 py-1 bg-orange-500/90 text-white rounded text-xs font-semibold shadow"
+                  >CNC</span
+                >
+              </div>
+              <div
+                class="project-overlay absolute inset-0 bg-black/60 flex items-center justify-center"
+              >
+                <span
+                  class="px-5 py-2 bg-white text-slate-900 rounded-full font-semibold"
+                  >View Details</span
+                >
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                Custom CNC Calendar
+              </h3>
+              <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">
+                Specialized production calendar for CNC machining scheduling
+                with real-time job tracking and resource allocation.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
+                  >Next.js</span
+                >
+                <span
+                  class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
+                  >React</span
+                >
+                <span
+                  class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
+                  >TypeScript</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Signature App -->
+          <div
+            class="project-card glass-card rounded-2xl overflow-hidden shadow-lg group"
+            onclick="openProjectModal('signature')"
+            data-project="signature"
+          >
+            <div class="relative h-56 overflow-hidden bg-slate-800">
+              <img
+                src="./projects/signature/Screenshot 2026-02-01 141253.png"
+                alt="Custom Signature App"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"
+              ></div>
+              <div class="absolute top-3 left-3 flex gap-2">
+                <span
+                  class="px-2 py-1 bg-pink-500/90 text-white rounded text-xs font-semibold shadow"
+                  >AUTOMATION</span
+                >
+              </div>
+              <div
+                class="project-overlay absolute inset-0 bg-black/60 flex items-center justify-center"
+              >
+                <span
+                  class="px-5 py-2 bg-white text-slate-900 rounded-full font-semibold"
+                  >View Details</span
+                >
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                Custom Signature App
+              </h3>
+              <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">
+                Digital signature automation system for document workflows with
+                secure capture and verification.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
+                  >Next.js</span
+                >
+                <span
+                  class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
+                  >Canvas API</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- React Native App -->
+          <div
+            class="project-card glass-card rounded-2xl overflow-hidden shadow-lg group"
+            onclick="openProjectModal('react-native')"
+            data-project="react-native"
+          >
+            <div
+              class="relative h-56 overflow-hidden bg-gradient-to-br from-violet-600 to-purple-800"
+            >
+              <div
+                class="absolute inset-0 flex items-center justify-center gap-4 p-4"
+              >
+                <img
+                  src="./projects/react-native/Untitled.png"
+                  alt="React Native App 1"
+                  class="h-48 rounded-xl shadow-2xl object-contain"
+                />
+                <img
+                  src="./projects/react-native/Untitled2.png"
+                  alt="React Native App 2"
+                  class="h-48 rounded-xl shadow-2xl object-contain"
+                />
+              </div>
+              <div class="absolute top-3 left-3 flex gap-2">
+                <span
+                  class="px-2 py-1 bg-violet-500/90 text-white rounded text-xs font-semibold shadow"
+                  >MOBILE</span
+                >
+                <span
+                  class="px-2 py-1 bg-yellow-500/90 text-white rounded text-xs font-semibold shadow"
+                  >WIP</span
+                >
+              </div>
+              <div
+                class="project-overlay absolute inset-0 bg-black/60 flex items-center justify-center"
+              >
+                <span
+                  class="px-5 py-2 bg-white text-slate-900 rounded-full font-semibold"
+                  >View Details</span
+                >
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                React Native Expo App
+              </h3>
+              <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">
+                Cross-platform mobile application built with Expo Go for
+                seamless iOS and Android deployment.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
+                  >React Native</span
+                >
+                <span
+                  class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
+                  >Expo Go</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- ARGENTO -->
+          <div
+            class="project-card glass-card rounded-2xl overflow-hidden shadow-lg group"
+            onclick="openProjectModal('argento')"
+            data-project="argento"
+          >
+            <div class="relative h-56 overflow-hidden bg-slate-800">
+              <img
+                src="./projects/argento/Screenshot 2026-02-01 151908.png"
+                alt="ARGENTO Salon Website"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"
+              ></div>
+              <div class="absolute top-3 left-3 flex gap-2">
+                <span
+                  class="px-2 py-1 bg-slate-500/90 text-white rounded text-xs font-semibold shadow"
+                  >WEBSITE</span
+                >
+              </div>
+              <div
+                class="project-overlay absolute inset-0 bg-black/60 flex items-center justify-center"
+              >
+                <span
+                  class="px-5 py-2 bg-white text-slate-900 rounded-full font-semibold"
+                  >View Details</span
+                >
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                ARGENTO Salon
+              </h3>
+              <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">
+                Modern front-facing website for a premium salon business with
+                booking integration and elegant design.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
+                  >Next.js</span
+                >
+                <span
+                  class="tech-badge bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
+                  >Tailwind</span
                 >
               </div>
             </div>
@@ -1195,23 +1107,30 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-24 px-4 content-section fade-in-section">
+    <section id="skills" class="py-24 px-4 bg-white dark:bg-slate-800/50">
       <div class="max-w-6xl mx-auto">
-        <h2
-          class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-indigo-600 to-violet-600 text-transparent bg-clip-text"
-        >
-          Skills & Expertise
-        </h2>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+            <span class="gradient-text">Skills & Technologies</span>
+          </h2>
+          <p
+            class="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto"
+          >
+            A comprehensive toolkit spanning full-stack development,
+            infrastructure, and IT operations
+          </p>
+        </div>
+
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <!-- Skill Category -->
+          <!-- Frontend -->
           <div
-            class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all"
+            class="glass-card rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all"
           >
             <div
-              class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4"
+              class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-xl flex items-center justify-center mb-6"
             >
               <svg
-                class="w-8 h-8 text-blue-600"
+                class="w-8 h-8 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -1221,28 +1140,31 @@
                   stroke-linejoin="round"
                   stroke-width="2"
                   d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
+                ></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold mb-4">Software Support</h3>
-            <div class="space-y-2">
-              <span class="skill-tag">ServiceNow</span>
-              <span class="skill-tag">ZenDesk</span>
-              <span class="skill-tag">Azure AD</span>
-              <span class="skill-tag">Office 365</span>
-              <span class="skill-tag">SharePoint</span>
-              <span class="skill-tag">PowerApps</span>
-              <span class="skill-tag">Power BI</span>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">
+              Frontend
+            </h3>
+            <div class="flex flex-wrap">
+              <span class="skill-pill">React</span>
+              <span class="skill-pill">Next.js</span>
+              <span class="skill-pill">TypeScript</span>
+              <span class="skill-pill">Tailwind CSS</span>
+              <span class="skill-pill">React Native</span>
+              <span class="skill-pill">HTML/CSS</span>
             </div>
           </div>
+
+          <!-- Backend -->
           <div
-            class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all"
+            class="glass-card rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all"
           >
             <div
-              class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4"
+              class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mb-6"
             >
               <svg
-                class="w-8 h-8 text-blue-600"
+                class="w-8 h-8 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -1251,32 +1173,33 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                />
+                  d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
+                ></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold mb-4">Programming</h3>
-            <div class="space-y-2">
-              <span class="skill-tag">Java</span>
-              <span class="skill-tag">JavaScript</span>
-              <span class="skill-tag">Node.js</span>
-              <span class="skill-tag">Express.js</span>
-              <span class="skill-tag">PHP</span>
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">HTML</span>
-              <span class="skill-tag">CSS</span>
-              <span class="skill-tag">SQL</span>
-              <span class="skill-tag">React</span>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">
+              Backend
+            </h3>
+            <div class="flex flex-wrap">
+              <span class="skill-pill">Node.js</span>
+              <span class="skill-pill">PHP</span>
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">Express.js</span>
+              <span class="skill-pill">PostgreSQL</span>
+              <span class="skill-pill">MariaDB</span>
+              <span class="skill-pill">Prisma</span>
             </div>
           </div>
+
+          <!-- Infrastructure -->
           <div
-            class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all"
+            class="glass-card rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all"
           >
             <div
-              class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4"
+              class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-6"
             >
               <svg
-                class="w-8 h-8 text-blue-600"
+                class="w-8 h-8 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -1285,30 +1208,33 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-                />
+                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+                ></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold mb-4">Networking</h3>
-            <div class="space-y-2">
-              <span class="skill-tag">VLAN</span>
-              <span class="skill-tag">TCP/UDP</span>
-              <span class="skill-tag">IPV4/IPV6</span>
-              <span class="skill-tag">OpenVPN</span>
-              <span class="skill-tag">WireGuard</span>
-              <span class="skill-tag">Firewalling</span>
-              <span class="skill-tag">Router Meshing</span>
-              <span class="skill-tag">PfSense</span>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">
+              Infrastructure
+            </h3>
+            <div class="flex flex-wrap">
+              <span class="skill-pill">Linux</span>
+              <span class="skill-pill">Docker</span>
+              <span class="skill-pill">TrueNAS</span>
+              <span class="skill-pill">WireGuard</span>
+              <span class="skill-pill">OpenVPN</span>
+              <span class="skill-pill">Git</span>
+              <span class="skill-pill">GCP</span>
             </div>
           </div>
+
+          <!-- IT & Tools -->
           <div
-            class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all"
+            class="glass-card rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all"
           >
             <div
-              class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4"
+              class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6"
             >
               <svg
-                class="w-8 h-8 text-blue-600"
+                class="w-8 h-8 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -1317,25 +1243,26 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M4 6a2 2 0 012-2h12a2 2 0 012 2v7a2 2 0 01-2 2H6a2 2 0 01-2-2V6z"
-                />
+                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                ></path>
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M14 15l-2 5l-2-5"
-                />
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                ></path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold mb-4">Systems & Tools</h3>
-            <div class="space-y-2">
-              <span class="skill-tag">Linux</span>
-              <span class="skill-tag">Bash</span>
-              <span class="skill-tag">Git</span>
-              <span class="skill-tag">Docker</span>
-              <span class="skill-tag">GCP</span>
-              <span class="skill-tag">GitHub Copilot</span>
-              <span class="skill-tag">TrueNAS</span>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">
+              IT & Tools
+            </h3>
+            <div class="flex flex-wrap">
+              <span class="skill-pill">Azure AD</span>
+              <span class="skill-pill">ServiceNow</span>
+              <span class="skill-pill">Zendesk</span>
+              <span class="skill-pill">Office 365</span>
+              <span class="skill-pill">SharePoint</span>
+              <span class="skill-pill">Power BI</span>
             </div>
           </div>
         </div>
@@ -1343,54 +1270,360 @@
     </section>
 
     <!-- Education Section -->
-    <section
-      id="education"
-      class="py-24 bg-slate-100 px-4 content-section fade-in-section"
-    >
+    <section id="education" class="py-24 px-4 bg-slate-50 dark:bg-slate-900">
       <div class="max-w-4xl mx-auto">
-        <div class="glass-card p-8 card-hover">
-          <div class="flex items-center mb-6">
-            <svg
-              class="w-12 h-12 text-blue-600"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 16 16"
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+            <span class="gradient-text">Education</span>
+          </h2>
+        </div>
+
+        <div class="glass-card rounded-3xl p-8 shadow-xl glow-effect">
+          <div class="flex flex-col md:flex-row md:items-center gap-6">
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-2xl flex items-center justify-center flex-shrink-0"
             >
-              <path
-                d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917zM8 8.46 1.758 5.965 8 3.052l6.242 2.913z"
-              />
-              <path
-                d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466zm-.068 1.873.22-.748 3.496 1.311a.5.5 0 0 0 .352 0l3.496-1.311.22.748L8 12.46z"
-              />
-            </svg>
-            <div class="ml-4">
-              <h3 class="text-2xl font-bold">
+              <svg
+                class="w-10 h-10 text-white"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917zM8 8.46 1.758 5.965 8 3.052l6.242 2.913z"
+                />
+                <path
+                  d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466zm-.068 1.873.22-.748 3.496 1.311a.5.5 0 0 0 .352 0l3.496-1.311.22.748L8 12.46z"
+                />
+              </svg>
+            </div>
+            <div class="flex-grow">
+              <h3
+                class="text-2xl font-bold text-slate-900 dark:text-white mb-1"
+              >
                 Bachelor of Computer Information Systems
               </h3>
-              <p class="text-lg text-gray-600">Minor in Finance</p>
+              <p class="text-indigo-600 dark:text-indigo-400 font-medium mb-2">
+                Minor in Finance
+              </p>
+              <p class="text-slate-600 dark:text-slate-400">
+                Mount Royal University · Calgary, AB
+              </p>
             </div>
-            <div class="ml-auto text-right">
-              <p class="text-lg font-semibold">Mount Royal University</p>
-              <p class="text-gray-600">2021 - 2026</p>
-              <p class="text-blue-600 font-semibold">GPA: 3.89</p>
+            <div class="text-right flex-shrink-0">
+              <div class="text-3xl font-bold gradient-text mb-1">3.89</div>
+              <div class="text-sm text-slate-500 dark:text-slate-400">GPA</div>
+              <div class="text-sm text-slate-500 dark:text-slate-400 mt-2">
+                2021 - 2026
+              </div>
             </div>
           </div>
-          <div class="bg-blue-50 rounded-lg p-4">
-            <h4 class="font-semibold mb-2">Academic Achievements</h4>
-            <p class="text-gray-700"></p>
-              Dean's Honor Roll - Fall 2021, Winter 2021, Fall 2022, Fall 2023,
-              Winter 2024
+
+          <div
+            class="mt-6 pt-6 border-t border-slate-200 dark:border-slate-700"
+          >
+            <div class="flex items-center gap-2 mb-3">
+              <svg
+                class="w-5 h-5 text-amber-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                ></path>
+              </svg>
+              <span class="font-semibold text-slate-900 dark:text-white"
+                >Dean's Honor Roll</span
+              >
+            </div>
+            <p class="text-slate-600 dark:text-slate-400 text-sm">
+              Fall 2021 · Winter 2021 · Fall 2022 · Fall 2023 · Winter 2024
             </p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Contact Section -->
+    <section
+      id="contact"
+      class="py-24 px-4 bg-gradient-to-br from-indigo-600 via-violet-600 to-purple-700 relative overflow-hidden"
+    >
+      <!-- Decorative Elements -->
+      <div class="absolute inset-0">
+        <div
+          class="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"
+        ></div>
+        <div
+          class="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"
+        ></div>
+      </div>
+
+      <div class="max-w-4xl mx-auto relative z-10">
+        <div class="text-center text-white">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+            Let's Work Together
+          </h2>
+          <p class="text-xl text-white/80 mb-12 max-w-2xl mx-auto">
+            I'm always interested in hearing about new projects and
+            opportunities. Let's connect!
+          </p>
+
+          <div class="flex flex-wrap gap-4 justify-center mb-12">
+            <a
+              href="mailto:andrija.kolenda@gmail.com"
+              class="flex items-center gap-3 px-6 py-4 bg-white/10 backdrop-blur-sm rounded-xl hover:bg-white/20 transition-all group"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                ></path>
+              </svg>
+              <span class="font-medium">andrija.kolenda@gmail.com</span>
+            </a>
+
+            <a
+              href="https://github.com/AKolenda"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-3 px-6 py-4 bg-white/10 backdrop-blur-sm rounded-xl hover:bg-white/20 transition-all group"
+            >
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+              <span class="font-medium">GitHub</span>
+            </a>
+
+            <a
+              href="https://linkedin.com/in/akolenda"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-3 px-6 py-4 bg-white/10 backdrop-blur-sm rounded-xl hover:bg-white/20 transition-all group"
+            >
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                />
+              </svg>
+              <span class="font-medium">LinkedIn</span>
+            </a>
+
+            <a
+              href="https://www.upwork.com/freelancers/~0122306b13ec679655"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-3 px-6 py-4 bg-white/10 backdrop-blur-sm rounded-xl hover:bg-white/20 transition-all group"
+            >
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"
+                />
+              </svg>
+              <span class="font-medium">Upwork</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80" onclick="closeModalOnBackdrop(event)">
+      <div class="modal-content glass-card rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
+        <!-- Close Button -->
+        <button onclick="closeProjectModal()" class="absolute top-4 right-4 z-10 w-10 h-10 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 rounded-full flex items-center justify-center transition-colors">
+          <svg class="w-6 h-6 text-slate-600 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        
+        <!-- Modal Content -->
+        <div class="p-8">
+          <!-- Header -->
+          <div class="flex items-start gap-4 mb-6">
+            <div id="modal-badges" class="flex gap-2 flex-wrap"></div>
+          </div>
+          
+          <h2 id="modal-title" class="text-3xl font-bold text-slate-900 dark:text-white mb-4"></h2>
+          <p id="modal-description" class="text-slate-600 dark:text-slate-400 text-lg mb-6"></p>
+          
+          <!-- Main Image -->
+          <div class="mb-6">
+            <img id="modal-main-image" src="" alt="" class="modal-main-image">
+          </div>
+          
+          <!-- Gallery -->
+          <div id="modal-gallery" class="modal-gallery mb-6"></div>
+          
+          <!-- Tech Stack -->
+          <div class="border-t border-slate-200 dark:border-slate-700 pt-6">
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-3">Technologies Used</h3>
+            <div id="modal-tech" class="flex flex-wrap gap-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Footer -->
-    <footer class="bg-slate-900 text-white py-12">
-      <div class="max-w-5xl mx-auto px-4 text-center">
-        <p>&copy; 2025 Andrija Kolenda. All rights reserved.</p>
+    <footer class="bg-slate-900 text-white py-8">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <p class="text-slate-400">
+          &copy; 2026 Andrija Kolenda. All rights reserved.
+        </p>
       </div>
     </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+      document
+        .getElementById("mobile-menu-button")
+        .addEventListener("click", function () {
+          const menu = document.getElementById("mobile-menu");
+          menu.classList.toggle("hidden");
+        });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll("#mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          document.getElementById("mobile-menu").classList.add("hidden");
+        });
+      });
+
+      // Project data for modals
+      const projectData = {
+        chemistry: {
+          title: 'Chemical Inventory System',
+          description: 'A comprehensive fire-code compliant chemical tracking system developed for Mount Royal University. Features real-time hazard monitoring, compliance reporting, location tracking, and automated safety alerts. Built with a focus on regulatory compliance and user safety.',
+          badges: [{text: 'FIRE-CODE', color: 'bg-red-500'}],
+          tech: ['PHP', 'MariaDB', 'Tailwind CSS', 'JavaScript', 'HTML5'],
+          images: [
+            './projects/chemistry/Screenshot 2026-01-31 195118.png',
+            './projects/chemistry/Screenshot 2026-01-31 195144.png',
+            './projects/chemistry/Screenshot 2026-01-31 195204.png',
+            './projects/chemistry/Screenshot 2026-01-31 195219.png',
+            './projects/chemistry/Screenshot 2026-01-31 195235.png',
+            './projects/chemistry/Screenshot 2026-01-31 195252.png'
+          ]
+        },
+        ocr: {
+          title: 'InvoiceOCR',
+          description: 'An intelligent document processing application that uses advanced OCR technology to parse, extract, and structure data from invoices. Features automated field detection, data validation, and export to multiple formats. Streamlines accounting workflows significantly.',
+          badges: [{text: 'AI/ML', color: 'bg-emerald-500'}],
+          tech: ['Next.js', 'TypeScript', 'Tesseract OCR', 'Python', 'TailwindCSS'],
+          images: [
+            './projects/ocr/Screenshot 2026-01-31 143845.png',
+            './projects/ocr/Screenshot 2026-01-31 150145.png'
+          ]
+        },
+        calendar: {
+          title: 'Custom CNC Calendar',
+          description: 'A specialized production scheduling calendar designed for CNC machining operations. Features real-time job tracking, machine allocation, deadline management, and production analytics. Integrates with the ERP system for seamless workflow management.',
+          badges: [{text: 'CNC', color: 'bg-orange-500'}],
+          tech: ['Next.js', 'React', 'TypeScript', 'TailwindCSS'],
+          images: [
+            './projects/calendar/Screenshot 2026-01-31 152652.png'
+          ]
+        },
+        signature: {
+          title: 'Custom Signature App',
+          description: 'A digital signature automation system for streamlining document workflows. Features secure signature capture, document templating, and integration capabilities. Designed to replace paper-based signature processes with a modern, efficient solution.',
+          badges: [{text: 'AUTOMATION', color: 'bg-pink-500'}],
+          tech: ['Next.js', 'Canvas API', 'TypeScript', 'Node.js'],
+          images: [
+            './projects/signature/Screenshot 2026-02-01 141253.png',
+            './projects/signature/Screenshot 2026-02-01 141332.png'
+          ]
+        },
+        'react-native': {
+          title: 'React Native Expo App',
+          description: 'A cross-platform mobile application built with React Native and Expo Go for seamless iOS and Android deployment. Currently in active development with modern UI patterns and native device integration.',
+          badges: [{text: 'MOBILE', color: 'bg-violet-500'}, {text: 'WIP', color: 'bg-yellow-500'}],
+          tech: ['React Native', 'Expo Go', 'TypeScript', 'NativeWind'],
+          images: [
+            './projects/react-native/Untitled.png',
+            './projects/react-native/Untitled2.png'
+          ]
+        },
+        argento: {
+          title: 'ARGENTO Salon',
+          description: 'A modern, elegant website designed for a premium salon business. Features online booking integration, service showcases, staff profiles, and a sophisticated design that reflects the brand\'s luxury positioning.',
+          badges: [{text: 'WEBSITE', color: 'bg-slate-500'}],
+          tech: ['Next.js', 'TailwindCSS', 'Framer Motion'],
+          images: [
+            './projects/argento/Screenshot 2026-02-01 151908.png'
+          ]
+        }
+      };
+
+      function openProjectModal(projectId) {
+        const project = projectData[projectId];
+        if (!project) return;
+
+        // Set modal content
+        document.getElementById('modal-title').textContent = project.title;
+        document.getElementById('modal-description').textContent = project.description;
+        
+        // Set badges
+        const badgesContainer = document.getElementById('modal-badges');
+        badgesContainer.innerHTML = project.badges.map(badge => 
+          `<span class="px-3 py-1 ${badge.color} text-white rounded-full text-sm font-semibold">${badge.text}</span>`
+        ).join('');
+        
+        // Set main image
+        const mainImage = document.getElementById('modal-main-image');
+        mainImage.src = project.images[0];
+        mainImage.alt = project.title;
+        
+        // Set gallery
+        const gallery = document.getElementById('modal-gallery');
+        if (project.images.length > 1) {
+          gallery.innerHTML = project.images.map((img, index) => 
+            `<img src="${img}" alt="${project.title} screenshot ${index + 1}" onclick="setMainImage('${img}')" class="cursor-pointer hover:ring-2 ring-indigo-500">`
+          ).join('');
+          gallery.style.display = 'grid';
+        } else {
+          gallery.style.display = 'none';
+        }
+        
+        // Set tech stack
+        const techContainer = document.getElementById('modal-tech');
+        techContainer.innerHTML = project.tech.map(tech => 
+          `<span class="tech-badge bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300">${tech}</span>`
+        ).join('');
+        
+        // Show modal
+        document.getElementById('project-modal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeProjectModal() {
+        document.getElementById('project-modal').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function closeModalOnBackdrop(event) {
+        if (event.target.id === 'project-modal') {
+          closeProjectModal();
+        }
+      }
+
+      function setMainImage(src) {
+        document.getElementById('modal-main-image').src = src;
+      }
+
+      // Close modal on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeProjectModal();
+      });
+    </script>
   </body>
 </html>
