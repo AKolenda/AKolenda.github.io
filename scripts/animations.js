@@ -1,43 +1,34 @@
-// Combined animation observers and handlers
+// Reveal-on-scroll observer for .reveal and (legacy) .fade-in-section / .stagger-card
 const observerOptions = {
   root: null,
-  threshold: 0.15,
-  rootMargin: "-50px 0px"
+  threshold: 0.12,
+  rootMargin: "0px 0px -10% 0px",
 };
 
 const fadeObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('is-visible');
+      entry.target.classList.add("is-visible");
+      fadeObserver.unobserve(entry.target);
     }
   });
 }, observerOptions);
 
 function initAnimations() {
-  // Observe sections
-  document.querySelectorAll("section:not(:first-child)").forEach((section) => {
-    section.classList.add("fade-in-section");
-    fadeObserver.observe(section);
+  // Primary reveal class used in current markup
+  document.querySelectorAll(".reveal").forEach((el, i) => {
+    // Stagger groups of siblings within the same parent
+    el.style.transitionDelay = `${(i % 6) * 60}ms`;
+    fadeObserver.observe(el);
   });
 
-  // Observe work cards with staggered delay
-  document.querySelectorAll('.work-card').forEach((card, index) => {
-    card.style.transitionDelay = `${index * 200}ms`;
-    fadeObserver.observe(card);
-  });
-
-  // Observe project cards with staggered delay
-  document.querySelectorAll('.stagger-card').forEach((card, index) => {
-    card.style.transitionDelay = `${index * 100}ms`;
-    card.classList.add('fade-in-section'); // Add fade-in class
-    fadeObserver.observe(card);
-  });
-
-  // Fix parallax section
-  const parallaxSection = document.querySelector('.parallax-section');
-  if (parallaxSection) {
-    parallaxSection.style.position = 'relative';
-  }
+  // Legacy classes — kept for backwards compatibility
+  document
+    .querySelectorAll(".fade-in-section, .stagger-card, .work-card")
+    .forEach((el, i) => {
+      el.style.transitionDelay = `${(i % 6) * 80}ms`;
+      fadeObserver.observe(el);
+    });
 }
 
-document.addEventListener('DOMContentLoaded', initAnimations);
+document.addEventListener("DOMContentLoaded", initAnimations);
