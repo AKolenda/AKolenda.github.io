@@ -49,9 +49,8 @@
     >
       <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
         <div class="flex items-center justify-between h-14">
-          <a href="#" class="mono text-sm tracking-wider flex items-center gap-2">
-            <span class="text-flame">●</span>
-            <span class="font-medium">A.KOLENDA</span>
+          <a href="#" class="mono text-sm tracking-wider font-medium uppercase">
+            Andrija Kolenda
           </a>
 
           <div class="hidden md:flex items-center gap-8 mono text-xs uppercase tracking-wider">
@@ -129,30 +128,29 @@
     </nav>
 
     <!-- ─── Hero ────────────────────────────────────────────────────── -->
-    <header class="relative pt-32 pb-20 lg:pt-40 lg:pb-28">
+    <header class="relative pt-28 pb-20 lg:pt-32 lg:pb-28">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
         <!-- Meta strip -->
-        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mb-12 mono text-xs uppercase tracking-wider text-mute dark:text-bone-2">
-          <span class="flex items-center gap-2">
-            <span class="status-dot"></span>
-            Available · Q3 2026
-          </span>
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-1 mb-12 lg:mb-16 mono text-xs uppercase tracking-wider text-mute dark:text-bone-2">
+          <span>Available now</span>
           <span aria-hidden="true">/</span>
           <span>Calgary, AB</span>
+          <span aria-hidden="true">/</span>
+          <span>MRU '26 graduate</span>
           <span aria-hidden="true">/</span>
           <span>Portfolio · v3</span>
         </div>
 
-        <!-- Headline -->
-        <h1 class="display text-[clamp(3rem,10vw,9rem)] mb-10 text-balance">
-          Andrija<br />
-          <span class="italic">Kolenda<span class="text-flame not-italic">.</span></span>
-        </h1>
+        <!-- Hero grid: headline left, headshot right -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+          <!-- Left: headline + subhead + CTAs -->
+          <div class="lg:col-span-8 order-2 lg:order-1">
+            <h1 class="display text-[clamp(3rem,9vw,8.5rem)] mb-10 text-balance">
+              Andrija<br />
+              <span class="italic">Kolenda<span class="text-flame not-italic">.</span></span>
+            </h1>
 
-        <!-- Subhead grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-y-10 lg:gap-x-10 items-end">
-          <div class="lg:col-span-7">
-            <p class="text-2xl lg:text-3xl leading-tight text-balance text-ink-2 dark:text-bone">
+            <p class="text-2xl lg:text-3xl leading-tight text-balance text-ink-2 dark:text-bone max-w-2xl">
               Full-stack engineer building enterprise infrastructure
               that <span class="italic display text-3xl lg:text-4xl">doesn't break</span> —
               from the database schema to the network rack.
@@ -167,35 +165,51 @@
             </div>
           </div>
 
-          <!-- Side stats -->
-          <aside class="lg:col-span-5 lg:pl-10 lg:border-l border-rule dark:border-rule-dark">
-            <dl class="grid grid-cols-3 gap-6">
-              <div>
-                <dt class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2 mb-2">
-                  Lines / Prod
-                </dt>
-                <dd class="display text-4xl lg:text-5xl">150k<span class="accent">+</span></dd>
-              </div>
-              <div>
-                <dt class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2 mb-2">
-                  Shipped
-                </dt>
-                <dd class="display text-4xl lg:text-5xl">8<span class="accent">+</span></dd>
-              </div>
-              <div>
-                <dt class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2 mb-2">
-                  GPA / 4.0
-                </dt>
-                <dd class="display text-4xl lg:text-5xl">3.89</dd>
-              </div>
-            </dl>
+          <!-- Right: headshot + caption + stats -->
+          <aside class="lg:col-span-4 order-1 lg:order-2 lg:pl-6 lg:border-l border-rule dark:border-rule-dark">
+            <figure class="relative">
+              <img
+                src="./res/Headshot.jpeg"
+                alt="Andrija Kolenda"
+                class="w-full aspect-square object-cover bg-paper-2 dark:bg-night-2 grayscale-0 hover:grayscale transition-all duration-700"
+              />
+              <figcaption class="mt-3 flex items-baseline justify-between mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2">
+                <span>Andrija Kolenda</span>
+                <span class="text-flame">Apr '26 · grad</span>
+              </figcaption>
+            </figure>
 
             <div class="rule mt-8 mb-6"></div>
 
+            <dl class="grid grid-cols-3 gap-4">
+              <div>
+                <dt class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2 mb-1">
+                  Lines / prod
+                </dt>
+                <dd class="display text-3xl lg:text-4xl">235k<span class="accent">+</span></dd>
+              </div>
+              <div>
+                <dt class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2 mb-1">
+                  Shipped
+                </dt>
+                <dd class="display text-3xl lg:text-4xl">8<span class="accent">+</span></dd>
+              </div>
+              <div>
+                <dt class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2 mb-1">
+                  GPA / 4.0
+                </dt>
+                <dd class="display text-3xl lg:text-4xl">3.88</dd>
+              </div>
+            </dl>
+
+            <div class="rule mt-6 mb-5"></div>
+
             <p class="mono text-xs leading-relaxed text-mute dark:text-bone-2">
-              <span class="text-flame">→</span> Lead engineer at NovaPro Machining.
-              Custom ERP for CNC manufacturing, plus the network infrastructure it
-              runs on. Previously: AHS, Hatch.
+              <span class="text-flame">→</span> Just graduated from MRU
+              (Computer Information Systems, finance minor).
+              Engineer at NovaPro Machining; solo-shipping
+              <a href="https://fundingtracker.app" target="_blank" rel="noopener" class="link-x">fundingtracker.app</a>
+              on the side. Previously: AHS, Hatch.
             </p>
           </aside>
         </div>
@@ -210,24 +224,36 @@
             <div class="section-num">/ 01</div>
             <h2 class="display text-5xl lg:text-6xl mt-3">Currently</h2>
             <div class="mono text-xs uppercase tracking-wider text-mute dark:text-bone-2 mt-4">
-              <span class="text-flame">●</span> Live · April 2026
+              April 2026
             </div>
           </div>
 
           <div class="lg:col-span-9 lg:pl-10 lg:border-l border-rule dark:border-rule-dark">
-            <p class="text-2xl lg:text-3xl leading-snug text-balance">
+            <p class="text-2xl lg:text-3xl leading-snug text-balance mb-6">
               Building the system that runs <a href="#projects" class="link-x italic display">NovaPro Machining</a> —
               a custom ERP covering quoting, inventory, cut tracking, and consumables. ~150,000
               lines and counting. On the hardware side: a full network rebuild — UniFi VLANs,
               TrueNAS migration, WireGuard remote access.
             </p>
+            <p class="text-2xl lg:text-3xl leading-snug text-balance">
+              Solo-shipping
+              <a href="https://fundingtracker.app" target="_blank" rel="noopener" class="link-x italic display">fundingtracker.app</a>
+              on the side — a multi-tenant MCA platform with Stripe Connect, RLS-isolated Postgres,
+              AI-parsed contracts, and a CI/CD pipeline that auto-merges Supabase migrations on
+              promotion to <span class="mono text-xl">prod</span>.
+            </p>
 
             <div class="mt-10 flex flex-wrap gap-x-6 gap-y-3">
               <span class="tag">Next.js</span>
-              <span class="tag">React</span>
+              <span class="tag">React 19</span>
               <span class="tag">TypeScript</span>
+              <span class="tag">Supabase · RLS</span>
+              <span class="tag">Postgres</span>
+              <span class="tag">Stripe Connect</span>
+              <span class="tag">Gemini 2.0</span>
+              <span class="tag">Resend</span>
+              <span class="tag">Vercel</span>
               <span class="tag">MariaDB</span>
-              <span class="tag">Node.js</span>
               <span class="tag">Python · pandas</span>
               <span class="tag">TrueNAS · ZFS</span>
               <span class="tag">UniFi</span>
@@ -257,81 +283,149 @@
 
         <ol class="space-y-0">
           <!-- Job 1 — NovaPro -->
-          <li class="reveal group grid grid-cols-12 gap-4 py-10 border-t-2 border-ink dark:border-bone hover:bg-paper-2 dark:hover:bg-night-2 transition-colors px-2 -mx-2">
+          <li class="reveal grid grid-cols-12 gap-4 py-10 border-t-2 border-ink dark:border-bone px-2 -mx-2">
             <div class="col-span-12 lg:col-span-2 mono text-xs text-mute dark:text-bone-2">
-              <div class="flex items-center gap-2 mb-1">
-                <span class="status-dot"></span>
-                <span class="text-flame uppercase tracking-wider">Now</span>
-              </div>
+              <div class="text-flame uppercase tracking-wider mb-1">Current · Full-time</div>
               <div>Jun 2024 →</div>
+              <div class="mt-1">~2 yrs</div>
             </div>
-            <div class="col-span-12 lg:col-span-7">
+            <div class="col-span-12 lg:col-span-10">
               <h3 class="display text-3xl lg:text-4xl mb-1">NovaPro Machining</h3>
-              <div class="mono text-sm text-mute dark:text-bone-2 mb-4">
-                Principal Software Engineer & Network Lead · Calgary, AB
+              <div class="mono text-sm text-mute dark:text-bone-2 mb-6">
+                Software Engineer · Calgary, AB · On-site
               </div>
-              <ul class="space-y-2 text-base lg:text-lg leading-relaxed text-ink-2 dark:text-bone max-w-2xl">
-                <li><span class="text-flame mono mr-2">→</span>Custom full-stack ERP — quoting, inventory, cut tracking, consumables</li>
-                <li><span class="text-flame mono mr-2">→</span>Excel-to-MariaDB migration via Python pandas pipelines</li>
-                <li><span class="text-flame mono mr-2">→</span>UniFi VLAN segmentation, firewall policies, TrueNAS ZFS storage</li>
-                <li><span class="text-flame mono mr-2">→</span>OpenVPN & WireGuard remote access · Pi-hole DNS · Zoom VoIP</li>
-              </ul>
-            </div>
-            <div class="col-span-12 lg:col-span-3 lg:text-right flex flex-wrap lg:justify-end gap-x-4 gap-y-2 mono text-xs text-mute dark:text-bone-2 self-end">
-              <span>Next.js</span><span>·</span>
-              <span>MariaDB</span><span>·</span>
-              <span>TrueNAS</span><span>·</span>
-              <span>UniFi</span>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6 max-w-4xl">
+                <div>
+                  <div class="mono text-[11px] uppercase tracking-wider text-flame mb-3">→ Software</div>
+                  <ul class="space-y-2 text-base leading-relaxed text-ink-2 dark:text-bone">
+                    <li>Designed & deployed a custom full-stack ERP — quoting, material/tooling inventory, cut tracking, consumables — on a secure local VM (no SaaS fees, full data sovereignty)</li>
+                    <li>Earlier internal inventory app on a LAMP stack (PHP / Fedora) — since deprecated and replaced by the ERP above</li>
+                    <li>Migrated operational data from Excel using Python <span class="mono">pandas</span> for normalization, transformation, and integration</li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="mono text-[11px] uppercase tracking-wider text-flame mb-3">→ Network & Security</div>
+                  <ul class="space-y-2 text-base leading-relaxed text-ink-2 dark:text-bone">
+                    <li>Engineered network with Ubiquiti UniFi — VLAN segmentation, guest isolation, firewall policies, port-level controls</li>
+                    <li>OpenVPN + WireGuard for secure remote connectivity; hardened RDP environment for admin access</li>
+                    <li>Deployed Pi-hole as DNS sinkhole — ad-blocking + internal DNS resolution</li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="mono text-[11px] uppercase tracking-wider text-flame mb-3">→ Storage & Reliability</div>
+                  <ul class="space-y-2 text-base leading-relaxed text-ink-2 dark:text-bone">
+                    <li>Migrated infrastructure to ZFS-backed TrueNAS — snapshots, resilience, controlled rollback</li>
+                    <li>Automated QuickBooks + system-state backups via Bash scripts and rsync</li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="mono text-[11px] uppercase tracking-wider text-flame mb-3">→ IT & Endpoints</div>
+                  <ul class="space-y-2 text-base leading-relaxed text-ink-2 dark:text-bone">
+                    <li>Zoom Virtual Phone System with ATA for VoIP desk-phone deployment</li>
+                    <li>Configured Ricoh MFPs — network scanning + secure print release</li>
+                    <li>Standardized & upgraded all workstations to Windows 11</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="mt-8 pt-5 border-t border-rule dark:border-rule-dark flex flex-wrap gap-1.5">
+                <span class="tech-chip"><img src="./res/logos/nextjs.svg" alt="" />Next.js</span>
+                <span class="tech-chip"><img src="./res/logos/react.svg" alt="" />React</span>
+                <span class="tech-chip"><img src="./res/logos/tailwindcss.svg" alt="" />Tailwind</span>
+                <span class="tech-chip"><img src="./res/logos/nodejs.svg" alt="" />Node.js</span>
+                <span class="tech-chip"><img src="./res/logos/mariadb.svg" alt="" />MariaDB</span>
+                <span class="tech-chip"><img src="./res/logos/php.svg" alt="" />PHP</span>
+                <span class="tech-chip"><img src="./res/logos/javascript.svg" alt="" />JavaScript</span>
+                <span class="tech-chip"><img src="./res/logos/python.svg" alt="" />Python · pandas</span>
+                <span class="tech-chip"><img src="./res/logos/apache.svg" alt="" />Apache</span>
+                <span class="tech-chip"><img src="./res/logos/fedora.svg" alt="" />Fedora</span>
+                <span class="tech-chip"><img src="./res/logos/linux.svg" alt="" />Linux</span>
+                <span class="tech-chip"><img src="./res/logos/bash.svg" alt="" />Bash · rsync · systemd</span>
+                <span class="tech-chip"><img src="./res/logos/openzfs.svg" alt="" />ZFS</span>
+                <span class="tech-chip"><img src="./res/logos/truenas.svg" alt="" />TrueNAS</span>
+                <span class="tech-chip"><img src="./res/logos/openvpn.svg" alt="" />OpenVPN</span>
+                <span class="tech-chip"><img src="./res/logos/wireguard.svg" alt="" />WireGuard</span>
+                <span class="tech-chip"><img src="./res/logos/pihole.svg" alt="" />Pi-hole · DNS</span>
+                <span class="tech-chip"><img src="./res/logos/ubiquiti.svg" alt="" />UniFi · VLANs</span>
+                <span class="tech-chip">SMB / CIFS</span>
+                <span class="tech-chip"><img src="./res/logos/docker.svg" alt="" />Docker</span>
+                <span class="tech-chip"><img src="./res/logos/git.svg" alt="" />Git</span>
+                <span class="tech-chip"><img src="./res/logos/zoom.svg" alt="" />Zoom VoIP</span>
+                <span class="tech-chip">Windows 11</span>
+                <span class="tech-chip">Ricoh MFP</span>
+              </div>
             </div>
           </li>
 
           <!-- Job 2 — Hatch -->
-          <li class="reveal group grid grid-cols-12 gap-4 py-10 border-t border-rule dark:border-rule-dark hover:bg-paper-2 dark:hover:bg-night-2 transition-colors px-2 -mx-2">
+          <li class="reveal grid grid-cols-12 gap-4 py-10 border-t border-rule dark:border-rule-dark px-2 -mx-2">
             <div class="col-span-12 lg:col-span-2 mono text-xs text-mute dark:text-bone-2">
               <div class="uppercase tracking-wider mb-1">Internship</div>
               <div>Sep — Dec 2024</div>
+              <div class="mt-1">4 mos</div>
             </div>
-            <div class="col-span-12 lg:col-span-7">
+            <div class="col-span-12 lg:col-span-10">
               <h3 class="display text-3xl lg:text-4xl mb-1">Hatch</h3>
-              <div class="mono text-sm text-mute dark:text-bone-2 mb-4">
-                IT Service Desk · Calgary, AB
+              <div class="mono text-sm text-mute dark:text-bone-2 mb-6">
+                Information Technology Service Desk · Calgary, AB · On-site
               </div>
-              <ul class="space-y-2 text-base lg:text-lg leading-relaxed text-ink-2 dark:text-bone max-w-2xl">
-                <li><span class="text-flame mono mr-2">→</span>Zendesk ticket triage & resolution; LanSweeper hardware inventory</li>
-                <li><span class="text-flame mono mr-2">→</span>Microsoft Entra ID — identity & access management</li>
-                <li><span class="text-flame mono mr-2">→</span>IT support for hybrid conferences · 980 attendees</li>
-                <li><span class="text-flame mono mr-2">→</span>Live-stream technical setup · 500+ viewers</li>
+              <ul class="space-y-2 text-base leading-relaxed text-ink-2 dark:text-bone max-w-3xl">
+                <li><span class="text-flame mono mr-2">→</span>Zendesk for ticket management & prompt resolution; LanSweeper for hardware inventory & software deployment</li>
+                <li><span class="text-flame mono mr-2">→</span>Administered Microsoft Entra ID (Azure AD) for identity and access management</li>
+                <li><span class="text-flame mono mr-2">→</span>Application support for Autodesk, ESRI, Bentley, OneDrive, Teams, SharePoint, SCCM, Exchange</li>
+                <li><span class="text-flame mono mr-2">→</span>Maintained Ricoh MFPs across the office</li>
+                <li><span class="text-flame mono mr-2">→</span>IT infrastructure support for hybrid conferences with <strong>980 attendees</strong> — on-site technical assistance</li>
+                <li><span class="text-flame mono mr-2">→</span>Coordinated PC deployment, imaging, configuration; optimized system performance</li>
+                <li><span class="text-flame mono mr-2">→</span>Live-stream technical setups for <strong>500+ internal viewers</strong> — got mics, stream, video playback working on sophisticated setups</li>
               </ul>
-            </div>
-            <div class="col-span-12 lg:col-span-3 lg:text-right flex flex-wrap lg:justify-end gap-x-4 gap-y-2 mono text-xs text-mute dark:text-bone-2 self-end">
-              <span>Zendesk</span><span>·</span>
-              <span>Entra ID</span><span>·</span>
-              <span>SharePoint</span>
+
+              <div class="mt-8 pt-5 border-t border-rule dark:border-rule-dark flex flex-wrap gap-1.5">
+                <span class="tech-chip"><img src="./res/logos/zendesk.svg" alt="" />Zendesk</span>
+                <span class="tech-chip">LanSweeper</span>
+                <span class="tech-chip">Entra ID · Azure AD</span>
+                <span class="tech-chip">SCCM · Exchange</span>
+                <span class="tech-chip">SharePoint · Teams</span>
+                <span class="tech-chip">OneDrive</span>
+                <span class="tech-chip"><img src="./res/logos/autodesk.svg" alt="" />Autodesk</span>
+                <span class="tech-chip"><img src="./res/logos/esri.svg" alt="" />ESRI</span>
+                <span class="tech-chip">Bentley</span>
+                <span class="tech-chip">Starlink</span>
+                <span class="tech-chip">Ricoh MFP</span>
+              </div>
             </div>
           </li>
 
           <!-- Job 3 — AHS -->
-          <li class="reveal group grid grid-cols-12 gap-4 py-10 border-t border-rule dark:border-rule-dark hover:bg-paper-2 dark:hover:bg-night-2 transition-colors px-2 -mx-2">
+          <li class="reveal grid grid-cols-12 gap-4 py-10 border-t border-rule dark:border-rule-dark px-2 -mx-2">
             <div class="col-span-12 lg:col-span-2 mono text-xs text-mute dark:text-bone-2">
               <div class="uppercase tracking-wider mb-1">Co-op</div>
               <div>Jan — Jul 2023</div>
+              <div class="mt-1">7 mos</div>
             </div>
-            <div class="col-span-12 lg:col-span-7">
+            <div class="col-span-12 lg:col-span-10">
               <h3 class="display text-3xl lg:text-4xl mb-1">Alberta Health Services</h3>
-              <div class="mono text-sm text-mute dark:text-bone-2 mb-4">
+              <div class="mono text-sm text-mute dark:text-bone-2 mb-6">
                 IT Analyst · Calgary, AB
               </div>
-              <ul class="space-y-2 text-base lg:text-lg leading-relaxed text-ink-2 dark:text-bone max-w-2xl">
-                <li><span class="text-flame mono mr-2">→</span>Top 5% Service Desk agent · ~40 tickets/day · 8-min avg resolution</li>
-                <li><span class="text-flame mono mr-2">→</span>Azure AD user accounts, roles, 2FA · ServiceNow triage & escalation</li>
-                <li><span class="text-flame mono mr-2">→</span>Workspace ONE healthcare-app deployment</li>
-                <li><span class="text-flame mono mr-2">→</span>EPIC ConnectCare workflow training for clinicians</li>
+              <ul class="space-y-2 text-base leading-relaxed text-ink-2 dark:text-bone max-w-3xl">
+                <li><span class="text-flame mono mr-2">→</span>Ranked <strong>top 5%</strong> of Service Desk agents — consistently ~40 tickets/day at an 8-min avg resolution</li>
+                <li><span class="text-flame mono mr-2">→</span>Managed user accounts, roles, group permissions in Azure AD; 2FA support and remote account administration</li>
+                <li><span class="text-flame mono mr-2">→</span>ServiceNow for ticket intake, triage, resolution & escalation across multidisciplinary healthcare teams</li>
+                <li><span class="text-flame mono mr-2">→</span>Deployed & configured healthcare-specific apps via VMware Workspace ONE on managed devices — operational + security compliance</li>
+                <li><span class="text-flame mono mr-2">→</span>User education on SOPs, including <strong>EPIC ConnectCare</strong> workflows; collaborated with Tier 2 on escalated cases</li>
+                <li><span class="text-flame mono mr-2">→</span>Consistently exceeded user-satisfaction expectations across phone, chat, and ticket channels</li>
               </ul>
-            </div>
-            <div class="col-span-12 lg:col-span-3 lg:text-right flex flex-wrap lg:justify-end gap-x-4 gap-y-2 mono text-xs text-mute dark:text-bone-2 self-end">
-              <span>ServiceNow</span><span>·</span>
-              <span>Azure AD</span><span>·</span>
-              <span>EPIC</span>
+
+              <div class="mt-8 pt-5 border-t border-rule dark:border-rule-dark flex flex-wrap gap-1.5">
+                <span class="tech-chip">ServiceNow</span>
+                <span class="tech-chip">Azure AD · 2FA</span>
+                <span class="tech-chip"><img src="./res/logos/vmware.svg" alt="" />Workspace ONE</span>
+                <span class="tech-chip">EPIC ConnectCare</span>
+                <span class="tech-chip">Remote Desktop</span>
+                <span class="tech-chip">Windows 10 / 11</span>
+                <span class="tech-chip">Microsoft Office</span>
+              </div>
             </div>
           </li>
         </ol>
@@ -348,11 +442,90 @@
           </div>
           <div class="lg:col-span-9 lg:pl-10 lg:border-l border-rule dark:border-rule-dark flex items-end">
             <p class="text-lg text-mute dark:text-bone-2 max-w-2xl">
-              Seven projects across enterprise software, infrastructure, mobile, and brand work.
+              Eight projects across SaaS, enterprise software, infrastructure, mobile, and brand work.
               Click any tile for the full case study.
             </p>
           </div>
         </div>
+
+        <!-- ─── Featured: FundingTracker ──────────────────────────── -->
+        <article
+          class="reveal card card-hover cursor-pointer mb-3 group"
+          onclick="openProjectModal('fundingtracker')"
+          data-project="fundingtracker"
+        >
+          <div class="grid grid-cols-1 lg:grid-cols-5">
+            <!-- Image side -->
+            <div class="lg:col-span-3 relative overflow-hidden bg-night aspect-[16/10] lg:aspect-auto">
+              <div class="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-1 p-1">
+                <img src="./projects/fundingtracker/Screenshot 2026-04-26 033533.png" alt="" class="w-full h-full object-cover" loading="lazy" />
+                <img src="./projects/fundingtracker/Screenshot 2026-04-26 033352.png" alt="" class="w-full h-full object-cover" loading="lazy" />
+                <img src="./projects/fundingtracker/Screenshot 2026-04-26 034401.png" alt="" class="w-full h-full object-cover" loading="lazy" />
+                <img src="./projects/fundingtracker/Screenshot 2026-04-26 034229.png" alt="" class="w-full h-full object-cover" loading="lazy" />
+                <img src="./projects/fundingtracker/Screenshot 2026-04-26 033613.png" alt="" class="w-full h-full object-cover" loading="lazy" />
+                <img src="./projects/fundingtracker/Screenshot 2026-04-26 034340.png" alt="" class="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-night via-night/40 to-transparent"></div>
+              <div class="absolute top-4 left-4 flex flex-wrap gap-2 mono text-[10px] uppercase tracking-wider">
+                <span class="px-2 py-1 bg-flame text-paper">Flagship · SaaS</span>
+                <span class="px-2 py-1 bg-ink text-paper">Multi-tenant</span>
+                <span class="px-2 py-1 bg-bone text-night">Stripe Connect</span>
+              </div>
+            </div>
+
+            <!-- Text side -->
+            <div class="lg:col-span-2 p-8 lg:p-10 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-6">
+                  <div class="mono text-xs uppercase tracking-wider text-mute dark:text-bone-2">
+                    No. 01 / FundingTracker
+                  </div>
+                  <a
+                    href="https://fundingtracker.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onclick="event.stopPropagation()"
+                    class="link-x mono text-xs uppercase tracking-wider text-flame"
+                  >
+                    fundingtracker.app ↗
+                  </a>
+                </div>
+
+                <div class="display text-7xl lg:text-8xl text-flame leading-none mb-4">85k<span class="text-3xl lg:text-4xl">+</span></div>
+                <div class="mono text-xs uppercase tracking-wider text-mute dark:text-bone-2 mb-6">
+                  Lines · solo-shipped · multi-tenant SaaS
+                </div>
+
+                <h3 class="display text-3xl lg:text-4xl leading-tight mb-4">
+                  Funding ops for <span class="italic">merchant cash advances</span>.
+                </h3>
+                <p class="text-base text-ink-2 dark:text-bone leading-relaxed mb-3">
+                  Production SaaS for MCA funders, brokers, and merchants. AI-parsed contracts,
+                  Stripe-Connect onboarding & payouts, bank-account linking, auto-tracked deals,
+                  real-time alerts to every party when payments slip or balances move.
+                </p>
+                <p class="text-sm text-mute dark:text-bone-2 leading-relaxed">
+                  <span class="text-flame">→</span> Postgres with row-level security policies for
+                  per-tenant isolation. Supabase preview branches mirroring a GitHub
+                  <span class="mono">dev</span> branch — CI/CD auto-merges migrations on promotion
+                  to <span class="mono">prod</span>. Gemini 2.0 Flash for contract OCR,
+                  Resend for transactional email, deployed on Vercel.
+                </p>
+              </div>
+
+              <div class="mt-8 pt-6 border-t border-rule dark:border-rule-dark flex flex-wrap gap-x-4 gap-y-2 mono text-xs text-mute dark:text-bone-2">
+                <span>Next.js 16</span><span>·</span>
+                <span>React 19</span><span>·</span>
+                <span>Supabase · RLS</span><span>·</span>
+                <span>Postgres</span><span>·</span>
+                <span>Stripe Connect</span><span>·</span>
+                <span>Gemini 2.0 Flash</span><span>·</span>
+                <span>Resend</span><span>·</span>
+                <span>Vercel</span>
+              </div>
+            </div>
+          </div>
+        </article>
 
         <!-- ─── Featured: ERP ─────────────────────────────────────── -->
         <article
@@ -373,7 +546,7 @@
               </div>
               <div class="absolute inset-0 bg-gradient-to-t from-night via-night/30 to-transparent"></div>
               <div class="absolute top-4 left-4 flex gap-2 mono text-[10px] uppercase tracking-wider">
-                <span class="px-2 py-1 bg-flame text-paper">Flagship</span>
+                <span class="px-2 py-1 bg-flame text-paper">Flagship · Enterprise</span>
                 <span class="px-2 py-1 bg-bone text-night">Production</span>
               </div>
             </div>
@@ -382,7 +555,7 @@
             <div class="lg:col-span-2 p-8 lg:p-10 flex flex-col justify-between order-2 lg:order-1">
               <div>
                 <div class="mono text-xs uppercase tracking-wider text-mute dark:text-bone-2 mb-6">
-                  No. 01 / Enterprise ERP
+                  No. 02 / Enterprise ERP
                 </div>
                 <div class="display text-7xl lg:text-8xl text-flame leading-none mb-4">150k<span class="text-3xl lg:text-4xl">+</span></div>
                 <div class="mono text-xs uppercase tracking-wider text-mute dark:text-bone-2 mb-6">
@@ -423,7 +596,7 @@
                 Fire-code compliant
               </div>
               <div class="absolute bottom-0 left-0 right-0 p-6 lg:p-8 z-10">
-                <div class="mono text-[10px] uppercase tracking-wider text-paper/60 mb-2">No. 02</div>
+                <div class="mono text-[10px] uppercase tracking-wider text-paper/60 mb-2">No. 03</div>
                 <h3 class="display text-3xl lg:text-4xl text-paper mb-2">Chemical Inventory System</h3>
                 <p class="text-paper/80 text-sm max-w-md mb-3">
                   Fire-code chemical tracking for Mount Royal University.
@@ -449,7 +622,7 @@
               </div>
             </div>
             <div class="p-5">
-              <div class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2 mb-2">No. 03</div>
+              <div class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2 mb-2">No. 04</div>
               <h3 class="display text-2xl mb-2">InvoiceOCR</h3>
               <p class="text-sm text-ink-2 dark:text-bone leading-relaxed mb-3">
                 Parses & structures invoice data via OCR + AI processing.
@@ -473,7 +646,7 @@
               </div>
             </div>
             <div class="p-5">
-              <div class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2 mb-2">No. 04</div>
+              <div class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2 mb-2">No. 05</div>
               <h3 class="display text-2xl mb-2">Custom CNC Calendar</h3>
               <p class="text-sm text-ink-2 dark:text-bone leading-relaxed mb-3">
                 Real-time job tracking & resource allocation for the shop floor.
@@ -497,7 +670,7 @@
               </div>
             </div>
             <div class="p-5">
-              <div class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2 mb-2">No. 05</div>
+              <div class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2 mb-2">No. 06</div>
               <h3 class="display text-2xl mb-2">Custom Signature App</h3>
               <p class="text-sm text-ink-2 dark:text-bone leading-relaxed mb-3">
                 Digital signature capture & document workflow automation.
@@ -525,7 +698,7 @@
               </div>
             </div>
             <div class="p-5">
-              <div class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2 mb-2">No. 06</div>
+              <div class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2 mb-2">No. 07</div>
               <h3 class="display text-2xl mb-2">React Native · Expo</h3>
               <p class="text-sm text-ink-2 dark:text-bone leading-relaxed mb-3">
                 Cross-platform mobile app for iOS & Android.
@@ -549,7 +722,7 @@
               </div>
             </div>
             <div class="p-5">
-              <div class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2 mb-2">No. 07</div>
+              <div class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2 mb-2">No. 08</div>
               <h3 class="display text-2xl mb-2">ARGENTO Salon</h3>
               <p class="text-sm text-ink-2 dark:text-bone leading-relaxed mb-3">
                 Premium salon site with booking integration & elegant motion.
@@ -565,7 +738,7 @@
 
     <!-- ─── Section: Toolkit ────────────────────────────────────────── -->
     <section id="toolkit" class="relative py-20 lg:py-28 border-t border-rule dark:border-rule-dark overflow-hidden">
-      <div class="max-w-[1400px] mx-auto px-6 lg:px-10 mb-16">
+      <div class="max-w-[1400px] mx-auto px-6 lg:px-10 mb-12 lg:mb-16">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
           <div class="lg:col-span-3">
             <div class="section-num">/ 04</div>
@@ -573,118 +746,459 @@
           </div>
           <div class="lg:col-span-9 lg:pl-10 lg:border-l border-rule dark:border-rule-dark flex items-end">
             <p class="text-lg text-mute dark:text-bone-2 max-w-2xl">
-              The actual things I reach for. Front to back, code to copper.
+              The actual things I reach for. Heavy on
+              <span class="italic display text-xl">Postgres + Supabase RLS</span>
+              and
+              <span class="italic display text-xl">MariaDB</span>
+              for data; the rest is whatever the job needs — front to back, code to copper.
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Marquee strips -->
-      <div class="space-y-6 mb-16">
-        <div class="marquee">
-          <div class="marquee-track display text-5xl lg:text-7xl">
-            <span class="flex items-center gap-12">
-              <span>React</span><span class="text-flame">●</span>
-              <span>Next.js</span><span class="text-flame">●</span>
-              <span class="italic">TypeScript</span><span class="text-flame">●</span>
-              <span>Node.js</span><span class="text-flame">●</span>
-              <span>PHP</span><span class="text-flame">●</span>
-              <span class="italic">Python</span><span class="text-flame">●</span>
-              <span>MariaDB</span><span class="text-flame">●</span>
-              <span>PostgreSQL</span><span class="text-flame">●</span>
-              <span>Prisma</span><span class="text-flame">●</span>
-              <span>Tailwind</span><span class="text-flame">●</span>
-            </span>
-            <span class="flex items-center gap-12" aria-hidden="true">
-              <span>React</span><span class="text-flame">●</span>
-              <span>Next.js</span><span class="text-flame">●</span>
-              <span class="italic">TypeScript</span><span class="text-flame">●</span>
-              <span>Node.js</span><span class="text-flame">●</span>
-              <span>PHP</span><span class="text-flame">●</span>
-              <span class="italic">Python</span><span class="text-flame">●</span>
-              <span>MariaDB</span><span class="text-flame">●</span>
-              <span>PostgreSQL</span><span class="text-flame">●</span>
-              <span>Prisma</span><span class="text-flame">●</span>
-              <span>Tailwind</span><span class="text-flame">●</span>
-            </span>
+      <!-- View toggle -->
+      <div class="max-w-[1400px] mx-auto px-6 lg:px-10 mb-10">
+        <div class="flex items-center justify-between flex-wrap gap-4 pb-5 border-b border-rule dark:border-rule-dark">
+          <div class="mono text-xs uppercase tracking-wider text-mute dark:text-bone-2">
+            <span class="text-flame">●</span>
+            <span id="toolkit-count" class="ml-1">38 tools</span>
+            <span class="mx-2 opacity-50">·</span>
+            <span>7 categories</span>
           </div>
-        </div>
-
-        <div class="marquee">
-          <div class="marquee-track display text-5xl lg:text-7xl italic" style="animation-direction: reverse;">
-            <span class="flex items-center gap-12">
-              <span>TrueNAS</span><span class="text-flame not-italic">/</span>
-              <span>UniFi</span><span class="text-flame not-italic">/</span>
-              <span>Docker</span><span class="text-flame not-italic">/</span>
-              <span>Linux</span><span class="text-flame not-italic">/</span>
-              <span>WireGuard</span><span class="text-flame not-italic">/</span>
-              <span>OpenVPN</span><span class="text-flame not-italic">/</span>
-              <span>Pi-hole</span><span class="text-flame not-italic">/</span>
-              <span>GCP</span><span class="text-flame not-italic">/</span>
-              <span>Git</span><span class="text-flame not-italic">/</span>
-              <span>ZFS</span><span class="text-flame not-italic">/</span>
-            </span>
-            <span class="flex items-center gap-12" aria-hidden="true">
-              <span>TrueNAS</span><span class="text-flame not-italic">/</span>
-              <span>UniFi</span><span class="text-flame not-italic">/</span>
-              <span>Docker</span><span class="text-flame not-italic">/</span>
-              <span>Linux</span><span class="text-flame not-italic">/</span>
-              <span>WireGuard</span><span class="text-flame not-italic">/</span>
-              <span>OpenVPN</span><span class="text-flame not-italic">/</span>
-              <span>Pi-hole</span><span class="text-flame not-italic">/</span>
-              <span>GCP</span><span class="text-flame not-italic">/</span>
-              <span>Git</span><span class="text-flame not-italic">/</span>
-              <span>ZFS</span><span class="text-flame not-italic">/</span>
-            </span>
+          <div class="inline-flex border border-rule dark:border-rule-dark mono text-[11px] uppercase tracking-wider" role="tablist" aria-label="Toolkit view">
+            <button
+              type="button"
+              data-view="bento"
+              class="toolkit-tab px-4 py-2 transition-colors"
+              aria-selected="true"
+            >
+              Bento
+            </button>
+            <button
+              type="button"
+              data-view="marquee"
+              class="toolkit-tab px-4 py-2 transition-colors border-l border-rule dark:border-rule-dark"
+              aria-selected="false"
+            >
+              Marquee
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Categorized list -->
-      <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 border-t border-rule dark:border-rule-dark pt-12">
-          <div>
-            <div class="mono text-xs uppercase tracking-wider text-flame mb-4">→ Frontend</div>
-            <ul class="space-y-1.5 text-base">
-              <li>React · Next.js</li>
-              <li>TypeScript</li>
-              <li>Tailwind CSS</li>
-              <li>React Native · Expo</li>
-              <li>HTML / CSS</li>
-            </ul>
+      <!-- ─── BENTO VIEW (default) ───────────────────────────────── -->
+      <div id="toolkit-bento" class="toolkit-view max-w-[1400px] mx-auto px-6 lg:px-10 space-y-12">
+
+        <!-- Frontend & UI -->
+        <div>
+          <div class="flex items-baseline justify-between mb-4">
+            <h3 class="mono text-xs uppercase tracking-wider text-flame">→ Frontend & UI</h3>
+            <span class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2">9 tools</span>
           </div>
-          <div>
-            <div class="mono text-xs uppercase tracking-wider text-flame mb-4">→ Backend & Data</div>
-            <ul class="space-y-1.5 text-base">
-              <li>Node.js · Express</li>
-              <li>PHP</li>
-              <li>Python · pandas</li>
-              <li>MariaDB · PostgreSQL</li>
-              <li>Prisma</li>
-            </ul>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 lg:gap-3">
+            <a href="https://nextjs.org" target="_blank" rel="noopener" class="bento bento-feature col-span-2 row-span-2">
+              <div class="flex items-start justify-between mono text-[10px] uppercase tracking-wider text-flame mb-2">
+                <span>→ The framework</span>
+                <span>2026</span>
+              </div>
+              <div class="bento-logo flex-1"><img src="./res/logos/nextjs.svg" alt="Next.js" /></div>
+              <div class="bento-label"><span class="name">Next.js · 16</span><span>App Router</span></div>
+            </a>
+            <a href="https://react.dev" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/react.svg" alt="React" /></div>
+              <div class="bento-label"><span class="name">React</span><span>19</span></div>
+            </a>
+            <a href="https://www.typescriptlang.org" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/typescript.svg" alt="TypeScript" /></div>
+              <div class="bento-label"><span class="name">TypeScript</span></div>
+            </a>
+            <a href="https://tailwindcss.com" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/tailwindcss.svg" alt="Tailwind CSS" /></div>
+              <div class="bento-label"><span class="name">Tailwind</span><span>v4</span></div>
+            </a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/javascript.svg" alt="JavaScript" /></div>
+              <div class="bento-label"><span class="name">JavaScript</span></div>
+            </a>
+            <a href="https://expo.dev" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/expo.svg" alt="Expo" /></div>
+              <div class="bento-label"><span class="name">Expo · RN</span></div>
+            </a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/html5.svg" alt="HTML5" /></div>
+              <div class="bento-label"><span class="name">HTML5</span></div>
+            </a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/css.svg" alt="CSS" /></div>
+              <div class="bento-label"><span class="name">CSS</span></div>
+            </a>
+            <a href="https://getbootstrap.com" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/bootstrap.svg" alt="Bootstrap" /></div>
+              <div class="bento-label"><span class="name">Bootstrap</span></div>
+            </a>
           </div>
-          <div>
-            <div class="mono text-xs uppercase tracking-wider text-flame mb-4">→ Infrastructure</div>
-            <ul class="space-y-1.5 text-base">
-              <li>Linux · Docker</li>
-              <li>TrueNAS · ZFS</li>
-              <li>UniFi · pfSense</li>
-              <li>WireGuard · OpenVPN</li>
-              <li>GCP · Git</li>
-            </ul>
+        </div>
+
+        <!-- Backend & Runtime -->
+        <div>
+          <div class="flex items-baseline justify-between mb-4">
+            <h3 class="mono text-xs uppercase tracking-wider text-flame">→ Backend & Runtime</h3>
+            <span class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2">5 tools</span>
           </div>
-          <div>
-            <div class="mono text-xs uppercase tracking-wider text-flame mb-4">→ IT Operations</div>
-            <ul class="space-y-1.5 text-base">
-              <li>Azure / Entra ID</li>
-              <li>ServiceNow · Zendesk</li>
-              <li>Workspace ONE</li>
-              <li>Office 365 · SharePoint</li>
-              <li>Power BI · LanSweeper</li>
-            </ul>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 lg:gap-3">
+            <a href="https://nodejs.org" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/nodejs.svg" alt="Node.js" /></div>
+              <div class="bento-label"><span class="name">Node.js</span></div>
+            </a>
+            <a href="https://expressjs.com" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/express.svg" alt="Express" /></div>
+              <div class="bento-label"><span class="name">Express</span></div>
+            </a>
+            <a href="https://www.php.net" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/php.svg" alt="PHP" /></div>
+              <div class="bento-label"><span class="name">PHP</span></div>
+            </a>
+            <a href="https://python.org" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/python.svg" alt="Python" /></div>
+              <div class="bento-label"><span class="name">Python</span></div>
+            </a>
+            <a href="https://pandas.pydata.org" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/pandas.svg" alt="pandas" /></div>
+              <div class="bento-label"><span class="name">pandas</span></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div>
+          <div class="flex items-baseline justify-between mb-4">
+            <h3 class="mono text-xs uppercase tracking-wider text-flame">→ Databases · Heavy hitter</h3>
+            <span class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2">4 tools</span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 lg:gap-3">
+            <a href="https://supabase.com" target="_blank" rel="noopener" class="bento bento-feature col-span-2">
+              <div class="flex items-start justify-between mono text-[10px] uppercase tracking-wider text-flame mb-2">
+                <span>→ Postgres · RLS</span>
+                <span>Daily</span>
+              </div>
+              <div class="bento-logo flex-1"><img src="./res/logos/supabase.svg" alt="Supabase" /></div>
+              <div class="bento-label"><span class="name">Supabase</span><span>Auth · Realtime · RLS</span></div>
+            </a>
+            <a href="https://www.postgresql.org" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/postgresql.svg" alt="PostgreSQL" /></div>
+              <div class="bento-label"><span class="name">Postgres</span></div>
+            </a>
+            <a href="https://mariadb.org" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/mariadb.svg" alt="MariaDB" /></div>
+              <div class="bento-label"><span class="name">MariaDB</span></div>
+            </a>
+            <a href="https://www.prisma.io" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/prisma.svg" alt="Prisma" /></div>
+              <div class="bento-label"><span class="name">Prisma</span></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- DevOps & Infrastructure -->
+        <div>
+          <div class="flex items-baseline justify-between mb-4">
+            <h3 class="mono text-xs uppercase tracking-wider text-flame">→ DevOps & Infrastructure</h3>
+            <span class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2">6 tools</span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 lg:gap-3">
+            <a href="https://www.docker.com" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/docker.svg" alt="Docker" /></div>
+              <div class="bento-label"><span class="name">Docker</span></div>
+            </a>
+            <a href="https://git-scm.com" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/git.svg" alt="Git" /></div>
+              <div class="bento-label"><span class="name">Git</span></div>
+            </a>
+            <a href="https://www.linuxfoundation.org" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/linux.svg" alt="Linux" /></div>
+              <div class="bento-label"><span class="name">Linux</span></div>
+            </a>
+            <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/bash.svg" alt="Bash" /></div>
+              <div class="bento-label"><span class="name">Bash</span></div>
+            </a>
+            <a href="https://www.truenas.com" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/truenas.svg" alt="TrueNAS" /></div>
+              <div class="bento-label"><span class="name">TrueNAS</span></div>
+            </a>
+            <a href="https://openzfs.org" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/openzfs.svg" alt="OpenZFS" /></div>
+              <div class="bento-label"><span class="name">OpenZFS</span></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Networking -->
+        <div>
+          <div class="flex items-baseline justify-between mb-4">
+            <h3 class="mono text-xs uppercase tracking-wider text-flame">→ Networking</h3>
+            <span class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2">5 tools</span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 lg:gap-3">
+            <a href="https://ui.com" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/ubiquiti.svg" alt="Ubiquiti UniFi" /></div>
+              <div class="bento-label"><span class="name">UniFi</span></div>
+            </a>
+            <a href="https://www.pfsense.org" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/pfsense.svg" alt="pfSense" /></div>
+              <div class="bento-label"><span class="name">pfSense</span></div>
+            </a>
+            <a href="https://www.wireguard.com" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/wireguard.svg" alt="WireGuard" /></div>
+              <div class="bento-label"><span class="name">WireGuard</span></div>
+            </a>
+            <a href="https://openvpn.net" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/openvpn.svg" alt="OpenVPN" /></div>
+              <div class="bento-label"><span class="name">OpenVPN</span></div>
+            </a>
+            <a href="https://www.cloudflare.com" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/cloudflare.svg" alt="Cloudflare" /></div>
+              <div class="bento-label"><span class="name">Cloudflare</span></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Cloud & Services -->
+        <div>
+          <div class="flex items-baseline justify-between mb-4">
+            <h3 class="mono text-xs uppercase tracking-wider text-flame">→ Cloud & Services</h3>
+            <span class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2">7 tools</span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 lg:gap-3">
+            <a href="https://vercel.com" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/vercel.svg" alt="Vercel" /></div>
+              <div class="bento-label"><span class="name">Vercel</span></div>
+            </a>
+            <a href="https://render.com" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/render.svg" alt="Render" /></div>
+              <div class="bento-label"><span class="name">Render</span></div>
+            </a>
+            <a href="https://cloud.google.com" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/gcp.svg" alt="Google Cloud" /></div>
+              <div class="bento-label"><span class="name">GCP</span></div>
+            </a>
+            <a href="https://www.vmware.com" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/vmware.svg" alt="VMware" /></div>
+              <div class="bento-label"><span class="name">VMware</span></div>
+            </a>
+            <a href="https://stripe.com" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/stripe.svg" alt="Stripe" /></div>
+              <div class="bento-label"><span class="name">Stripe · Connect</span></div>
+            </a>
+            <a href="https://resend.com" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/resend.svg" alt="Resend" /></div>
+              <div class="bento-label"><span class="name">Resend</span></div>
+            </a>
+            <a href="https://www.zendesk.com" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/zendesk.svg" alt="Zendesk" /></div>
+              <div class="bento-label"><span class="name">Zendesk</span></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- AI -->
+        <div>
+          <div class="flex items-baseline justify-between mb-4">
+            <h3 class="mono text-xs uppercase tracking-wider text-flame">→ AI</h3>
+            <span class="mono text-[10px] uppercase tracking-wider text-mute dark:text-bone-2">2 tools</span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 lg:gap-3">
+            <a href="https://claude.ai" target="_blank" rel="noopener" class="bento bento-feature col-span-2">
+              <div class="flex items-start justify-between mono text-[10px] uppercase tracking-wider text-flame mb-2">
+                <span>→ AI of choice</span>
+                <span>Daily</span>
+              </div>
+              <div class="bento-logo flex-1"><img src="./res/logos/claude.svg" alt="Claude" /></div>
+              <div class="bento-label"><span class="name">Claude</span><span>Code · Sonnet · Opus</span></div>
+            </a>
+            <a href="https://ai.google.dev" target="_blank" rel="noopener" class="bento">
+              <div class="bento-logo"><img src="./res/logos/gemini.svg" alt="Gemini" /></div>
+              <div class="bento-label"><span class="name">Gemini 2.0</span></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- IT-ops text strip -->
+        <div class="mt-12 pt-8 border-t border-rule dark:border-rule-dark">
+          <div class="mono text-xs uppercase tracking-wider text-flame mb-4">→ Also fluent in (enterprise IT ops)</div>
+          <div class="flex flex-wrap gap-x-5 gap-y-2 mono text-sm text-mute dark:text-bone-2">
+            <span>Microsoft Azure / Entra ID</span><span>·</span>
+            <span>Office 365</span><span>·</span>
+            <span>SharePoint</span><span>·</span>
+            <span>Power BI</span><span>·</span>
+            <span>ServiceNow</span><span>·</span>
+            <span>Workspace ONE</span><span>·</span>
+            <span>LanSweeper</span><span>·</span>
+            <span>Pi-hole</span><span>·</span>
+            <span>Starlink</span><span>·</span>
+            <span>SCCM · Exchange</span><span>·</span>
+            <span>Ricoh MFP</span><span>·</span>
+            <span>EPIC ConnectCare</span>
           </div>
         </div>
       </div>
+
+      <!-- ─── MARQUEE VIEW (alt) ─────────────────────────────── -->
+      <div id="toolkit-marquee" class="toolkit-view space-y-6" hidden>
+        <!-- Strip 1 — Frontend + Backend (forward) -->
+        <div class="marquee">
+          <div class="marquee-track display text-4xl lg:text-6xl py-2">
+            <span class="flex items-center gap-10 px-5">
+              <span class="flex items-center gap-3"><img src="./res/logos/nextjs.svg" class="h-9 lg:h-12" alt="" /><span>Next.js</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/react.svg" class="h-9 lg:h-12" alt="" /><span>React</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/typescript.svg" class="h-9 lg:h-12" alt="" /><span class="italic">TypeScript</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/tailwindcss.svg" class="h-9 lg:h-12" alt="" /><span>Tailwind</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/javascript.svg" class="h-9 lg:h-12" alt="" /><span>JavaScript</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/expo.svg" class="h-9 lg:h-12" alt="" /><span>Expo</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/html5.svg" class="h-9 lg:h-12" alt="" /><span>HTML5</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/css.svg" class="h-9 lg:h-12" alt="" /><span>CSS</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/bootstrap.svg" class="h-9 lg:h-12" alt="" /><span>Bootstrap</span></span><span class="text-flame">●</span>
+            </span>
+            <span class="flex items-center gap-10 px-5" aria-hidden="true">
+              <span class="flex items-center gap-3"><img src="./res/logos/nextjs.svg" class="h-9 lg:h-12" alt="" /><span>Next.js</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/react.svg" class="h-9 lg:h-12" alt="" /><span>React</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/typescript.svg" class="h-9 lg:h-12" alt="" /><span class="italic">TypeScript</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/tailwindcss.svg" class="h-9 lg:h-12" alt="" /><span>Tailwind</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/javascript.svg" class="h-9 lg:h-12" alt="" /><span>JavaScript</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/expo.svg" class="h-9 lg:h-12" alt="" /><span>Expo</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/html5.svg" class="h-9 lg:h-12" alt="" /><span>HTML5</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/css.svg" class="h-9 lg:h-12" alt="" /><span>CSS</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/bootstrap.svg" class="h-9 lg:h-12" alt="" /><span>Bootstrap</span></span><span class="text-flame">●</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Strip 2 — Backend & Data (reverse) -->
+        <div class="marquee">
+          <div class="marquee-track display text-4xl lg:text-6xl italic py-2" style="animation-direction: reverse;">
+            <span class="flex items-center gap-10 px-5">
+              <span class="flex items-center gap-3"><img src="./res/logos/nodejs.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Node.js</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/express.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Express</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/php.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>PHP</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/python.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Python</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/supabase.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Supabase</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/postgresql.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Postgres</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/mariadb.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>MariaDB</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/prisma.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Prisma</span></span><span class="text-flame not-italic">/</span>
+            </span>
+            <span class="flex items-center gap-10 px-5" aria-hidden="true">
+              <span class="flex items-center gap-3"><img src="./res/logos/nodejs.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Node.js</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/express.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Express</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/php.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>PHP</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/python.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Python</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/supabase.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Supabase</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/postgresql.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Postgres</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/mariadb.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>MariaDB</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/prisma.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Prisma</span></span><span class="text-flame not-italic">/</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Strip 3 — Infra & Networking (forward) -->
+        <div class="marquee">
+          <div class="marquee-track display text-4xl lg:text-6xl py-2">
+            <span class="flex items-center gap-10 px-5">
+              <span class="flex items-center gap-3"><img src="./res/logos/docker.svg" class="h-9 lg:h-12" alt="" /><span>Docker</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/linux.svg" class="h-9 lg:h-12" alt="" /><span>Linux</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/git.svg" class="h-9 lg:h-12" alt="" /><span>Git</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/bash.svg" class="h-9 lg:h-12" alt="" /><span>Bash</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/truenas.svg" class="h-9 lg:h-12" alt="" /><span>TrueNAS</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/openzfs.svg" class="h-9 lg:h-12" alt="" /><span>OpenZFS</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/ubiquiti.svg" class="h-9 lg:h-12" alt="" /><span>UniFi</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/wireguard.svg" class="h-9 lg:h-12" alt="" /><span>WireGuard</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/cloudflare.svg" class="h-9 lg:h-12" alt="" /><span>Cloudflare</span></span><span class="text-flame">●</span>
+            </span>
+            <span class="flex items-center gap-10 px-5" aria-hidden="true">
+              <span class="flex items-center gap-3"><img src="./res/logos/docker.svg" class="h-9 lg:h-12" alt="" /><span>Docker</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/linux.svg" class="h-9 lg:h-12" alt="" /><span>Linux</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/git.svg" class="h-9 lg:h-12" alt="" /><span>Git</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/bash.svg" class="h-9 lg:h-12" alt="" /><span>Bash</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/truenas.svg" class="h-9 lg:h-12" alt="" /><span>TrueNAS</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/openzfs.svg" class="h-9 lg:h-12" alt="" /><span>OpenZFS</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/ubiquiti.svg" class="h-9 lg:h-12" alt="" /><span>UniFi</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/wireguard.svg" class="h-9 lg:h-12" alt="" /><span>WireGuard</span></span><span class="text-flame">●</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/cloudflare.svg" class="h-9 lg:h-12" alt="" /><span>Cloudflare</span></span><span class="text-flame">●</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Strip 4 — Cloud & AI (reverse) -->
+        <div class="marquee">
+          <div class="marquee-track display text-4xl lg:text-6xl italic py-2" style="animation-direction: reverse;">
+            <span class="flex items-center gap-10 px-5">
+              <span class="flex items-center gap-3"><img src="./res/logos/vercel.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Vercel</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/render.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Render</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/gcp.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>GCP</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/stripe.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Stripe</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/resend.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Resend</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/claude.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Claude</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/gemini.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Gemini</span></span><span class="text-flame not-italic">/</span>
+            </span>
+            <span class="flex items-center gap-10 px-5" aria-hidden="true">
+              <span class="flex items-center gap-3"><img src="./res/logos/vercel.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Vercel</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/render.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Render</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/gcp.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>GCP</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/stripe.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Stripe</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/resend.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Resend</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/claude.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Claude</span></span><span class="text-flame not-italic">/</span>
+              <span class="flex items-center gap-3"><img src="./res/logos/gemini.svg" class="h-9 lg:h-12 not-italic" alt="" /><span>Gemini</span></span><span class="text-flame not-italic">/</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- IT-ops text strip in marquee view too -->
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-10 mt-12 pt-8 border-t border-rule dark:border-rule-dark">
+          <div class="mono text-xs uppercase tracking-wider text-flame mb-4">→ Also fluent in (enterprise IT ops)</div>
+          <div class="flex flex-wrap gap-x-5 gap-y-2 mono text-sm text-mute dark:text-bone-2">
+            <span>Microsoft Azure / Entra ID</span><span>·</span>
+            <span>Office 365 · SharePoint</span><span>·</span>
+            <span>Power BI</span><span>·</span>
+            <span>ServiceNow</span><span>·</span>
+            <span>Workspace ONE</span><span>·</span>
+            <span>LanSweeper</span><span>·</span>
+            <span>Pi-hole · Starlink</span><span>·</span>
+            <span>SCCM · Exchange</span><span>·</span>
+            <span>Ricoh MFP</span><span>·</span>
+            <span>EPIC ConnectCare</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toolkit toggle script -->
+      <script>
+        (function () {
+          var bento = document.getElementById("toolkit-bento");
+          var marquee = document.getElementById("toolkit-marquee");
+          var tabs = document.querySelectorAll(".toolkit-tab");
+          var STORAGE_KEY = "toolkit-view";
+
+          function setView(name) {
+            var isBento = name === "bento";
+            bento.hidden = !isBento;
+            marquee.hidden = isBento;
+            tabs.forEach(function (t) {
+              var active = t.dataset.view === name;
+              t.setAttribute("aria-selected", active ? "true" : "false");
+            });
+            try { localStorage.setItem(STORAGE_KEY, name); } catch (e) {}
+          }
+
+          tabs.forEach(function (t) {
+            t.addEventListener("click", function () {
+              setView(t.dataset.view);
+            });
+          });
+
+          var stored;
+          try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+          if (stored === "marquee" || stored === "bento") setView(stored);
+        })();
+      </script>
     </section>
 
     <!-- ─── Section: Education ──────────────────────────────────────── -->
@@ -695,33 +1209,102 @@
             <div class="section-num">/ 05</div>
             <h2 class="display text-5xl lg:text-6xl mt-3">Education</h2>
           </div>
+
           <div class="lg:col-span-9 lg:pl-10 lg:border-l border-rule dark:border-rule-dark">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline">
+            <!-- MRU logo + grad badge row -->
+            <div class="flex items-center justify-between flex-wrap gap-6 mb-10">
+              <img
+                src="./logo-new.svg"
+                alt="Mount Royal University"
+                class="mru-logo h-12 lg:h-14 w-auto"
+              />
+              <div class="mono text-xs uppercase tracking-wider px-3 py-1.5 border border-flame text-flame">
+                ★ Graduated · April 2026
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+              <!-- Headline -->
               <div class="md:col-span-8">
                 <h3 class="display text-3xl lg:text-4xl mb-2">
                   Bachelor of <span class="italic">Computer Information Systems</span>
                 </h3>
+                <p class="text-base text-mute dark:text-bone-2 mb-1">
+                  Computer Science focus · Minor in <span class="italic">Finance</span>
+                </p>
                 <p class="text-base text-mute dark:text-bone-2">
-                  Minor in Finance · Mount Royal University · Calgary, AB
+                  Mount Royal University · Calgary, AB
                 </p>
               </div>
+
+              <!-- GPA + dates -->
               <div class="md:col-span-4 md:text-right">
-                <div class="display text-5xl lg:text-6xl">3.89<span class="text-flame">.</span></div>
+                <div class="display text-5xl lg:text-6xl">3.88<span class="text-flame">.</span></div>
                 <div class="mono text-xs uppercase tracking-wider text-mute dark:text-bone-2 mt-1">
-                  GPA · 2021 → 2026
+                  GPA · Sep 2021 → Apr 2026
                 </div>
               </div>
             </div>
 
             <div class="rule my-10"></div>
 
-            <div class="flex items-center gap-3 mb-3">
-              <span class="text-flame mono">★</span>
-              <span class="mono text-xs uppercase tracking-wider">Dean's Honor Roll</span>
-            </div>
-            <p class="text-mute dark:text-bone-2 mono text-sm">
-              Fall 2021 · Winter 2021 · Fall 2022 · Fall 2023 · Winter 2024
+            <!-- Program detail -->
+            <p class="text-base lg:text-lg leading-relaxed text-ink-2 dark:text-bone max-w-3xl mb-8 text-pretty">
+              CIS applies computer science to business — programming, systems analysis,
+              database management, network security. I weighted my own program
+              <span class="mono text-sm">~75 / 25</span> toward technical electives.
+              The Finance minor gives me the language for the other side of the room
+              when the engineers and the operators have to agree on something.
             </p>
+
+            <!-- Languages used in the program -->
+            <div class="mb-10">
+              <div class="mono text-xs uppercase tracking-wider text-flame mb-4">→ Languages used in coursework</div>
+              <div class="flex flex-wrap gap-x-5 gap-y-2 mono text-sm text-mute dark:text-bone-2">
+                <span>Next.js</span><span>·</span>
+                <span>React</span><span>·</span>
+                <span>Node.js</span><span>·</span>
+                <span>JavaScript</span><span>·</span>
+                <span>PHP</span><span>·</span>
+                <span>HTML / CSS</span><span>·</span>
+                <span>Bootstrap</span><span>·</span>
+                <span>Java · data structures</span><span>·</span>
+                <span>Python</span><span>·</span>
+                <span>SQL</span><span>·</span>
+                <span>MySQL · MariaDB</span><span>·</span>
+                <span>PostgreSQL</span>
+              </div>
+            </div>
+
+            <div class="rule mb-10"></div>
+
+            <!-- Honours -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
+              <div>
+                <div class="flex items-center gap-3 mb-3">
+                  <span class="text-flame mono">★</span>
+                  <span class="mono text-xs uppercase tracking-wider">President's Honor Roll</span>
+                </div>
+                <p class="text-mute dark:text-bone-2 mono text-sm leading-relaxed">
+                  2021 — 2022<br />
+                  2023 — 2024
+                </p>
+                <p class="text-xs text-mute/70 dark:text-bone-2/70 mt-2 leading-relaxed">
+                  Awarded for sustained academic excellence across consecutive
+                  full-time terms.
+                </p>
+              </div>
+              <div>
+                <div class="flex items-center gap-3 mb-3">
+                  <span class="text-flame mono">★</span>
+                  <span class="mono text-xs uppercase tracking-wider">Dean's Honor Roll</span>
+                </div>
+                <p class="text-mute dark:text-bone-2 mono text-sm leading-relaxed">
+                  Fall 2021 · Winter 2022 · Fall 2022<br />
+                  Fall 2023 · Winter 2024 · Fall 2025
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -840,7 +1423,16 @@
           <div id="modal-badges" class="flex gap-2 mb-6 mono text-[10px] uppercase tracking-wider"></div>
 
           <h2 id="modal-title" class="display text-4xl lg:text-6xl leading-tight mb-6"></h2>
-          <p id="modal-description" class="text-lg lg:text-xl text-ink-2 dark:text-bone leading-relaxed max-w-3xl mb-10 text-pretty"></p>
+          <p id="modal-description" class="text-lg lg:text-xl text-ink-2 dark:text-bone leading-relaxed max-w-3xl mb-6 text-pretty"></p>
+
+          <a
+            id="modal-link"
+            href=""
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 mono text-xs uppercase tracking-wider px-4 py-2 mb-10 bg-flame text-paper hover:bg-ink dark:hover:bg-bone dark:hover:text-night transition-colors"
+            style="display: none"
+          ></a>
 
           <div class="rule mb-10"></div>
 
@@ -864,6 +1456,56 @@
 
       // Project data
       const projectData = {
+        fundingtracker: {
+          title: "FundingTracker — MCA SaaS Platform",
+          description:
+            "Production multi-tenant SaaS for Merchant Cash Advance funders, brokers, and merchants. ~85,000 lines of TypeScript, solo-built and live at fundingtracker.app. Stripe Connect for tenant onboarding and payouts; Postgres with row-level security policies (RLS) for hard tenant isolation; Gemini 2.0 Flash for AI contract parsing; Resend for transactional email; deployed on Vercel. The dev workflow uses a GitHub `dev` branch mirrored to a Supabase preview branch — a CI/CD pipeline auto-merges database migrations on promotion to prod, so schema and code stay in lock-step. Mobile-responsive throughout, with auto-tracked deals, broker linking, bank-account connection, and real-time alerts to all parties when payments slip or balances move.",
+          link: "https://fundingtracker.app",
+          badges: [
+            { text: "Flagship · SaaS", cls: "bg-flame text-paper" },
+            { text: "Multi-tenant", cls: "bg-ink text-paper" },
+            { text: "Stripe Connect", cls: "bg-bone text-night" },
+          ],
+          tech: [
+            "Next.js 16",
+            "React 19",
+            "TypeScript",
+            "Supabase",
+            "Postgres · RLS",
+            "Stripe Connect",
+            "Gemini 2.0 Flash",
+            "Vercel AI SDK",
+            "Resend",
+            "shadcn/ui",
+            "Tailwind v4",
+            "TanStack Query",
+            "Zod",
+            "Vercel",
+            "GitHub Actions CI/CD",
+          ],
+          images: [
+            "./projects/fundingtracker/Screenshot 2026-04-26 033021.png",
+            "./projects/fundingtracker/Screenshot 2026-04-26 033044.png",
+            "./projects/fundingtracker/Screenshot 2026-04-26 033220.png",
+            "./projects/fundingtracker/Screenshot 2026-04-26 033235.png",
+            "./projects/fundingtracker/Screenshot 2026-04-26 033352.png",
+            "./projects/fundingtracker/Screenshot 2026-04-26 033452.png",
+            "./projects/fundingtracker/Screenshot 2026-04-26 033533.png",
+            "./projects/fundingtracker/Screenshot 2026-04-26 033604.png",
+            "./projects/fundingtracker/Screenshot 2026-04-26 033613.png",
+            "./projects/fundingtracker/Screenshot 2026-04-26 033657.png",
+            "./projects/fundingtracker/Screenshot 2026-04-26 034219.png",
+            "./projects/fundingtracker/Screenshot 2026-04-26 034229.png",
+            "./projects/fundingtracker/Screenshot 2026-04-26 034239.png",
+            "./projects/fundingtracker/Screenshot 2026-04-26 034319.png",
+            "./projects/fundingtracker/Screenshot 2026-04-26 034328.png",
+            "./projects/fundingtracker/Screenshot 2026-04-26 034340.png",
+            "./projects/fundingtracker/Screenshot 2026-04-26 034401.png",
+            "./projects/fundingtracker/Screenshot 2026-04-26 034414.png",
+            "./projects/fundingtracker/Screenshot 2026-04-26 034548.png",
+            "./projects/fundingtracker/Screenshot 2026-04-26 034557.png",
+          ],
+        },
         erp: {
           title: "Enterprise ERP for CNC Manufacturing",
           description:
@@ -967,6 +1609,15 @@
 
         document.getElementById("modal-title").textContent = p.title;
         document.getElementById("modal-description").textContent = p.description;
+
+        const linkEl = document.getElementById("modal-link");
+        if (p.link) {
+          linkEl.href = p.link;
+          linkEl.textContent = p.link.replace(/^https?:\/\//, "") + " ↗";
+          linkEl.style.display = "";
+        } else {
+          linkEl.style.display = "none";
+        }
 
         document.getElementById("modal-badges").innerHTML = p.badges
           .map((b) => `<span class="px-2 py-1 ${b.cls}">${b.text}</span>`)

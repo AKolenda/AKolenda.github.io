@@ -271,37 +271,142 @@
     background: var(--color-flame);
   }
 
-  /* Status dot */
+  /* Static accent dot — no animation */
   .status-dot {
-    position: relative;
     display: inline-block;
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: var(--color-flame);
-  }
-  .status-dot::before {
-    content: "";
-    position: absolute;
-    inset: -3px;
-    border-radius: 50%;
-    background: var(--color-flame);
-    opacity: 0.4;
-    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-  }
-  @keyframes ping {
-    0% {
-      transform: scale(1);
-      opacity: 0.4;
-    }
-    80%,
-    100% {
-      transform: scale(2);
-      opacity: 0;
-    }
   }
 
   /* Marquee strip for skills */
+  /* MRU navy logo: invert in dark mode for readability */
+  .mru-logo {
+    transition: filter 0.3s ease;
+  }
+  html.dark .mru-logo {
+    filter: invert(0.9) hue-rotate(180deg) brightness(1.1) saturate(0.6);
+  }
+
+  /* Bento logo cell — dark card, brand colors pop */
+  .bento {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.25rem;
+    background: #0a0a0a;
+    color: #ece8dd;
+    border: 1px solid #1f1f1f;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1),
+      border-color 0.3s ease;
+  }
+  .bento:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-flame);
+  }
+  .bento-logo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    min-height: 0;
+  }
+  .bento-logo svg,
+  .bento-logo img {
+    max-width: 60%;
+    max-height: 60%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+  .bento-label {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    color: #b8b3a6;
+  }
+  .bento-label .name {
+    color: #ece8dd;
+    text-transform: uppercase;
+  }
+  .bento-feature {
+    aspect-ratio: auto;
+  }
+  .bento-feature .bento-logo svg,
+  .bento-feature .bento-logo img {
+    max-width: 50%;
+    max-height: 50%;
+  }
+
+  /* Toolkit view toggle */
+  .toolkit-tab {
+    color: var(--color-mute);
+    background: transparent;
+    cursor: pointer;
+    user-select: none;
+  }
+  html.dark .toolkit-tab {
+    color: var(--color-bone-2);
+  }
+  .toolkit-tab:hover {
+    color: var(--color-ink);
+  }
+  html.dark .toolkit-tab:hover {
+    color: var(--color-bone);
+  }
+  .toolkit-tab[aria-selected="true"] {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+  html.dark .toolkit-tab[aria-selected="true"] {
+    background: var(--color-bone);
+    color: var(--color-night);
+  }
+
+  /* Tech chip — small dark pill with mini logo for work-history rails */
+  .tech-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.32rem 0.65rem;
+    background: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+  html.dark .tech-chip {
+    background: var(--color-night-2);
+    color: var(--color-bone);
+    border: 1px solid var(--color-rule-dark);
+  }
+  .tech-chip img {
+    width: 13px;
+    height: 13px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  .tech-chip:hover {
+    background: var(--color-flame);
+    color: var(--color-paper);
+    transform: translateY(-1px);
+  }
+  html.dark .tech-chip:hover {
+    background: var(--color-flame);
+    border-color: var(--color-flame);
+    color: var(--color-paper);
+  }
+
   .marquee {
     overflow: hidden;
     mask-image: linear-gradient(

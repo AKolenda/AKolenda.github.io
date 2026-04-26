@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Stylized MRU mark — clean shield silhouette + initials.
+       Replace with the official asset whenever it's available. -->
+  <g>
+    <path
+      d="M100 8 L186 36 V104 C186 146 152 178 100 192 C48 178 14 146 14 104 V36 Z"
+      fill="currentColor"
+      opacity="0.06"
+      stroke="currentColor"
+      stroke-width="2"
+    />
+    <path
+      d="M100 24 L170 48 V104 C170 138 142 164 100 175 C58 164 30 138 30 104 V48 Z"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.25"
+      opacity="0.4"
+    />
+    <text
+      x="100"
+      y="115"
+      font-family="'Instrument Serif', 'Iowan Old Style', Georgia, serif"
+      font-size="60"
+      font-style="italic"
+      text-anchor="middle"
+      fill="currentColor"
+      letter-spacing="-2"
+    >MRU</text>
+    <text
+      x="100"
+      y="148"
+      font-family="'JetBrains Mono', ui-monospace, monospace"
+      font-size="11"
+      letter-spacing="3"
+      text-anchor="middle"
+      fill="currentColor"
+      opacity="0.7"
+    >EST · 1910</text>
+  </g>
+</svg>
